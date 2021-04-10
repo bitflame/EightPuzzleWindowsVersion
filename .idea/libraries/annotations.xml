@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="annotations">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../findbugs-3.0.1/lib/annotations.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../findbugs-3.0.1/lib/annotations.jar!/" />
+    </SOURCES>
+  </library>
+</component>

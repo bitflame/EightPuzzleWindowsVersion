@@ -1,0 +1,1848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1b48c6e2-de16-49ac-aa5d-389a8a7c324f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/input/puzzle3x3-exp1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/input/puzzle3x3-exp2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/assignments/Solver2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/assignments/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignments/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/assignments/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/assignments/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/assignments/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assignments/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/assignments/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assignments/Solver.class" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="CLEAR_OUTPUT_DIRECTORY" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit3 Test Class" />
+        <option value="AnnotationType" />
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindBugs-IDEA-Workspace">
+    <analyzeAfterCompile>true</analyzeAfterCompile>
+    <toolWindowToFront>false</toolWindowToFront>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Azizam\IdeaProjects\EightPuzzle\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="1ZShLs0G7ZiGgcphEk8o31glK8d" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../findbugs-3.0.1/lib/annotations.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="assignments" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="assignments" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="edu.umd.cs.findbugs.annotations" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn test" />
+      <command value="mvn validate" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Solver2 - puzzle3x3-04.txt">
+    <configuration name="PuzzleChecker - puzzle00.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle00.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle01.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle01.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle02.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle02.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle05.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle05.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle06.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle06.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle07.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle07.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle08.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle08.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle09.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle09.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle10.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle10.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle11.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle11.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle12.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle12.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle13.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle13.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle14.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle14.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle15.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle15.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle16.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle16.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle17.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle17.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle18.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle18.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle19.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle19.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle20.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle20.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle21.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle21.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle22.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle22.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle23.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle23.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle24.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle24.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle25.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle25.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle26.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle26.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle2x2-00.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-00.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle2x2-01.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-01.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle2x2-02.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-02.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle2x2-03.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-03.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle2x2-04.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-04.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle2x2-05.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-05.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle2x2-unsolvable1.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-unsolvable1.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle2x2-unsolvable2.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-unsolvable2.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-00.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-00.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-01.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="puzzle4x4-unsolvable.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-02.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-02.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-03.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-03.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-04.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-04.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-05.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-05.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-06.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-06.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-07.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-07.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-08.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-08.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-09.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-09.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-10.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-10.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-11.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-11.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-12.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-12.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-13.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-13.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-14.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-14.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-15.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-15.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-16.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-16.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-17.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-17.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-18.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-18.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-19.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-19.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-20.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-20.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-21.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-21.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-22.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-22.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-23.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-23.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-24.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-24.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-25.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-25.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-26.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-26.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-27.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-27.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-28.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-28.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-29.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-29.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-30.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-30.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-31.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-31.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-exp1.txt " type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-exp1.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-exp2.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-exp2.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-mine.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-mine.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-unsolvable1.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-unsolvable1.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-unsolvable2.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-unsolvable2.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle3x3-unsolvable.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-unsolvable.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-00.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-00.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-01.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-01.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-02.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-02.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-03.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-03.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-04.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-04.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-05.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-05.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-06.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-06.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-07.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-07.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-08.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-08.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-09.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-09.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-10.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-10.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-11.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-11.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-12.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-12.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-13.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-13.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-14.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-14.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-15.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-15.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-16.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-16.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-17.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-17.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-18.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-18.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-19.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-19.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-20.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-20.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-21.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-21.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-22.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-22.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-23.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-23.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-24.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-24.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-25.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-25.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-26.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-26.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-27.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-27.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-28.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-28.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-29.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-29.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-30.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-30.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-31.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-31.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-32.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-32.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-33.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-33.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-34.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-34.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-35.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-35.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-36.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-36.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-37.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-37.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-38.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-38.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-39.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-39.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-40.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-40.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-41.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-41.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-42.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-42.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-43.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-43.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-45.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-45.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-46.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-46.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-47.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-47.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-48.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-48.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-49.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-49.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-50.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-50.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-78.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-78.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-80.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-80.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker - puzzle4x4-unsolvable.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle4x4-unsolvable.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle27.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle27.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle28.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle28.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle29.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle29.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle30.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle30.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle31.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle31.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle32.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle32.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle33.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle33.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle34.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle34.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle35.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle35.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle36.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle36.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle37.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle37.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle38.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle38.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle39.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle39.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle40.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle40.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle41.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle41.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle43.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle43.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle44.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle44.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle45.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle45.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle46.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle46.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle47.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle47.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle48.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle48.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle49.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle49.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PuzzleChecker -puzzle50.txt" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.PuzzleChecker" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle50.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle00-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle00.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle01-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle01.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle02-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle02.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle03.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle03.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-00-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-00.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-01-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-01.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-02-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-02.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-03-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-03.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-04-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-04.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-05-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-05.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-06-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-06.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-unsolvable1.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-unsolvable1.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-unsolvable2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-unsolvable2.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle2x2-unsolvable3.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle2x2-unsolvable3.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-00.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-00.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-01.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-01.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-02.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-02.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-03.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-03.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-04.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-04.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-Soler2.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-mine.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+<configuration name="Solver2 - puzzle3x3-05.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-05.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-06.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-06.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-07.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-07.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-08.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-08.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-09.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-09.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-10.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-10.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-11.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-11.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver2 - puzzle3x3-12.txt" type="Application" factoryName="Application" folderName="Solver2Tests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver2" />
+      <module name="EightPuzzle" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Azizam\IdeaProjects\EightPuzzle\src\input\puzzle3x3-12.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="assignments.Board" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Board" />
+      <module name="EightPuzzle" />
+      <method v="2" />
+    </configuration>
+    <configuration name="assignments.Exercise38_TreeDrawing" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="assignments.Exercise38_TreeDrawing" />
+      <module name="EightPuzzle" />
+      <method v="2" />
+    </configuration>
+    <configuration name="assignments.Solver" type="Application" factoryName="Application" folderName="PuzzleCheckerTests">
+      <option name="MAIN_CLASS_NAME" value="assignments.Solver" />
+      <module name="EightPuzzle" />
+      <method v="2" />
+    </configuration>
+    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="EightPuzzle" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="assignments.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="assignments" />
+      <option name="MAIN_CLASS_NAME" value="assignments.BoardTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTreeTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="EightPuzzle" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="assignments.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="assignments" />
+      <option name="MAIN_CLASS_NAME" value="assignments.GameTreeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolverTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="EightPuzzle" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="assignments.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="assignments" />
+      <option name="MAIN_CLASS_NAME" value="assignments.SolverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-mine.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-exp1.txt " />
+      <item itemvalue="Application.PuzzleChecker -puzzle50.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle01.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle02.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle2x2-00.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle2x2-01.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle2x2-03.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle2x2-04.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle2x2-05.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle2x2-unsolvable1.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-02.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle2x2-unsolvable2.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-04.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-03.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-05.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-06.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-07.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-08.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-00.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-10.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-11.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-12.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-09.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-15.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-13.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-16.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-18.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-19.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-17.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-20.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-21.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-23.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-22.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-24.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-25.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-26.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-exp2.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-27.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-29.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-14.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-31.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-30.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-unsolvable.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-unsolvable2.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-unsolvable1.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-00.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-01.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-02.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-03.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-04.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-06.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-07.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-05.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-09.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-10.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-11.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-08.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-13.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-12.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-14.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-15.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-17.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-16.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-18.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-21.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-28.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-22.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-20.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-23.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-24.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-25.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-26.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-19.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-28.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-29.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-30.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-27.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-33.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-34.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-35.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-36.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-31.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-37.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-39.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-38.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-41.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-42.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-32.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-43.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-46.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-45.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-47.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-40.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-49.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-50.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-78.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-48.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle05.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle07.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle06.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle08.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle09.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-unsolvable.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle10.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle11.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle13.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle14.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle4x4-80.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle15.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle19.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle16.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle17.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle21.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle22.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle20.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle24.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle23.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle26.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle18.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle27.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle25.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle28.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle29.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle30.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle31.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle32.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle34.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle37.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle38.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle33.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle39.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle40.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle12.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle43.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle44.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle41.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle45.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle35.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle46.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle47.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle49.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle48.txt" />
+      <item itemvalue="Application.assignments.Board" />
+      <item itemvalue="Application.assignments.Solver" />
+      <item itemvalue="Application.PuzzleChecker - puzzle00.txt" />
+      <item itemvalue="Application.PuzzleChecker -puzzle36.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle2x2-02.txt" />
+      <item itemvalue="Application.PuzzleChecker - puzzle3x3-01.txt" />
+      <item itemvalue="Application.Solver2 - puzzle3x3-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle00-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle01-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle02-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-00-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-01-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-02-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-03-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-04-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-05-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-06-Soler2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-unsolvable1.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-unsolvable2.txt" />
+      <item itemvalue="Application.Solver2 - puzzle2x2-unsolvable3.txt" />
+      <item itemvalue="Application.Solver2 - puzzle03.txt" />
+      <item itemvalue="Application.Solver2 - puzzle3x3-00.txt" />
+      <item itemvalue="Application.Solver2 - puzzle3x3-01.txt" />
+      <item itemvalue="Application.Solver2 - puzzle3x3-02.txt" />
+      <item itemvalue="Application.Solver2 - puzzle3x3-03.txt" />
+      <item itemvalue="Application.Solver2 - puzzle3x3-04.txt" />
+      <item itemvalue="Application.assignments.Exercise38_TreeDrawing" />
+      <item itemvalue="JUnit.BoardTest" />
+      <item itemvalue="JUnit.GameTreeTest" />
+      <item itemvalue="JUnit.SolverTest" />
+    </list>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="with printouts version." />
+    <MESSAGE value="No printouts." />
+    <MESSAGE value="Updated." />
+    <MESSAGE value="About to make drastic changes." />
+    <MESSAGE value="Solves up to 3x3-29 and 4x4-20 with the correct result. Also solves the rest but with a less than optimal solution." />
+    <MESSAGE value="Printing out the solution's manhattan and hamming values in addition to the board content." />
+    <MESSAGE value="Best version so far." />
+    <MESSAGE value="Was able to add file input to BoardTest." />
+    <MESSAGE value="About to add reverse search node." />
+    <MESSAGE value="Just removed a whole bunch of old code." />
+    <MESSAGE value="Just removed a whole bunch more of old code." />
+    <MESSAGE value="I need to take 2 off number of moves from revNode and minSearchNode. I am doing a bidirectional search, and think it is working and will work. Just need to figure out when and how to stop." />
+    <MESSAGE value="It does not solve beyond 38 or so, and gets 37 wrong." />
+    <MESSAGE value="I realized I have to look at nodes with higher priority." />
+    <MESSAGE value="I am very happy with this verion. While it reports the wrong number of steps, the actual number is correct. I think this may have to do with immutability. Once I make sure Board, SearchNode and perhaps other classes are immutable, this issue should be resolved." />
+    <MESSAGE value="What if I just look for nodes with priority less or equal to minSearchNode?" />
+    <MESSAGE value="Just looking at nodes with increasing priority does not seem to work. The priority queues were reset a twelve times, and the computer was still running." />
+    <MESSAGE value="if (s.manhattan &lt;= (count * minSearchNode.manhattan) &amp;&amp; s.GetPriority() &lt;= (count * minSearchNode.GetPriority())) {&#10;    copyPQ.insert(s);&#10;}&#10;Seems to give me the best answer so far. I still need to make sure all classes are immutable and see if that gives me the desired result of 80 steps for the 4.4-80 file. Right now it comes up with 98 steps." />
+    <MESSAGE value="what if I look for just nodes with increasing manhattan value?" />
+    <MESSAGE value="What is I added : s.hamming &lt;= (count * minSearchNode.hamming)" />
+    <MESSAGE value="Fixed some items suggested by spotbugs and pmd." />
+    <MESSAGE value="Made a bunch of changes for checkstyle, pmd, and spotbugs warnings. Tested, and everything seems to be working." />
+    <MESSAGE value="Ok. Everything seems to be working after removing the manhattan and hamming cached values from the searchnode and just using the Board getter methods for these values." />
+    <MESSAGE value="I may have found a solution for boards with equal hamming, Manhattan, and moves. It seems like all the nodes are added, and only the boards which are truly equal over write the value of their counter part if it is already on the tree. While file 4x4-34 produces the right result, file 4x4-35 reports solvable in 39 moves, which is wrong." />
+    <MESSAGE value="Saving before making recent changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Saving before making recent changes." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/assignments/SolverTest.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/assignments/Solver.java</url>
+          <line>896</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/assignments/Solver.java</url>
+          <line>559</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="this.tiles[k][g]" language="JAVA" />
+        <watch expression="this.tiles[i][j]" language="JAVA" />
+        <watch expression="((N - 1) * i) + (j + 1))" language="JAVA" />
+      </configuration>
+      <configuration name="Application">
+        <watch expression="minimumSearchNode.currentBoard.neighbors()" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/EightPuzzle$PuzzleChecker___puzzle3x3_04_txt.ic" NAME="PuzzleChecker - puzzle3x3-04.txt Coverage Results" MODIFIED="1586551159568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/EightPuzzle$PuzzleChecker___puzzle3x3_25_txt.ic" NAME="PuzzleChecker - puzzle3x3-25.txt Coverage Results" MODIFIED="1585355882777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
