@@ -1,7 +1,6 @@
 package assignments;
 
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdOut;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -30,7 +29,7 @@ public class SolverTest {
         for (final File fileEntry : folder.listFiles()) {
             //System.out.println("processing file: " + fileEntry.getName())
             counter++;
-            if (counter == 10) break;
+            if (counter == 100) break;
             path = destFolder + fileEntry;
             In in = new In(fileEntry.getAbsolutePath());
             String fileName = fileEntry.getName();
@@ -67,20 +66,4 @@ public class SolverTest {
         assertEquals(fExpected, solver.moves);
     }
 
-    @Test
-    public void inidividualFileTest() {
-        StdOut.println("Running Individual test");
-        String filePath = "C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\ModifiedTests\\puzzle04.txt";
-        In in = new In(folder + "puzzle04.txt");
-        String fileName = "puzzle04.txt";
-        int n = in.readInt();
-        int moves = in.readInt();
-        int[][] tiles = new int[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                tiles[i][j] = in.readInt();
-        Board b = new Board(tiles);
-        Solver solver = new Solver(b);
-        assertEquals(4, solver.moves);
-    }
 }
