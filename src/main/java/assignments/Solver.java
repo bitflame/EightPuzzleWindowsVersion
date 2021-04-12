@@ -7,12 +7,17 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 
 public class Solver {
     private boolean solvable;
     public int moves = 0;
     public final ArrayList<Board> solutionBoardList = new ArrayList<>();
+    private boolean isConsecitiveNeighbor;
+    private int blankCol;
+    private int blankRow;
+    private List<SearchNode> dB = new ArrayList<>();
 
     //    private List<SearchNode> GeneratePermutations(int boardDimensions, Integer[] currentCycle, SearchNode goalNode) {
 //        char[][] permutedTiles = new char[boardDimensions][boardDimensions];
@@ -740,6 +745,97 @@ public class Solver {
 //            }
         } else {
             solvable = false;
+        }
+    }
+
+    private void createShortCutDB(int x, int y, int z) {
+        //int[][] testTiles = {{1, 2, 3}, {4, 5, 6}, {8, 7, 0}};
+        int[][] t = {{y, 0}, {x, z}};
+        Board b = new Board(t);
+    }
+
+    private void arrangeImmediateNeighbors(int[][] t) {
+        List<Integer> Positions = new ArrayList<Integer>();
+        List<Integer> Values = new ArrayList<Integer>();
+        // check blank row +/- 1 and blank col +/- 1
+        int n = t.length;
+        if (blankCol == 0) {
+            if (blankRow == 0) {
+                // first column first row
+                // check col 2
+                Values.add(t[blankRow][blankCol + 1]);
+                Values.add(t[blankRow + 1][blankCol]);
+                Values.add(t[blankRow + 1][blankCol + 1]);
+                Positions.add(1);
+                Positions.add(2);
+                Positions.add(n + 1);
+                for (int p : Positions) {
+                    for (int v : Values) {
+                        if (v == p) {
+                            Positions.remove(p);
+                            Values.remove(v);
+                        }
+                    }
+                }
+                if (Positions.isEmpty() && Values.isEmpty()) {
+                    // check the database and swap values
+                }
+                // check row 2
+            } else if (blankRow == n) {
+                // last row first column
+                Values.add(t[blankRow - 1][blankCol]);
+                Values.add(t[blankRow - 1][blankCol + 1]);
+                Values.add(t[blankRow][blankCol + 1]);
+                Positions.add((blankRow - 1) * n);
+                Positions.add((blankRow - 1) * n + 1);
+                Positions.add(blankRow + 1);
+                for (int p : Positions) {
+                    for (int v : Values) {
+                        if (v == p) {
+                            Positions.remove(p);
+                            Values.remove(v);
+                        }
+                    }
+                }
+                if (Positions.isEmpty() && Values.isEmpty()) {
+                    // check the database and swap values
+                }
+            } else {
+                // any other row. Looks like you have to check all the corners
+                // create another method for evaluating the neighboring cells for possible database match
+            }
+        } else if (blankCol == n) {
+            if (blankRow == 0) {
+                // first row last column
+                Values.add(t[blankRow][blankCol - 1]);
+                Values.add(t[blankRow + 1][blankCol - 1]);
+                Values.add(t[blankRow + 1][blankCol]);
+                Positions.add(blankCol - 1);
+                Positions.add(((blankCol) * 2) - 1);
+                Positions.add((blankCol) * 2);
+            } else if (blankRow == n) {
+                // last row last column
+            } else {
+                // any other row
+            }
+        } else {
+            // we are somewhere in the middle
+        }
+
+    }
+
+    private void locateBlank(int[][] t) {
+        int n = t.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (t[i][j] == 0) {
+                    this.blankRow = i;
+                    this.blankCol = j;
+                    // check to see if t[balnkRow][blankCol]+/-1= (blanRow+/-1)(blankCol+/-1) and if so then check the
+                    // database for a match
+                    arrangeImmediateNeighbors(t);
+                }
+            }
         }
     }
 

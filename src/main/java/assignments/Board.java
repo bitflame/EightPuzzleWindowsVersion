@@ -54,6 +54,15 @@ public class Board {
                 }
             }
         }
+        int index = 1;
+        int[][] goal = new int[n][n];
+        for (int i = 0; i <= n - 1; i++) {
+            for (int j = 0; j <= n - 1; j++) {
+                goal[i][j] = index;
+                index++;
+            }
+        }
+        goal[n - 1][n - 1] = 0;
         int distanceHamming = 0;
         for (char i = 0; i < n; i++) {
             for (char j = 0; j < n; j++) {
@@ -66,7 +75,7 @@ public class Board {
         int distanceManhattan = 0;
         for (char i = 0; i < n; i++) {
             for (char j = 0; j < n; j++) {
-                if (tiles[i][j] != 0) { //
+                if (tiles[i][j] != goal[i][j] && tiles[i][j] != 0) { //
                     int targetX = (tiles[i][j] - 1) / n;
                     int targetY = (tiles[i][j] - 1) % n;
                     int dx = i - targetX;
@@ -144,12 +153,6 @@ public class Board {
 
     // all neighboring boards
     public Iterable<Board> neighbors() {
-        // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
-        // for useless if statement.
-        // if (blankCol == null || blankRow == null) {
-        // throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
-        // "outside of what is allowed and should be used. ");
-        // }
         ArrayList<Board> neighbors = new ArrayList<>();
         int[][] neighbor = copyBoard(this.tiles);
         int index = n - 1;
