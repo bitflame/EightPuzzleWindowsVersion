@@ -55,8 +55,13 @@ public class SolverTest {
         solver = new Solver(fInput);
         File myObj = new File(destFolder, fileName);
         FileWriter myWriter = new FileWriter(myObj);
-        for (Board b : solver.solutionBoardList) {
-            myWriter.write(b.toString());
+//        for (Board b : solver.solutionBoardList) {
+//            myWriter.write(b.toString());
+//        }
+        for (Solver.SearchNode s : solver.solutionList) {
+            myWriter.write("Here is the board: " + s.GetCurrentBoard().toString() + " Here is the number of moves: " +
+                    s.GetMovesCount() + " Here is the manhattan distance: " + s.GetCurrentBoard().manhattan() +
+                    " Here is the hamming distance: " + s.GetCurrentBoard().hamming());
         }
         myWriter.close();
     }

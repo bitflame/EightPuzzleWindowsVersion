@@ -14,6 +14,7 @@ public class Solver {
     private boolean solvable;
     public int moves = 0;
     public final ArrayList<Board> solutionBoardList = new ArrayList<>();
+    public final ArrayList<SearchNode> solutionList = new ArrayList<>();
     private boolean isConsecitiveNeighbor;
     private int blankCol;
     private int blankRow;
@@ -152,45 +153,45 @@ public class Solver {
 //        StdOut.println("Adding the first Twin Board with hamming distance of: " + currentTwinBoard.hamming() +
 //                " and manhattan distance of: " + currentTwinBoard.manhattan() + " To Twin Priority Queue");
 
-        GameTree<SearchNode, Integer> gameTree = new GameTree<SearchNode, Integer>();
-        GameTree<SearchNode, Integer> gameTreeTwin = new GameTree<SearchNode, Integer>();
-        Board tempBoard;
-        SearchNode tempSearchNode;
-        int[][] t1 = {{1, 0}, {3, 2}};
-        int t1_Moves = 1;
-        tempBoard = new Board(t1);
-        tempSearchNode = new SearchNode(tempBoard, t1_Moves, null);
-        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
-        int[][] t2 = {{1, 2}, {0, 3}};
-        int t2_Moves = 1;
-        tempBoard = new Board(t2);
-        tempSearchNode = new SearchNode(tempBoard, t2_Moves, null);
-        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
-        int[][] t3 = {{0, 1}, {3, 2}};
-        int t3_Moves = 2;
-        tempBoard = new Board(t3);
-        tempSearchNode = new SearchNode(tempBoard, t3_Moves, null);
-        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
-        int[][] t4 = {{3, 1}, {0, 2}};
-        int t4_Moves = 3;
-        tempBoard = new Board(t4);
-        tempSearchNode = new SearchNode(tempBoard, t4_Moves, null);
-        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
-        int[][] t5 = {{2, 3}, {1, 0}};
-        int t5_Moves = 4;
-        tempBoard = new Board(t5);
-        tempSearchNode = new SearchNode(tempBoard, t5_Moves, null);
-        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
-        int[][] t6 = {{2, 3}, {0, 1}};
-        int t6_Moves = 5;
-        tempBoard = new Board(t6);
-        tempSearchNode = new SearchNode(tempBoard, t6_Moves, null);
-        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
-        int[][] t7 = {{0, 3}, {2, 1}};
-        int t7_Moves = 6;
-        tempBoard = new Board(t7);
-        tempSearchNode = new SearchNode(tempBoard, t7_Moves, null);
-        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
+//        GameTree<SearchNode, Integer> gameTree = new GameTree<SearchNode, Integer>();
+//        GameTree<SearchNode, Integer> gameTreeTwin = new GameTree<SearchNode, Integer>();
+//        Board tempBoard;
+//        SearchNode tempSearchNode;
+//        int[][] t1 = {{1, 0}, {3, 2}};
+//        int t1_Moves = 1;
+//        tempBoard = new Board(t1);
+//        tempSearchNode = new SearchNode(tempBoard, t1_Moves, null);
+//        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
+//        int[][] t2 = {{1, 2}, {0, 3}};
+//        int t2_Moves = 1;
+//        tempBoard = new Board(t2);
+//        tempSearchNode = new SearchNode(tempBoard, t2_Moves, null);
+//        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
+//        int[][] t3 = {{0, 1}, {3, 2}};
+//        int t3_Moves = 2;
+//        tempBoard = new Board(t3);
+//        tempSearchNode = new SearchNode(tempBoard, t3_Moves, null);
+//        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
+//        int[][] t4 = {{3, 1}, {0, 2}};
+//        int t4_Moves = 3;
+//        tempBoard = new Board(t4);
+//        tempSearchNode = new SearchNode(tempBoard, t4_Moves, null);
+//        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
+//        int[][] t5 = {{2, 3}, {1, 0}};
+//        int t5_Moves = 4;
+//        tempBoard = new Board(t5);
+//        tempSearchNode = new SearchNode(tempBoard, t5_Moves, null);
+//        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
+//        int[][] t6 = {{2, 3}, {0, 1}};
+//        int t6_Moves = 5;
+//        tempBoard = new Board(t6);
+//        tempSearchNode = new SearchNode(tempBoard, t6_Moves, null);
+//        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
+//        int[][] t7 = {{0, 3}, {2, 1}};
+//        int t7_Moves = 6;
+//        tempBoard = new Board(t7);
+//        tempSearchNode = new SearchNode(tempBoard, t7_Moves, null);
+//        gameTree.put(tempSearchNode, tempSearchNode.numOfMoves);
 // Create permutations for nine cycles
         // convert the address of each cycle to conventional two dimensional array addressing
         int index = 1;
@@ -206,6 +207,12 @@ public class Solver {
         goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
         Board gBoard = new Board(goal);
         SearchNode gNode = new SearchNode(gBoard, 0, null);
+        GameTree<SearchNode, Integer> gameTree = new GameTree<>();
+        gameTree.put(gNode, 0);
+        for (Board b : gBoard.neighbors()) {
+            SearchNode s = new SearchNode(b, 1, gNode);
+            gameTree.put(s, s.GetPriority());
+        }
         //gameTree.put(gNode, gBoard.manhattan());
 //        List<Integer[]> cycles = new ArrayList<>();
 //        Integer[] cycleOne = {0, 1, 2, 3, 7, 6, 5};// {1, 2, 3, 4, 5, 6, 7}
@@ -257,8 +264,8 @@ public class Solver {
 //        if (gameTree.get(expectedSearchNode) != null) {
 //            StdOut.println("Found it with get also.");
 //        }
-        gameTree.put(initialSearchNode, initialSearchNode.GetPriority());
-        gameTreeTwin.put(initialTwinSearchNode, initialTwinSearchNode.numOfMoves);
+        //gameTree.put(initialSearchNode, initialSearchNode.GetPriority());
+        //gameTreeTwin.put(initialTwinSearchNode, initialTwinSearchNode.numOfMoves);
         //gameTreeTwin.put(initialTwinSearchNode, ++twinValue);
 //        StdOut.println("Adding " + initialSearchNode.GetCurrentBoard().toString() + " with hamming: " + initialSearchNode.GetCurrentBoard().hamming() +
 //                " with manhattan: " + initialSearchNode.GetCurrentBoard().manhattan());
@@ -418,9 +425,22 @@ public class Solver {
 //                }
 //                currentPriorityQueueTwin.insert(gameTreeTwin.floor(minTwinNode));
 //            }
+            // Added the following for loop 4/13/21 2:47
+//            for (Object o : gameTree.keys()) {
+//                SearchNode s = (SearchNode) o;
+//                for (Board b : s.GetCurrentBoard().neighbors()) {
+//                    if (b != s.GetPrevSearchNode().GetCurrentBoard()) {
+//                        SearchNode newS = new SearchNode(b, s.numOfMoves + 1, s);
+//                        gameTree.put(s, s.GetPriority());
+//                    }
+//                }
+//            }
             if (minTwinNode.GetCurrentBoard().isGoal()) {
-                StdOut.println("Matched the goal in the twin priority queue.");
+                //StdOut.println("Matched the goal in the twin priority queue.");
                 solvable = false;
+                break;
+            } else if (minSearchNode.GetCurrentBoard().isGoal()) {
+                solvable = true;
                 break;
             }
             // Check to see if game tree has a match
@@ -436,7 +456,7 @@ public class Solver {
                     //gameTreeTwin.put(temp1Twin, temp1Twin.numOfMoves);
                 } else if (minTwinNode.GetPrevSearchNode() != null && !tb.equals(minTwinNode.GetPrevSearchNode().GetCurrentBoard())) {
                     if (currentPriorityQueueTwin.size() > 800) {
-                        StdOut.println("resetting the Twin priority queue.");
+                        //StdOut.println("resetting the Twin priority queue.");
                         MinPQ<SearchNode> copyTwinPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
                             @Override
                             public int compare(SearchNode o1, SearchNode o2) {
@@ -480,6 +500,12 @@ public class Solver {
 //                StdOut.println("The current neighbor being considered is : " + b.toString() +
 //                        " its manhattan value is: " + b.manhattan());
                 SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, minSearchNode);
+                // Added the following while loop 4/13/21 2:47
+//                while (gameTree.get(temp1) != null) {
+//                    Object o = gameTree.get(temp1);
+//                    currentPriorityQueue.insert((SearchNode) o);
+//                    break;
+//                }
                 if (minSearchNode.GetPrevSearchNode() == null && !b.equals(initialBoard)) {
 
 //                    StdOut.println();
@@ -582,7 +608,7 @@ public class Solver {
 //                    gameTree.put(temp1, gMTreeIndex);
 //                    gMTreeIndex++;
                     if (minSearchNode.GetCurrentBoard().equals(gBoard)) {
-                        StdOut.println("minSearchNode is the goal. Coming out of the loop.");
+                        //StdOut.println("minSearchNode is the goal. Coming out of the loop.");
                         break outerloop;
                     }
 //                    if (b.equals(gBoard)) {
@@ -665,6 +691,7 @@ public class Solver {
 //                }
             minTwinNode = currentPriorityQueueTwin.delMin();
             //}
+
             if (!currentPriorityQueue.isEmpty()) {
 //                if (currentPriorityQueue.size() > 9000) {
 //                    //StdOut.println(" reseting minPriorityQueue ");
@@ -758,12 +785,21 @@ public class Solver {
         //moves = gameTree.rank(minSearchNode);
         if (minSearchNode.GetCurrentBoard().isGoal()) {
             solvable = true;
-            gameTree.put(minSearchNode, minSearchNode.numOfMoves);
             moves = minSearchNode.numOfMoves;
-            solutionBoardList.add(minSearchNode.GetCurrentBoard());
+            //solutionList.add(minSearchNode);
+            //solutionBoardList.add(minSearchNode.GetCurrentBoard());
+            while (!minSearchNode.GetCurrentBoard().equals(initialBoard)) {
+                //gameTree.put(minSearchNode, minSearchNode.numOfMoves);
+                solutionList.add(minSearchNode);
+                solutionBoardList.add(minSearchNode.GetCurrentBoard());
+                minSearchNode = minSearchNode.GetPrevSearchNode();
+            }
+            solutionList.add(initialSearchNode);
+            solutionBoardList.add(initialBoard);
             // This is the loop that counts backwards to get the number of moves to source and it works
+
 //            while (!minSearchNode.GetCurrentBoard().equals(initialBoard)) {
-//                minSearchNode = minSearchNode.GetPrevSearchNode();
+//
 //                solutionBoardList.add(minSearchNode.GetCurrentBoard());
 //                moves++;
 //            }
@@ -778,6 +814,7 @@ public class Solver {
     }
 
     private void staticDb() {
+        ArrayList<Board> boards = new ArrayList<>();
         int[][] t1 = {{1, 0}, {3, 2}};
         int t1_Moves = 1;
         int[][] t2 = {{1, 2}, {0, 3}};
@@ -1017,16 +1054,10 @@ public class Solver {
 
         private node put(node x, Key key, Value val) {
             if (x == null) return new node(key, val, 1);
-            else {
-                int cmp = key.compareTo(x.key);
-                if (cmp < 0) x.left = put(x.left, key, val);
-                else if (key.equals(x.key)) {
-                    StdOut.println("Updating the value of " + key.toString() + " and " + x.key.toString() + "b/c they are equal.");
-                    x.val = val; // M D CFS_CONFUSING_FUNCTION_SEMANTICS CFS: Method Solver$GameTree.put(Solver$GameTree$node,
-                    // Comparable, Object) returns modified parameter  At Solver.java:[line 841]
-                    //} else StdOut.println("Did not match any of put conditions.");
-                } else x.right = put(x.right, key, val);
-            }
+            int cmp = key.compareTo(x.key);
+            if (cmp < 0) x.left = put(x.left, key, val);
+            else if (cmp > 0) x.right = put(x.right, key, val);
+            else x.val = val;
             x.N = size(x.left) + size(x.right) + 1;
             return x;
         }
@@ -1173,7 +1204,7 @@ public class Solver {
         }
     }
 
-    private static class SearchNode implements Comparable<SearchNode> {
+    public static class SearchNode implements Comparable<SearchNode> {
         private final Board currentBoard;
         //private final int manhattan;
         //private final int hamming;
@@ -1200,10 +1231,12 @@ public class Solver {
             return prevSearchNode;
         }
 
+        //        public int GetPriority() {
+//            return ((this.GetCurrentBoard().manhattan()) + (numOfMoves));
+//        }
         public int GetPriority() {
             return ((this.GetCurrentBoard().manhattan()) + (numOfMoves));
         }
-
 
         public boolean equals(SearchNode o) {
             if (this == o) return true;
@@ -1243,7 +1276,17 @@ public class Solver {
     // test client (see below)
     public static void main(String[] args) {
         //TODO: Build tables: initial, goal, and change 1 digit at a time and see how they are printed out when you print the tree
-//        int[][] testTiles = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}};// manhattan 4, moves 0, priority 4
+        int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}};
+        int[][] testTiles2 = {{5, 0, 2}, {4, 7, 3}, {8, 6, 1}};
+        int[][] testTiles3 = {{5, 2, 3}, {4, 0, 7}, {8, 6, 1}};
+        int[][] testTiles4 = {{5, 0, 2}, {4, 7, 3}, {8, 6, 1}};
+        int[][] testTiles5 = {{5, 0, 3}, {4, 2, 7}, {8, 6, 1}};
+        int[][] testTiles6 = {{5, 2, 3}, {0, 4, 7}, {8, 6, 1}};
+        int[][] testTiles7 = {{5, 2, 3}, {4, 6, 7}, {8, 0, 1}};
+        int[][] testTiles8 = {{2, 0, 3}, {1, 4, 6}, {7, 5, 8}};
+        int[][] testTiles9 = {{2, 4, 3}, {1, 0, 6}, {7, 5, 8}};
+        int[][] testTiles10 = {{2, 4, 3}, {0, 1, 6}, {7, 5, 8}};
+        int[][] testTiles11 = {{2, 4, 3}, {7, 1, 6}, {0, 5, 8}};  // man=8 hamming=6 7 moves
         //char[][] testTilesCopy = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
         //char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
         //char[][] goalTilesCopy = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
@@ -1260,7 +1303,7 @@ public class Solver {
 //        int[][] testTilesNeighbor5 = {{1, 2, 3}, {4, 6, 5}, {7, 8, 0}};
 //        bNeigbor1 = new Board(testTilesNeighbor1);
 //        bNeigbor2 = new Board(testTilesNeighbor2);
-//        Board testTilesBoard = new Board(testTiles);
+        Board testTilesBoard = new Board(testTiles1);
 //        Board copyOfTestTilesBoard = new Board(testTiles);
 //        Board testTilesNeighbor1Board = new Board(testTilesNeighbor1);
 //        Board testTilesNeighbor2Board = new Board(testTilesNeighbor2);
@@ -1463,16 +1506,23 @@ public class Solver {
 //            StdOut.println(temp.GetCurrentBoard() + " Priority: " + temp.GetPriority());
 //        }
 //        int[][] expected = {{1, 2, 3, 4}, {8, 7, 6, 5}, {0, 14, 12, 13}, {10, 15, 11, 9,}};
-        int[][] startingTiles = {{1, 2, 3, 4}, {8, 7, 6, 5}, {9, 10, 11, 12}, {13, 14, 15, 0}};
+        //int[][] startingTiles = {{1, 2, 3, 4}, {8, 7, 6, 5}, {9, 10, 11, 12}, {13, 14, 15, 0}};
 //        int[] startingTiles2 = {0, 4, 1, 5, 3, 2, 7, 8, 6};
-        int[] goal = {1, 2, 3, 4, 5, 6, 7, 8, 0};
-        int[][] cycles = {{9, 14, 11, 13}, {10, 12}};  //two demensional jagged array
-        int[] cycles2 = {1, 3, 5, 4, 2, 6, 0};
-        Solver s = new Solver();
-        int[] result = s.applyCycles(s.changeToOneDemArray(startingTiles), cycles);
+        //int[] goal = {1, 2, 3, 4, 5, 6, 7, 8, 0};
+        //int[][] cycles = {{9, 14, 11, 13}, {10, 12}};  //two demensional jagged array
+        //int[] cycles2 = {1, 3, 5, 4, 2, 6, 0};
+        Solver s = new Solver(testTilesBoard);
+        //int[] result = s.applyCycles(s.changeToOneDemArray(startingTiles), cycles);
         ///todo-- I need a method called calcuateCycle()
-        result = s.applyCycle(goal, cycles2);
-        for (int r : result)
-            StdOut.print(" " + r);
+        //result = s.applyCycle(goal, cycles2);
+//
+        if (!s.isSolvable())
+            StdOut.println("No solution possible");
+        else {
+            StdOut.println("Minimum number of moves= " + s.moves);
+            for (Board board : s.solutionBoardList) {
+                StdOut.println(board);
+            }
+        }
     }
 }
