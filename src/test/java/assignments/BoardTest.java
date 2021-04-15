@@ -45,27 +45,20 @@ public class BoardTest {
     }
 
 
-    public BoardTest(String fileName, int[][] tiles) throws IOException {
+    public BoardTest(String fileName, int[][] tiles) {
         fInput = tiles;
         fExpected = true;
         File myObj = new File(destFolder, fileName);
-        FileWriter myWriter = new FileWriter(myObj);
-        for (Solver.SearchNode s : board.solutionList) {
-            myWriter.write("Here is the board: " + s.GetCurrentBoard().toString() + " Here is the number of moves: " +
-                    s.GetMovesCount() + " Here is the manhattan distance: " + s.GetCurrentBoard().manhattan() +
-                    " Here is the hamming distance: " + s.GetCurrentBoard().hamming());
-        }
-        myWriter.close();
     }
 
     @Test
-    public void test() {
-
+    public void test() throws IOException {
+        FileWriter myWriter = new FileWriter(destFolder + testInst[0]);
         Board a = new Board(fInput);
         Board b = new Board(fInput);
         boolean value = a.equals(b);
-        boolean expected = true;
-//        assert equals(value, expected);
-//        assert true (value);
+        assert equals(value);
+        myWriter.write("Something ...");
+        myWriter.close();
     }
 }
