@@ -352,10 +352,18 @@ public class Board implements Comparable<Board> {
 
     @Override
     public int compareTo(Board o) {
-        if (this.manhattan * 10 > o.manhattan) return 1;
-        if (this.manhattan * 10 < o.manhattan) return -1;
-        if (this.hamming * 10 > o.hamming) return 1;
-        if (this.hamming * 10 < o.hamming) return -1;
-        return 0;
+        if (this.manhattan > o.manhattan) return 1;
+        if (this.manhattan < o.manhattan) return -1;
+        if (this.hamming > o.hamming) return 1;
+        if (this.hamming < o.hamming) return -1;
+        if (this.tiles[0][0] > o.tiles[0][0]) return 1;
+        if (this.tiles[0][0] < o.tiles[0][0]) return -1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (this.tiles[i][j] > o.tiles[i][j]) return 1;
+            }
+        }
+        if (this.equals(o)) return 0;
+        return 1;
     }
 }

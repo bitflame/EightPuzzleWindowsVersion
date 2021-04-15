@@ -3,6 +3,7 @@ package assignments;
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -209,15 +210,13 @@ public class Solver {
         SearchNode gNode = new SearchNode(gBoard, 0, null);
         // adding puzzle 20 to the search node
         //int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
-        int[][] dbEntry1 = {{1, 3, 6}, {4, 2, 0}, {7, 5, 8}};
+        int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
         Board dbBoard1 = new Board(dbEntry1);
 
         GameTree<Board, Integer> gameTree = new GameTree<>();
         gameTree.put(dbBoard1, dbBoard1.manhattan());
         for (Board b : dbBoard1.neighbors()) {
-            // If when you want to add other nodes to the db, you need to modify the code below to use the right
-            // variable name for moves and parent node
-            gameTree.put(b, b.manhattan());
+            gameTree.put(b, b.manhattan() + StdRandom.uniform(0, 100));
         }
         //gameTree.put(gNode, gBoard.manhattan());
 //        List<Integer[]> cycles = new ArrayList<>();
@@ -432,6 +431,13 @@ public class Solver {
 //                currentPriorityQueueTwin.insert(gameTreeTwin.floor(minTwinNode));
 //            }
             // Added the following for loop 4/13/21 2:47
+            for (Board b : gameTree.keys()) {
+                for (Board bNei : b.neighbors()) {
+                    if (bNei != initialBoard && bNei != minSearchNode.GetCurrentBoard()) {
+                        gameTree.put(bNei, bNei.manhattan() + StdRandom.uniform(0, 100));
+                    }
+                }
+            }
             if (minTwinNode.GetCurrentBoard().isGoal()) {
                 //StdOut.println("Matched the goal in the twin priority queue.");
                 solvable = false;
@@ -499,11 +505,13 @@ public class Solver {
 //                StdOut.println("The current neighbor being considered is : " + b.toString() +
 //                        " its manhattan value is: " + b.manhattan());
                 SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, minSearchNode);
+
                 if (gameTree.get(b) != null) {
-                    // If you see the board in the tree change the search node to b's neighbor closer to the goal
-                    // and update the number of moves accordingly
-                    temp1 = new SearchNode(gameTree.floor(b), minSearchNode.GetMovesCount() + 2, minSearchNode);
+                    StdOut.println("Found a match in a GameTree of size: " + gameTree.size());
+                    if (!gameTree.floor(b).equals(b))
+                        StdOut.println("Found a match with a lower floor.");
                 }
+
 
                 // Added the following while loop 4/13/21 2:47
 //                while (gameTree.get(temp1) != null) {
@@ -514,7 +522,9 @@ public class Solver {
                 if (minSearchNode.GetPrevSearchNode() == null && !b.equals(initialBoard)) {
 
 //                    StdOut.println();
-//                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() + " and manhattan distance of:  " + b.manhattan() + " Number of moves: " + temp1.numOfMoves + " To priority queue and the Game Tree.");
+//                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() +
+//                            " and manhattan distance of:  " + b.manhattan() + " Number of moves: " + temp1.numOfMoves +
+//                            " To priority queue.");
                     //SearchNode result =  gameTree.get(temp1);
                     currentPriorityQueue.insert(temp1);
 //                    gameTree.put(temp1, gMTreeIndex);
@@ -609,6 +619,9 @@ public class Solver {
 //                    StdOut.println("Adding to minimum priority queue.");
 //                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() + " and manhattan distance of:  " + b.manhattan() + " Number of moves: " + temp1.numOfMoves + " To priority queue and the Game Tree.");
 //                    StdOut.println("Adding neighbor Board with hamming distance of :  " + b.hamming() + " and manhattan distance of:  " + b.manhattan() + " Current moves count: " + moves + " To priority queue");
+//                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() +
+//                            " and manhattan distance of:  " + b.manhattan() + " Number of moves: " + temp1.numOfMoves +
+//                            " To priority queue.");
                     currentPriorityQueue.insert(temp1);
 //                    gameTree.put(temp1, gMTreeIndex);
 //                    gMTreeIndex++;

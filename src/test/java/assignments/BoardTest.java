@@ -10,13 +10,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @RunWith(Parameterized.class)
 public class BoardTest {
     public Solver board;
     private int[][] fInput;
     private boolean fExpected;
+    private boolean fResult;
     final static File folder = new File("C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\ModifiedTests");
-    final static String destFolder = "C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\board_test_results";
+    final static String destFolder = "C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\board_test_results\\";
     final static ArrayList<Object[]> filesList = new ArrayList<>();
     private static Object[] testInst;
 
@@ -41,24 +44,25 @@ public class BoardTest {
             testInst = new Object[]{fileName, tiles};
             filesList.add(testInst);
         }
+
         return filesList;
     }
 
-
-    public BoardTest(String fileName, int[][] tiles) {
+    public BoardTest(String fileName, int[][] tiles) throws IOException {
         fInput = tiles;
         fExpected = true;
+        Board a = new Board(fInput);
+        Board b = new Board(fInput);
+        FileWriter myWriter = new FileWriter(destFolder + fileName);
+        fResult = a.equals(b);
+        myWriter.write("For " + fileName + " the result is: " + fResult);
+        myWriter.close();
         File myObj = new File(destFolder, fileName);
     }
 
     @Test
     public void test() throws IOException {
-        FileWriter myWriter = new FileWriter(destFolder + testInst[0]);
-        Board a = new Board(fInput);
-        Board b = new Board(fInput);
-        boolean value = a.equals(b);
-        assert equals(value);
-        myWriter.write("Something ...");
-        myWriter.close();
+        //assertTrue(value);
+        assertEquals(fExpected, fResult);
     }
 }

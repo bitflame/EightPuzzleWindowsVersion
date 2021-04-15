@@ -1,0 +1,1 @@
+For puzzle3x3-13.txt the result is: true

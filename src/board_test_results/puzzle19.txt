@@ -1,0 +1,1 @@
+For puzzle19.txt the result is: true
