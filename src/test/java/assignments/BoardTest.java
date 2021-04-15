@@ -1,61 +1,71 @@
 package assignments;
 
-import org.junit.Assert;
+import edu.princeton.cs.algs4.In;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
-import java.security.InvalidParameterException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
-//@RunWith(Parameterized.class)
+@RunWith(Parameterized.class)
 public class BoardTest {
-    private int[][] input;
-    private int[][] expected;
-    Board one = new Board(new int[][]{{8, 1, 3}, {4, 7, 2}, {0, 6, 5}});
-    Board oneExpectedResult = new Board(new int[][]{{8, 1, 3}, {6, 7, 2}, {0, 4, 5}});
-    Board two = new Board(new int[][]{{8, 1, 3}, {4, 5, 2}, {7, 6, 0}});
-    Board twoExpectedResult = new Board(new int[][]{{8, 1, 3}, {4, 6, 2}, {7, 5, 0}});
-    Board three = new Board(new int[][]{{8, 1, 3}, {4, 5, 2}, {7, 6, 0}});
-    Board threeExpectedResult = new Board(new int[][]{{8, 1, 3}, {4, 6, 2}, {7, 5, 0}});
-    Board four = new Board(new int[][]{{8, 1, 3}, {0, 5, 2}, {7, 6, 4}});
-    Board fourExpectedResult = new Board(new int[][]{{8, 1, 3}, {0, 6, 2}, {7, 5, 4}});
-    Board five = new Board(new int[][]{{8, 9, 3}, {1, 5, 2}, {7, 6, 4}});
-    Board fiveExpectedResult = new Board(new int[][]{{8, 9, 3}, {1, 5, 2}, {7, 6, 4}});
+    public Solver board;
+    private int[][] fInput;
+    private boolean fExpected;
+    final static File folder = new File("C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\ModifiedTests");
+    final static String destFolder = "C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\board_test_results";
+    final static ArrayList<Object[]> filesList = new ArrayList<>();
+    private static Object[] testInst;
 
-//    @Parameterized.Parameters
-//    public static Collection data() {
-//        return Arrays.asList(new Object[][]{
-//                {new Board(new int[][]{{8, 1, 3}, {4, 7, 2}, {0, 6, 5}}), new Board(new int[][]{{8, 1, 3}, {6, 7, 2}, {0, 4, 5}})},
-//                {new Board(new int[][]{{8, 1, 3}, {4, 5, 2}, {7, 6, 0}}), new Board(new int[][]{{8, 1, 3}, {4, 6, 2}, {7, 5, 0}})},
-//                {new Board(new int[][]{{8, 1, 3}, {4, 5, 2}, {7, 6, 0}}), new Board(new int[][]{{8, 1, 3}, {4, 6, 2}, {7, 5, 0}})},
-//                {new Board(new int[][]{{8, 1, 3}, {0, 5, 2}, {7, 6, 4}}), new Board(new int[][]{{8, 1, 3}, {4, 6, 2}, {7, 5, 4}})},
-//                {new Board(new int[][]{{8, 9, 3}, {1, 5, 2}, {7, 6, 4}}), new Board(new int[][]{{8, 9, 3}, {1, 5, 2}, {7, 6, 4}})}
-//        });
-//    }
-//    Board inputBoard = new Board(input);
-//    Board expectedBoard = new Board(expected);
+    @Parameterized.Parameters(name = "{index}: Number of moves for [{0}]={2}")
+    public static Iterable<Object[]> data() {
+        String path = "";
+        int counter = 0;
+        for (final File fileEntry : folder.listFiles()) {
+            //System.out.println("processing file: " + fileEntry.getName())
+            counter++;
+            if (counter == 100) break;
+            path = destFolder + fileEntry;
+            In in = new In(fileEntry.getAbsolutePath());
+            String fileName = fileEntry.getName();
+            int n = in.readInt();
+            int moves = in.readInt();
+            int[][] tiles = new int[n][n];
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                    tiles[i][j] = in.readInt();
 
-    //    public BoardTest(int[][] input, int[][] expected) {
-//        expectedBoard = new Board(expected);
-//        this.input = input;
-//        this.expected = expected;
-//    }
-    @Test
-    public void testTwin() {
-        Assert.assertEquals(oneExpectedResult, one.twin());
-        Assert.assertEquals(twoExpectedResult, two.twin());
-        Assert.assertEquals(threeExpectedResult, three.twin());
-        Assert.assertEquals(fourExpectedResult, four.twin());
-        //Assert.assertEquals(fiveExpectedResult, five.twin());
-        //Assert.assertThrows(new InvalidParameterException, five.twin());
+            testInst = new Object[]{fileName, tiles};
+            filesList.add(testInst);
+        }
+        return filesList;
     }
 
-    @Test(expected = InvalidParameterException.class)
-    public void twinThrowsException() {
-        five.twin();
+
+    public BoardTest(String fileName, int[][] tiles) throws IOException {
+        fInput = tiles;
+        fExpected = true;
+        File myObj = new File(destFolder, fileName);
+        FileWriter myWriter = new FileWriter(myObj);
+        for (Solver.SearchNode s : board.solutionList) {
+            myWriter.write("Here is the board: " + s.GetCurrentBoard().toString() + " Here is the number of moves: " +
+                    s.GetMovesCount() + " Here is the manhattan distance: " + s.GetCurrentBoard().manhattan() +
+                    " Here is the hamming distance: " + s.GetCurrentBoard().hamming());
+        }
+        myWriter.close();
     }
 
-    // are twins of neighbors of the initial node same as the neighbors of twin of the initial node?
     @Test
-    public void twinOfNeighborsOfInitialNodeSameAsNeighborsOfTwins() {
+    public void test() {
 
+        Board a = new Board(fInput);
+        Board b = new Board(fInput);
+        boolean value = a.equals(b);
+        boolean expected = true;
+//        assert equals(value, expected);
+//        assert true (value);
     }
 }

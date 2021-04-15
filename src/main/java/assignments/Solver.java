@@ -207,11 +207,17 @@ public class Solver {
         goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
         Board gBoard = new Board(goal);
         SearchNode gNode = new SearchNode(gBoard, 0, null);
-        GameTree<SearchNode, Integer> gameTree = new GameTree<>();
-        gameTree.put(gNode, 0);
-        for (Board b : gBoard.neighbors()) {
-            SearchNode s = new SearchNode(b, 1, gNode);
-            gameTree.put(s, s.GetPriority());
+        // adding puzzle 20 to the search node
+        //int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
+        int[][] dbEntry1 = {{1, 3, 6}, {4, 2, 0}, {7, 5, 8}};
+        Board dbBoard1 = new Board(dbEntry1);
+
+        GameTree<Board, Integer> gameTree = new GameTree<>();
+        gameTree.put(dbBoard1, dbBoard1.manhattan());
+        for (Board b : dbBoard1.neighbors()) {
+            // If when you want to add other nodes to the db, you need to modify the code below to use the right
+            // variable name for moves and parent node
+            gameTree.put(b, b.manhattan());
         }
         //gameTree.put(gNode, gBoard.manhattan());
 //        List<Integer[]> cycles = new ArrayList<>();
@@ -426,15 +432,6 @@ public class Solver {
 //                currentPriorityQueueTwin.insert(gameTreeTwin.floor(minTwinNode));
 //            }
             // Added the following for loop 4/13/21 2:47
-//            for (Object o : gameTree.keys()) {
-//                SearchNode s = (SearchNode) o;
-//                for (Board b : s.GetCurrentBoard().neighbors()) {
-//                    if (b != s.GetPrevSearchNode().GetCurrentBoard()) {
-//                        SearchNode newS = new SearchNode(b, s.numOfMoves + 1, s);
-//                        gameTree.put(s, s.GetPriority());
-//                    }
-//                }
-//            }
             if (minTwinNode.GetCurrentBoard().isGoal()) {
                 //StdOut.println("Matched the goal in the twin priority queue.");
                 solvable = false;
@@ -451,8 +448,10 @@ public class Solver {
             //}
             for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
                 SearchNode temp1Twin = new SearchNode(tb, minTwinNode.GetMovesCount() + 1, minTwinNode);
+
                 if (minTwinNode.GetPrevSearchNode() == null && !tb.equals(initialTwinSearchNode.GetCurrentBoard())) {
                     currentPriorityQueueTwin.insert(temp1Twin);
+
                     //gameTreeTwin.put(temp1Twin, temp1Twin.numOfMoves);
                 } else if (minTwinNode.GetPrevSearchNode() != null && !tb.equals(minTwinNode.GetPrevSearchNode().GetCurrentBoard())) {
                     if (currentPriorityQueueTwin.size() > 800) {
@@ -500,6 +499,12 @@ public class Solver {
 //                StdOut.println("The current neighbor being considered is : " + b.toString() +
 //                        " its manhattan value is: " + b.manhattan());
                 SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, minSearchNode);
+                if (gameTree.get(b) != null) {
+                    // If you see the board in the tree change the search node to b's neighbor closer to the goal
+                    // and update the number of moves accordingly
+                    temp1 = new SearchNode(gameTree.floor(b), minSearchNode.GetMovesCount() + 2, minSearchNode);
+                }
+
                 // Added the following while loop 4/13/21 2:47
 //                while (gameTree.get(temp1) != null) {
 //                    Object o = gameTree.get(temp1);
@@ -1211,6 +1216,7 @@ public class Solver {
         private final int numOfMoves;
         private final SearchNode prevSearchNode;
 
+
         public SearchNode(Board b, int m, SearchNode prev) {
             currentBoard = b;
             numOfMoves = m;
@@ -1238,6 +1244,14 @@ public class Solver {
             return ((this.GetCurrentBoard().manhattan()) + (numOfMoves));
         }
 
+        public int GetManhattan() {
+            return this.GetCurrentBoard().manhattan();
+        }
+
+        public int GetHamming() {
+            return this.GetCurrentBoard().hamming();
+        }
+
         public boolean equals(SearchNode o) {
             if (this == o) return true;
             if (o == null) return false;
@@ -1256,8 +1270,8 @@ public class Solver {
 //            else if (this.numOfMoves > o.numOfMoves) return 1;
 //            else if (o.numOfMoves > this.numOfMoves) return -1;
 
-            if (this.GetPriority() > o.GetPriority()) return 1;
-            if (o.GetPriority() > this.GetPriority()) return -1;
+            if (this.GetCurrentBoard().manhattan() > o.GetCurrentBoard().manhattan()) return 1;
+            if (this.GetCurrentBoard().manhattan() < o.GetCurrentBoard().manhattan()) return -1;
             if (this.numOfMoves > o.numOfMoves) return 1;
             if (o.numOfMoves > this.numOfMoves) return -1;
             return 0;
@@ -1287,6 +1301,7 @@ public class Solver {
         int[][] testTiles9 = {{2, 4, 3}, {1, 0, 6}, {7, 5, 8}};
         int[][] testTiles10 = {{2, 4, 3}, {0, 1, 6}, {7, 5, 8}};
         int[][] testTiles11 = {{2, 4, 3}, {7, 1, 6}, {0, 5, 8}};  // man=8 hamming=6 7 moves
+        int[][] testTiles12 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}};
         //char[][] testTilesCopy = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
         //char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
         //char[][] goalTilesCopy = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
@@ -1303,7 +1318,7 @@ public class Solver {
 //        int[][] testTilesNeighbor5 = {{1, 2, 3}, {4, 6, 5}, {7, 8, 0}};
 //        bNeigbor1 = new Board(testTilesNeighbor1);
 //        bNeigbor2 = new Board(testTilesNeighbor2);
-        Board testTilesBoard = new Board(testTiles1);
+        Board testTilesBoard = new Board(testTiles12);
 //        Board copyOfTestTilesBoard = new Board(testTiles);
 //        Board testTilesNeighbor1Board = new Board(testTilesNeighbor1);
 //        Board testTilesNeighbor2Board = new Board(testTilesNeighbor2);

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Board {
+public class Board implements Comparable<Board> {
     private final int[][] tiles;
     private final int n;
     private Integer blankRow;
@@ -348,5 +348,14 @@ public class Board {
 //        }
         // StdOut.println("The dimension is: " + tb.dimension());
         StdOut.println("The number of inversions are: ");
+    }
+
+    @Override
+    public int compareTo(Board o) {
+        if (this.manhattan * 10 > o.manhattan) return 1;
+        if (this.manhattan * 10 < o.manhattan) return -1;
+        if (this.hamming * 10 > o.hamming) return 1;
+        if (this.hamming * 10 < o.hamming) return -1;
+        return 0;
     }
 }
