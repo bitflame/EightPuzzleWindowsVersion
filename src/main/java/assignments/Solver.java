@@ -436,6 +436,11 @@ public class Solver {
                     if (bNei != initialBoard && bNei != minSearchNode.GetCurrentBoard()) {
                         gameTree.put(bNei, bNei.manhattan() + StdRandom.uniform(0, 100));
                     }
+                    if (gameTree.get(minSearchNode.GetCurrentBoard()) != null) {
+                        // This is where I want to start tomrrow. If minimum search node is already in the tree
+                        // I may be a in good shape. The other place to check is when there is a match, the shorter
+                        // solution might match the nodes in the longer solution. In fact I know it does.
+                    }
                 }
             }
             if (minTwinNode.GetCurrentBoard().isGoal()) {
