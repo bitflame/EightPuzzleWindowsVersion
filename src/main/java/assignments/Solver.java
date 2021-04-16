@@ -3,7 +3,6 @@ package assignments;
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,6 +18,7 @@ public class Solver {
     private boolean isConsecitiveNeighbor;
     private int blankCol;
     private int blankRow;
+    private int dbMoves;
     private List<SearchNode> dB = new ArrayList<>();
 
     //    private List<SearchNode> GeneratePermutations(int boardDimensions, Integer[] currentCycle, SearchNode goalNode) {
@@ -91,12 +91,12 @@ public class Solver {
         //if (this.isSolvable()) { // How to figure out if the board is solvable or not?
         solvable = true; // for now
         if (solvable == false) return;
-        SearchNode initialSearchNode = new SearchNode(initialBoard, 0, null);
+        SearchNode initialSearchNode = new SearchNode(initialBoard, 0, initialBoard.manhattan(), initialBoard.hamming(), null);
 //        StdOut.print("Here is the first node: " + initialSearchNode.GetCurrentBoard() + " With Priority of: " +
 //                initialSearchNode.GetPriority() + " Manhattan value of: " + initialSearchNode.manhattan +
 //                " Hamming distance of: " + initialSearchNode.hamming + " Number of moves: " + initialSearchNode.numOfMoves);
         Board currentTwinBoard = initialBoard.twin();
-        SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, 0, null);
+        SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, 0, initialBoard.manhattan(), initialBoard.hamming(), null);
         //StdOut.println("This table is in solver: " + initialBoard);
 //FIXME: Work on the following tomorrow: 1) My understanding is that we are to implement two priority queues side by side.
 // The first queue is to attempt to solve the puzzle with the input board. The other queue is to attempt to solve the
@@ -130,16 +130,24 @@ public class Solver {
         MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.GetPriority() > o2.GetPriority()) return 1;
-                else if (o2.GetPriority() > o1.GetPriority()) return -1;
+                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
+                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
+                if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
+                if (o1.numOfMoves > o2.numOfMoves) return 1;
+                if (o1.numOfMoves > o2.numOfMoves) return -1;
                 return 0;
             }
         });
         MinPQ<SearchNode> currentPriorityQueueTwin = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.GetPriority() > o2.GetPriority()) return 1;
-                else if (o2.GetPriority() > o1.GetPriority()) return -1;
+                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
+                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
+                if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
+                if (o1.numOfMoves > o2.numOfMoves) return 1;
+                if (o1.numOfMoves > o2.numOfMoves) return -1;
                 return 0;
             }
         });
@@ -207,16 +215,17 @@ public class Solver {
         // problems for me.
         goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
         Board gBoard = new Board(goal);
-        SearchNode gNode = new SearchNode(gBoard, 0, null);
+        SearchNode gNode = new SearchNode(gBoard, 0, 0, 0, null);
         // adding puzzle 20 to the search node
         //int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
-        int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
+        int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};//puzzle 20
         Board dbBoard1 = new Board(dbEntry1);
-
+        dbMoves = 0;
         GameTree<Board, Integer> gameTree = new GameTree<>();
-        gameTree.put(dbBoard1, dbBoard1.manhattan());
+        gameTree.put(dbBoard1, dbMoves);
+        dbMoves++;
         for (Board b : dbBoard1.neighbors()) {
-            gameTree.put(b, b.manhattan() + StdRandom.uniform(0, 100));
+            gameTree.put(b, dbMoves);
         }
         //gameTree.put(gNode, gBoard.manhattan());
 //        List<Integer[]> cycles = new ArrayList<>();
@@ -434,15 +443,17 @@ public class Solver {
             for (Board b : gameTree.keys()) {
                 for (Board bNei : b.neighbors()) {
                     if (bNei != initialBoard && bNei != minSearchNode.GetCurrentBoard()) {
-                        gameTree.put(bNei, bNei.manhattan() + StdRandom.uniform(0, 100));
+                        gameTree.put(bNei, dbMoves);
                     }
+                    dbMoves++;
                     if (gameTree.get(minSearchNode.GetCurrentBoard()) != null) {
-                        // This is where I want to start tomrrow. If minimum search node is already in the tree
-                        // I may be a in good shape. The other place to check is when there is a match, the shorter
-                        // solution might match the nodes in the longer solution. In fact I know it does.
+                        StdOut.println("Found a match of Minimum Search Tree in the Game Tree.");
                     }
                 }
             }
+            int[][] targetTiles = {{5, 2, 0}, {4, 1, 3}, {8, 7, 6}};//
+            Board targetBoard = new Board(targetTiles);
+
             if (minTwinNode.GetCurrentBoard().isGoal()) {
                 //StdOut.println("Matched the goal in the twin priority queue.");
                 solvable = false;
@@ -458,7 +469,7 @@ public class Solver {
             //break;
             //}
             for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
-                SearchNode temp1Twin = new SearchNode(tb, minTwinNode.GetMovesCount() + 1, minTwinNode);
+                SearchNode temp1Twin = new SearchNode(tb, minTwinNode.GetMovesCount() + 1, tb.manhattan(), tb.hamming(), minTwinNode);
 
                 if (minTwinNode.GetPrevSearchNode() == null && !tb.equals(initialTwinSearchNode.GetCurrentBoard())) {
                     currentPriorityQueueTwin.insert(temp1Twin);
@@ -470,8 +481,12 @@ public class Solver {
                         MinPQ<SearchNode> copyTwinPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
                             @Override
                             public int compare(SearchNode o1, SearchNode o2) {
-                                if (o1.GetPriority() > o2.GetPriority()) return 1;
-                                else if (o2.GetPriority() > o1.GetPriority()) return -1;
+                                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
+                                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                                if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
+                                if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
+                                if (o1.numOfMoves > o2.numOfMoves) return 1;
+                                if (o1.numOfMoves > o2.numOfMoves) return -1;
                                 return 0;
                             }
                         });
@@ -509,7 +524,7 @@ public class Solver {
 //                StdOut.println();
 //                StdOut.println("The current neighbor being considered is : " + b.toString() +
 //                        " its manhattan value is: " + b.manhattan());
-                SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, minSearchNode);
+                SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, b.manhattan(), b.hamming(), minSearchNode);
 
                 if (gameTree.get(b) != null) {
                     StdOut.println("Found a match in a GameTree of size: " + gameTree.size());
@@ -542,8 +557,12 @@ public class Solver {
                         MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
                             @Override
                             public int compare(SearchNode o1, SearchNode o2) {
-                                if (o1.GetPriority() > o2.GetPriority()) return 1;
-                                else if (o2.GetPriority() > o1.GetPriority()) return -1;
+                                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
+                                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                                if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
+                                if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
+                                if (o1.numOfMoves > o2.numOfMoves) return 1;
+                                if (o1.numOfMoves > o2.numOfMoves) return -1;
                                 return 0;
                             }
                         });
@@ -1233,12 +1252,16 @@ public class Solver {
         //private final int hamming;
         private final int numOfMoves;
         private final SearchNode prevSearchNode;
+        private int hamming;
+        private int manhattan;
 
 
-        public SearchNode(Board b, int m, SearchNode prev) {
+        public SearchNode(Board b, int m, int manhattan, int hamming, SearchNode prev) {
             currentBoard = b;
             numOfMoves = m;
             prevSearchNode = prev;
+            this.hamming = hamming;
+            this.manhattan = manhattan;
             //this.manhattan = currentBoard.manhattan();
             //this.hamming = currentBoard.hamming();
         }
@@ -1263,11 +1286,19 @@ public class Solver {
         }
 
         public int GetManhattan() {
-            return this.GetCurrentBoard().manhattan();
+            return this.manhattan;
         }
 
         public int GetHamming() {
-            return this.GetCurrentBoard().hamming();
+            return this.hamming;
+        }
+
+        private int GetHammingPriority() {
+            return hamming + numOfMoves;
+        }
+
+        private int GetManhattanPriority() {
+            return manhattan + numOfMoves;
         }
 
         public boolean equals(SearchNode o) {
@@ -1287,9 +1318,10 @@ public class Solver {
 //            else if (o.hamming > this.hamming) return -1;
 //            else if (this.numOfMoves > o.numOfMoves) return 1;
 //            else if (o.numOfMoves > this.numOfMoves) return -1;
-
-            if (this.GetCurrentBoard().manhattan() > o.GetCurrentBoard().manhattan()) return 1;
-            if (this.GetCurrentBoard().manhattan() < o.GetCurrentBoard().manhattan()) return -1;
+            if (this.GetManhattanPriority() > o.GetHammingPriority()) return 1;
+            if (this.GetManhattanPriority() < o.GetHammingPriority()) return -1;
+            if (this.GetHammingPriority() > o.GetHammingPriority()) return 1;
+            if (o.GetHammingPriority() > this.GetHammingPriority()) return -1;
             if (this.numOfMoves > o.numOfMoves) return 1;
             if (o.numOfMoves > this.numOfMoves) return -1;
             return 0;
@@ -1307,254 +1339,17 @@ public class Solver {
 
     // test client (see below)
     public static void main(String[] args) {
-        //TODO: Build tables: initial, goal, and change 1 digit at a time and see how they are printed out when you print the tree
-        int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}};
-        int[][] testTiles2 = {{5, 0, 2}, {4, 7, 3}, {8, 6, 1}};
-        int[][] testTiles3 = {{5, 2, 3}, {4, 0, 7}, {8, 6, 1}};
-        int[][] testTiles4 = {{5, 0, 2}, {4, 7, 3}, {8, 6, 1}};
-        int[][] testTiles5 = {{5, 0, 3}, {4, 2, 7}, {8, 6, 1}};
-        int[][] testTiles6 = {{5, 2, 3}, {0, 4, 7}, {8, 6, 1}};
-        int[][] testTiles7 = {{5, 2, 3}, {4, 6, 7}, {8, 0, 1}};
-        int[][] testTiles8 = {{2, 0, 3}, {1, 4, 6}, {7, 5, 8}};
-        int[][] testTiles9 = {{2, 4, 3}, {1, 0, 6}, {7, 5, 8}};
-        int[][] testTiles10 = {{2, 4, 3}, {0, 1, 6}, {7, 5, 8}};
-        int[][] testTiles11 = {{2, 4, 3}, {7, 1, 6}, {0, 5, 8}};  // man=8 hamming=6 7 moves
-        int[][] testTiles12 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}};
-        //char[][] testTilesCopy = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
-        //char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-        //char[][] goalTilesCopy = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-        //char[][] gNeighbor1 = {{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};
-        //char[][] gNeighbor2 = {{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};
-        //Board bNeigbor1 = new Board(gNeighbor1);
-        //Board bNeigbor2 = new Board(gNeighbor2);
-        //StdOut.println(" Hamming Distance of Neighbor 1 : " + bNeigbor1.hamming() + " Manhattan Distance of Neighbor 1:" + bNeigbor1.manhattan());
-        //StdOut.println(" Hamming Distance of Neighbor 2 : " + bNeigbor2.hamming() + " Manhattan Distance of neighbor 2:" + bNeigbor2.manhattan());
-//        int[][] testTilesNeighbor1 = {{1, 0, 3}, {4, 2, 5}, {7, 8, 6}}; // Manhattan: 3, moves: 1,priority= 4
-//        int[][] testTilesNeighbor2 = {{4, 1, 3}, {0, 2, 5}, {7, 8, 6}}; // Manhattan: 5, moves: 1, priority: 6
-//        int[][] testTilesNeighbor3 = {{4, 1, 3}, {7, 2, 5}, {0, 8, 6}}; // Manhattan: 6, moves: 2, priority: 8
-//        int[][] testTilesNeighbor4 = {{1, 2, 3}, {4, 0, 5}, {7, 8, 6}}; // Manhattan: 2, moves: 2, priority: 4
-//        int[][] testTilesNeighbor5 = {{1, 2, 3}, {4, 6, 5}, {7, 8, 0}};
-//        bNeigbor1 = new Board(testTilesNeighbor1);
-//        bNeigbor2 = new Board(testTilesNeighbor2);
-        Board testTilesBoard = new Board(testTiles12);
-//        Board copyOfTestTilesBoard = new Board(testTiles);
-//        Board testTilesNeighbor1Board = new Board(testTilesNeighbor1);
-//        Board testTilesNeighbor2Board = new Board(testTilesNeighbor2);
-//        Board testTilesNeighbor3Board = new Board(testTilesNeighbor3);
-//        Board testTilesNeighbor4Board = new Board(testTilesNeighbor4);
-//        Board testTilesNeighbor5Board = new Board(testTilesNeighbor5);
-//
-//        SearchNode testTilesBoardNode = new SearchNode(testTilesBoard, 0, null);
-//        GameTree<SearchNode, Integer> gt = new GameTree<>();
-//
-//        SearchNode copyOfTestTilesBoardNode = new SearchNode(copyOfTestTilesBoard, 1, null);
-//        gt.put(copyOfTestTilesBoardNode, copyOfTestTilesBoardNode.GetPriority());
-//        SearchNode testTilesNeighbor1BoardNode = new SearchNode(testTilesNeighbor1Board, testTilesBoardNode.numOfMoves + 1, testTilesBoardNode);
-//        SearchNode testTilesNeighbor2BoardNode = new SearchNode(testTilesNeighbor2Board, testTilesBoardNode.numOfMoves + 1, testTilesNeighbor1BoardNode);
-//        SearchNode testTilesNeighbor3BoardNode = new SearchNode(testTilesNeighbor3Board, testTilesNeighbor2BoardNode.numOfMoves + 1, testTilesNeighbor2BoardNode);
-//        SearchNode testTilesNeighbor4BoardNode = new SearchNode(testTilesNeighbor4Board, testTilesNeighbor1BoardNode.numOfMoves + 1, testTilesNeighbor1BoardNode);
-//        SearchNode testTilesNeighbor5BoardNode = new SearchNode(testTilesNeighbor5Board, testTilesNeighbor1BoardNode.numOfMoves + 1, testTilesNeighbor1BoardNode);
-//        gt.put(testTilesBoardNode, testTilesBoardNode.manhattan);
-//        gt.put(testTilesNeighbor1BoardNode, testTilesNeighbor1BoardNode.manhattan);
-//        gt.put(testTilesNeighbor2BoardNode, testTilesNeighbor2BoardNode.manhattan);
-//        gt.put(testTilesNeighbor3BoardNode, testTilesNeighbor3BoardNode.manhattan);
-//        gt.put(testTilesNeighbor4BoardNode, testTilesNeighbor4BoardNode.manhattan);
-//        gt.put(testTilesNeighbor5BoardNode, testTilesNeighbor5BoardNode.manhattan);
-//        int k = gt.rank(testTilesBoardNode);
-//        if (k > 2) {
-//            StdOut.println(k);
-//        }
-//        StdOut.println(gt.rank(testTilesBoardNode));
-//        SearchNode s = gt.select(2);// In a larger tree this should g
-//        SearchNode fs = gt.floor(gt.select(2));
-//        StdOut.println("Here is a node with ranking of 2 : " + s.GetCurrentBoard());
-//        StdOut.println("Here is the floor of it : " + fs.GetCurrentBoard());
-//        s = gt.select(1);
-//        fs = gt.floor(gt.select(1));
-//        StdOut.println("Here is a node with ranking of 1 : " + s.GetCurrentBoard());
-//        StdOut.println("Here is the floor of it : " + fs.GetCurrentBoard());
-//
-//        s = gt.select(0);
-//        fs = gt.floor(gt.select(0));
-//        StdOut.println("Here is a node with ranking of 0 : " + s.GetCurrentBoard());
-//        StdOut.println("Here is the floor of it : " + fs.GetCurrentBoard());
-//
-//        StdOut.println("Ya Ya");
-        //gt.delete(gt.ceiling(testTilesBoardNode));
-//        gt.max();
-//        gt.min();
-//        StdOut.println(gt.min());
-        //gt = new GameTree();
-//        MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
-//            @Override
-//            public int compare(SearchNode o1, SearchNode o2) {
-//                if (o1.GetPriority() > o2.GetPriority()) return 1;
-//                else if (o2.GetPriority() > o1.GetPriority()) return -1;
-//                else if (o1.GetPriority() == o2.GetPriority()) {
-//                    if (o1.hamming > o2.hamming) return 1;
-//                    else if (o2.hamming > o1.hamming) return -1;
-//                }
-//                return 0;
-//            }
-//        });
-//        gt.put(testTilesBoardNode, testTilesBoardNode.manhattan);
-//        for (SearchNode o : gt.keys(gt.min(), testTilesBoardNode)) {
-//            currentPriorityQueue.insert(s);
-//        }
-//        SearchNode result = gt.floor(testTilesBoardNode);
-//        if (gt.get(testTilesBoardNode) != null) StdOut.println("It is not empty! ");
-//        StdOut.println(result.GetCurrentBoard());
-//        StdOut.println(" Hamming Distance of testTilesNeighbor1 : " + bNeigbor1.hamming() + " Manhattan Distance of testTilesNeighbor1:" + bNeigbor1.manhattan());
-//        StdOut.println(" Hamming Distance of testTilesNeighbor2 : " + bNeigbor2.hamming() + " Manhattan Distance of testTilesNeighbor2:" + bNeigbor2.manhattan());
-//        StdOut.println(" Hamming Distance of testTilesNeighbor3 : " + bNeigbor3.hamming() + " Manhattan Distance of testTilesNeighbor3:" + bNeigbor3.manhattan());
-//        StdOut.println(" Hamming Distance of testTilesNeighbor4 : " + bNeigbor4.hamming() + " Manhattan Distance of testTilesNeighbor4:" + bNeigbor4.manhattan());
-//        char[][] testTiles2 = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};
-        // 3x3-10 test
-//        char[][] one = {{0, 4, 1}, {5, 3, 2}, {7, 8, 6}};
-//        char[][] two = {{4, 0, 1}, {5, 3, 2}, {7, 8, 6}};
-//        char[][] three = {{4, 1, 0}, {5, 3, 2}, {7, 8, 6}};
-//        char[][] four = {{4, 1, 2}, {5, 3, 0}, {7, 8, 6}};
-//        char[][] five = {{4, 1, 2}, {5, 0, 3}, {7, 8, 6}};
-//        char[][] six = {{4, 1, 2}, {0, 5, 3}, {7, 8, 6}};
-//        char[][] seven = {{0, 1, 2}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] eight = {{1, 0, 2}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] nine = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] ten = {{1, 0, 2}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] eleven = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] twelve = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};
-//        char[][] thirteen = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-//        char[][] one = {{4, 1, 2}, {3, 0, 6}, {5, 7, 8}};  //updated this one to 3x3-12 table
-//        char[][] two = {{4, 0, 1}, {5, 3, 2}, {7, 8, 6}};
-//        char[][] three = {{4, 1, 0}, {5, 3, 2}, {7, 8, 6}};
-//        char[][] four = {{4, 1, 2}, {5, 3, 0}, {7, 8, 6}};
-//        char[][] five = {{4, 1, 2}, {5, 0, 3}, {7, 8, 6}};
-//        char[][] six = {{4, 1, 2}, {0, 5, 3}, {7, 8, 6}};
-//        char[][] seven = {{0, 1, 2}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] eight = {{1, 0, 2}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] nine = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] ten = {{1, 0, 2}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] eleven = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
-//        char[][] twelve = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};
-//        char[][] thirteen = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-//        GameTree testTree = new GameTree();
-//        Board b1 = new Board(one);
-//        Board b2 = new Board(two);
-//        Board b3 = new Board(three);
-//        Board b4 = new Board(four);
-//        Board b5 = new Board(five);
-//        Board b6 = new Board(six);
-//        Board b7 = new Board(seven);
-//        Board b8 = new Board(eight);
-//        Board b9 = new Board(nine);
-//        Board b10 = new Board(ten);
-//        Board b11 = new Board(eleven);
-//        Board b12 = new Board(twelve);
-//        Board b13 = new Board(thirteen);
-//        assert b13.isGoal();
-//        SearchNode b1TestNode = new SearchNode(b1, 0, null);
-//        SearchNode b2TestNode = new SearchNode(b2, 0, b1TestNode);
-//        SearchNode b3TestNode = new SearchNode(b3, 0, b2TestNode);
-//        SearchNode b4TestNode = new SearchNode(b4, 0, b3TestNode);
-//        SearchNode b5TestNode = new SearchNode(b5, 0, b4TestNode);
-//        SearchNode b6TestNode = new SearchNode(b6, 0, b5TestNode);
-//        SearchNode b7TestNode = new SearchNode(b7, 0, b6TestNode);
-//        SearchNode b8TestNode = new SearchNode(b8, 0, b7TestNode);
-//        SearchNode b9TestNode = new SearchNode(b9, 0, b8TestNode);
-//        SearchNode b10TestNode = new SearchNode(b10, 0, b9TestNode);
-//        SearchNode b11TestNode = new SearchNode(b11, 0, b10TestNode);
-//        SearchNode b12TestNode = new SearchNode(b12, 0, b11TestNode);
-//        SearchNode b13TestNode = new SearchNode(b13, 0, b12TestNode);
-//        SearchNode b1TestNode = new SearchNode(b1, 0, null);
-//        SearchNode b2TestNode = new SearchNode(b2, 1, b1TestNode);
-//        SearchNode b3TestNode = new SearchNode(b3, 2, b2TestNode);
-//        SearchNode b4TestNode = new SearchNode(b4, 3, b3TestNode);
-//        SearchNode b5TestNode = new SearchNode(b5, 4, b4TestNode);
-//        SearchNode b6TestNode = new SearchNode(b6, 5, b5TestNode);
-//        SearchNode b7TestNode = new SearchNode(b7, 6, b6TestNode);
-//        SearchNode b8TestNode = new SearchNode(b8, 7, b7TestNode);
-//        SearchNode b9TestNode = new SearchNode(b9, 8, b8TestNode);
-//        SearchNode b10TestNode = new SearchNode(b10, 9, b9TestNode);
-//        SearchNode b11TestNode = new SearchNode(b11, 10, b10TestNode);
-//        SearchNode b12TestNode = new SearchNode(b12, 11, b11TestNode);
-//        SearchNode b13TestNode = new SearchNode(b13, 12, b12TestNode);
-//Print the manhattan, hamming, and priority of the search nodes
-//        StdOut.println("Manhattan                 Hamming            Priority");
-//        StdOut.printf("%4s %25s  %18s\n", b1.manhattan(), b1.hamming(), b1TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b1.manhattan(), b1.hamming(), b1TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b2.manhattan(), b2.hamming(), b2TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b3.manhattan(), b3.hamming(), b3TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b4.manhattan(), b4.hamming(), b4TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b5.manhattan(), b5.hamming(), b5TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b6.manhattan(), b6.hamming(), b6TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b7.manhattan(), b7.hamming(), b7TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b8.manhattan(), b8.hamming(), b8TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b9.manhattan(), b9.hamming(), b9TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b10.manhattan(), b10.hamming(), b10TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b11.manhattan(), b11.hamming(), b11TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b12.manhattan(), b12.hamming(), b12TestNode.GetPriority());
-//        StdOut.printf("%4s %25s  %18s\n", b13.manhattan(), b13.hamming(), b13TestNode.GetPriority());
-//        testTree.put(b1TestNode, 0);
-//        testTree.put(b2TestNode, 1);
-//        testTree.put(b3TestNode, 2);
-//        testTree.put(b4TestNode, 3);
-//        testTree.put(b5TestNode, 4);
-//        testTree.put(b6TestNode, 5);
-//        testTree.put(b7TestNode, 6);
-//        testTree.put(b8TestNode, 7);
-//        testTree.put(b9TestNode, 8);
-//        testTree.put(b10TestNode, 9);
-//        testTree.put(b11TestNode, 10);
-//        testTree.put(b12TestNode, 11);
-//        testTree.put(b13TestNode, 12);
-//        testTree.put(b1TestNode, 1);
-//        testTree.put(b2TestNode, 1);
-//        testTree.put(b3TestNode, 1);
-//        testTree.put(b4TestNode, 1);
-//        testTree.put(b5TestNode, 1);
-//        testTree.put(b6TestNode, 1);
-//        testTree.put(b7TestNode, 1);
-//        testTree.put(b8TestNode, 1);
-//        testTree.put(b9TestNode, 1);
-//        testTree.put(b10TestNode, 1);
-//        testTree.put(b11TestNode, 1);
-//        testTree.put(b12TestNode, 1);
-//        testTree.put(b13TestNode, 1);
-//        StdOut.println("size = " + testTree.size());
-//        StdOut.println("min  = " + testTree.min());
-//        StdOut.println("max  = " + testTree.max(b2TestNode));
-//        StdOut.println();
-// get returns null if the key does not exist. The if test below actually checks the table inside the objects, and does
-// not put the new object in the tree if the tables are the same which is what I want
-//        if (testTree.get(b2TestNode) == null) {
-//            testTree.put(b2TestNode, 3);
-//        }
-//        // This is how to print all the keys w/o the Iterator. Now I have the keys() and should be able to use it
-//        for (int i = 0; i < testTree.size(); i++) {
-//             =  testTree.select(i);
-//            StdOut.println(s.GetCurrentBoard() + " Priority: " + s.GetPriority());
-//        }
-//        StdOut.println("Printing using foreach loop: ");
-//        for (Object s : testTree.keys()) {
-//            SearchNode temp =  s;
-//            StdOut.println(temp.GetCurrentBoard() + " Priority: " + temp.GetPriority());
-//        }
-//        int[][] expected = {{1, 2, 3, 4}, {8, 7, 6, 5}, {0, 14, 12, 13}, {10, 15, 11, 9,}};
-        //int[][] startingTiles = {{1, 2, 3, 4}, {8, 7, 6, 5}, {9, 10, 11, 12}, {13, 14, 15, 0}};
-//        int[] startingTiles2 = {0, 4, 1, 5, 3, 2, 7, 8, 6};
-        //int[] goal = {1, 2, 3, 4, 5, 6, 7, 8, 0};
-        //int[][] cycles = {{9, 14, 11, 13}, {10, 12}};  //two demensional jagged array
-        //int[] cycles2 = {1, 3, 5, 4, 2, 6, 0};
+
+        int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}};// puzzle 21 - actual = 29 moves
+        //int[][] testTiles1 = {{8, 6, 7}, {2, 0, 4}, {3, 5, 1}};
+        Board testTilesBoard = new Board(testTiles1);
         Solver s = new Solver(testTilesBoard);
-        //int[] result = s.applyCycles(s.changeToOneDemArray(startingTiles), cycles);
-        ///todo-- I need a method called calcuateCycle()
-        //result = s.applyCycle(goal, cycles2);
-//
         if (!s.isSolvable())
             StdOut.println("No solution possible");
         else {
             StdOut.println("Minimum number of moves= " + s.moves);
             for (Board board : s.solutionBoardList) {
-                StdOut.println(board);
+                StdOut.println(" board: " + board + " Hamming Distance of : " + board.hamming() + " Manhattan Distance of : " + board.manhattan());
             }
         }
     }
