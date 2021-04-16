@@ -218,7 +218,9 @@ public class Solver {
         SearchNode gNode = new SearchNode(gBoard, 0, 0, 0, null);
         // adding puzzle 20 to the search node
         //int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
-        int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};//puzzle 20
+        //puzzle 20 int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
+        //puzzle 22 int[][] dbEntry1 = {{4, 8, 2}, {3, 6, 5}, {1, 7, 0}};
+        int[][] dbEntry1 = {{2, 8, 1}, {3, 6, 1}, {7, 0, 4}};// puzzle 25
         Board dbBoard1 = new Board(dbEntry1);
         dbMoves = 0;
         GameTree<Board, Integer> gameTree = new GameTree<>();
@@ -448,11 +450,12 @@ public class Solver {
                     dbMoves++;
                     if (gameTree.get(minSearchNode.GetCurrentBoard()) != null) {
                         StdOut.println("Found a match of Minimum Search Tree in the Game Tree.");
+                        StdOut.println(gameTree.floor(minSearchNode.GetCurrentBoard()));
+                        StdOut.println(gameTree.ceiling(minSearchNode.GetCurrentBoard()));
+                        StdOut.println("These are floor and ceiling of minSearch");
                     }
                 }
             }
-            int[][] targetTiles = {{5, 2, 0}, {4, 1, 3}, {8, 7, 6}};//
-            Board targetBoard = new Board(targetTiles);
 
             if (minTwinNode.GetCurrentBoard().isGoal()) {
                 //StdOut.println("Matched the goal in the twin priority queue.");
