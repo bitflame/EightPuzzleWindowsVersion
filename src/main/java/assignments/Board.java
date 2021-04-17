@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Board implements Comparable<Board> {
+public class Board implements {
     private final int[][] tiles;
     private final int n;
     private Integer blankRow;
@@ -350,20 +350,20 @@ public class Board implements Comparable<Board> {
         StdOut.println("The number of inversions are: ");
     }
 
-    @Override
-    public int compareTo(Board o) {
-        if (this.manhattan > o.manhattan) return 1;
-        if (this.manhattan < o.manhattan) return -1;
-        if (this.hamming > o.hamming) return 1;
-        if (this.hamming < o.hamming) return -1;
-        if (this.tiles[0][0] > o.tiles[0][0]) return 1;
-        if (this.tiles[0][0] < o.tiles[0][0]) return -1;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (this.tiles[i][j] > o.tiles[i][j]) return 1;
-            }
-        }
-        if (this.equals(o)) return 0;
-        return 1;
-    }
+
+//    public int compareTo(Board o) {
+//        if (this.manhattan > o.manhattan) return 1;
+//        if (this.manhattan < o.manhattan) return -1;
+//        if (this.hamming > o.hamming) return 1;
+//        if (this.hamming < o.hamming) return -1;
+//        if (this.tiles[0][0] > o.tiles[0][0]) return 1;
+//        if (this.tiles[0][0] < o.tiles[0][0]) return -1;
+//        for (int i = 0; i < n; i++) {
+//            for (int j = 0; j < n; j++) {
+//                if (this.tiles[i][j] > o.tiles[i][j]) return 1;
+//            }
+//        }
+//        if (this.equals(o)) return 0;
+//        return 1;
+//    }
 }
