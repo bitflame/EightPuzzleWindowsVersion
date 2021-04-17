@@ -18,7 +18,6 @@ public class Solver {
     private boolean isConsecitiveNeighbor;
     private int blankCol;
     private int blankRow;
-    private int dbMoves;
     private List<SearchNode> dB = new ArrayList<>();
 
     //    private List<SearchNode> GeneratePermutations(int boardDimensions, Integer[] currentCycle, SearchNode goalNode) {
@@ -217,17 +216,94 @@ public class Solver {
         Board gBoard = new Board(goal);
         SearchNode gNode = new SearchNode(gBoard, 0, 0, 0, null);
         // adding puzzle 20 to the search node
-        //int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
-        //puzzle 20 int[][] dbEntry1 = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
-        //puzzle 22 int[][] dbEntry1 = {{4, 8, 2}, {3, 6, 5}, {1, 7, 0}};
-        int[][] dbEntry1 = {{2, 8, 1}, {3, 6, 1}, {7, 0, 4}};// puzzle 25
-        Board dbBoard1 = new Board(dbEntry1);
-        dbMoves = 0;
-        GameTree<Board, Integer> gameTree = new GameTree<>();
-        gameTree.put(dbBoard1, dbMoves);
-        dbMoves++;
-        for (Board b : dbBoard1.neighbors()) {
-            gameTree.put(b, dbMoves);
+        int[][] dbEntry = {{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};
+        Board dbBoard = new Board(dbEntry);
+        //(Board b, int m, int manhattan, int hamming, SearchNode prev)
+        GameTree<SearchNode, Integer> gameTree = new GameTree<>();
+        SearchNode dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{1, 2, 7}, {0, 4, 3}, {6, 5, 8}};// puzzle 19
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{5, 6, 2}, {1, 8, 4}, {7, 0, 3}};// puzzle 18
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{5, 1, 8}, {2, 7, 3}, {4, 0, 6}};// puzzle 17
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{1, 0, 2}, {7, 5, 4}, {8, 6, 3}};// puzzle 11
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{1, 6, 4}, {7, 0, 8}, {2, 3, 5}};// puzzle 20
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{2, 3, 5}, {1, 0, 4}, {7, 8, 6}};// puzzle 8
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{1, 2, 3}, {0, 7, 6}, {5, 4, 8}};// puzzle 7
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{4, 1, 3}, {0, 2, 6}, {7, 5, 8}};// puzzle 7
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{8, 6, 7}, {2, 5, 4}, {3, 0, 1}};// puzzle3x3-31.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{8, 6, 7}, {2, 0, 4}, {3, 5, 1}};// puzzle3x3-30.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{1, 8, 5}, {0, 2, 4}, {3, 6, 7}};// puzzle3x3-29.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{6, 3, 8}, {5, 4, 1}, {7, 2, 0}};// puzzle3x3-28.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{4, 8, 7}, {5, 3, 1}, {0, 6, 2}};// puzzle3x3-26.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{8, 3, 5}, {6, 4, 2}, {1, 0, 7}};// puzzle3x3-25.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{6, 5, 3}, {4, 1, 7}, {0, 2, 8}};// puzzle3x3-24.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{6, 0, 8}, {4, 3, 5}, {1, 2, 7}};// puzzle3x3-23.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{5, 3, 6}, {4, 0, 7}, {1, 8, 2}};// puzzle3x3-22.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{8, 7, 2}, {1, 5, 0}, {4, 6, 3}};// puzzle3x3-21.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{7, 4, 3}, {2, 8, 6}, {0, 5, 1}};// puzzle3x3-20.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{7, 0, 4}, {8, 5, 1}, {6, 3, 2}};// puzzle3x3-19.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{1, 4, 3}, {7, 0, 8}, {6, 5, 2}};// puzzle3x3-18.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{4, 3, 1}, {0, 2, 6}, {7, 8, 5}};// puzzle3x3-17.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{5, 2, 1}, {4, 8, 3}, {7, 6, 0}};// puzzle3x3-16.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{2, 0, 8}, {1, 3, 5}, {4, 6, 7}};// puzzle3x3-15.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{3, 4, 6}, {2, 0, 8}, {1, 7, 5}};// puzzle3x3-14.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        dbEntry = new int[][]{{4, 3, 1}, {0, 7, 2}, {8, 5, 6}};// puzzle3x3-13.txt
+        dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
+        gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
+        for (Board b : dbBoard.neighbors()) {
+            SearchNode temp = new SearchNode(b, dbSearchNode.numOfMoves + 1, b.manhattan(), b.hamming(), dbSearchNode);
+            gameTree.put(temp, temp.GetPriority());
+            StdOut.println("Adding to the database.");
         }
         //gameTree.put(gNode, gBoard.manhattan());
 //        List<Integer[]> cycles = new ArrayList<>();
@@ -442,17 +518,24 @@ public class Solver {
 //                currentPriorityQueueTwin.insert(gameTreeTwin.floor(minTwinNode));
 //            }
             // Added the following for loop 4/13/21 2:47
-            for (Board b : gameTree.keys()) {
-                for (Board bNei : b.neighbors()) {
-                    if (bNei != initialBoard && bNei != minSearchNode.GetCurrentBoard()) {
-                        gameTree.put(bNei, dbMoves);
+            for (Object tempObj : gameTree.keys()) {
+                dbSearchNode = (SearchNode) tempObj;
+                for (Board bNei : dbSearchNode.GetCurrentBoard().neighbors()) {
+                    if (bNei != initialBoard && bNei != minSearchNode.GetCurrentBoard()
+                            && bNei != dbSearchNode.GetPrevSearchNode().GetCurrentBoard()) {
+                        SearchNode temp = new SearchNode(bNei, dbSearchNode.numOfMoves + 1, bNei.manhattan(),
+                                bNei.hamming(), dbSearchNode);
+                        gameTree.put(temp, temp.GetPriority());
+                        StdOut.println("Adding to the database inside the loop.");
                     }
-                    dbMoves++;
-                    if (gameTree.get(minSearchNode.GetCurrentBoard()) != null) {
+
+                    if (gameTree.get(minSearchNode) != null) {
                         StdOut.println("Found a match of Minimum Search Tree in the Game Tree.");
-                        StdOut.println(gameTree.floor(minSearchNode.GetCurrentBoard()));
-                        StdOut.println(gameTree.ceiling(minSearchNode.GetCurrentBoard()));
-                        StdOut.println("These are floor and ceiling of minSearch");
+//                        StdOut.println(gameTree.floor(minSearchNode));
+//                        StdOut.println(gameTree.ceiling(minSearchNode));
+//                        StdOut.println("These are floor and ceiling of minSearch");
+                        // If there is a match here I think I should clear the priority queue and fill it with the
+                        // game tree content with rank lower than the match
                     }
                 }
             }
@@ -529,10 +612,10 @@ public class Solver {
 //                        " its manhattan value is: " + b.manhattan());
                 SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, b.manhattan(), b.hamming(), minSearchNode);
 
-                if (gameTree.get(b) != null) {
+                if (gameTree.get(temp1) != null) {
                     StdOut.println("Found a match in a GameTree of size: " + gameTree.size());
-                    if (!gameTree.floor(b).equals(b))
-                        StdOut.println("Found a match with a lower floor.");
+                    // Need to figure out how to use it, perhaps I'll reset the Priority Queue to this neighbor and a few
+                    // more
                 }
 
 
@@ -1258,7 +1341,7 @@ public class Solver {
         private int hamming;
         private int manhattan;
 
-
+        //(Board b, int m, int manhattan, int hamming, SearchNode prev)
         public SearchNode(Board b, int m, int manhattan, int hamming, SearchNode prev) {
             currentBoard = b;
             numOfMoves = m;
@@ -1327,7 +1410,8 @@ public class Solver {
             if (o.GetHammingPriority() > this.GetHammingPriority()) return -1;
             if (this.numOfMoves > o.numOfMoves) return 1;
             if (o.numOfMoves > this.numOfMoves) return -1;
-            return 0;
+            if (this.GetCurrentBoard().equals(o.GetCurrentBoard())) return 0;
+            return -1;
         }
 //    @Override
 //    public int compare(SearchNode o1, SearchNode o2) {

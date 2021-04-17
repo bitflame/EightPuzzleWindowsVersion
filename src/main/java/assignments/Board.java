@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Board implements {
+public class Board {
     private final int[][] tiles;
     private final int n;
     private Integer blankRow;
@@ -138,6 +138,9 @@ public class Board implements {
 
     // does this board equal y?
     public boolean equals(Object y) {
+        Board temp = (Board) y;
+        int length = ((Board) y).n;
+        if (this.n != length) return false;
         if (this == y) return true;
         if (y == null) return false;
         if (this.getClass() != y.getClass()) return false;
