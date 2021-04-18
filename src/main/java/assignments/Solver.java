@@ -386,8 +386,8 @@ public class Solver {
                     genCounter++;
                 }
             }
-            StdOut.println("Added " + genCounter + " neighbors to the database.");
         }
+        StdOut.println("Added " + genCounter + " neighbors to the database.");
         //gameTree.put(gNode, gBoard.manhattan());
 //        List<Integer[]> cycles = new ArrayList<>();
 //        Integer[] cycleOne = {0, 1, 2, 3, 7, 6, 5};// {1, 2, 3, 4, 5, 6, 7}
@@ -461,44 +461,73 @@ public class Solver {
         boolean loopCond = true;
         outerloop:
         while (loopCond) {
-// Find the floor of minSearchNode
+// what is the difference in manhattan distance of minSearchNode and one of the nodes in the tree?
+            int ManDiff = minSearchNode.GetPriority() - gameTree.root.val;
             StdOut.println("Floor of minSearchNode: " + gameTree.floor(minSearchNode).GetCurrentBoard() +
                     " Its hamming distance: " + gameTree.floor(minSearchNode).GetHamming() +
-                    " Its manhattan distance: " + gameTree.floor(minSearchNode).GetManhattan());
+                    " Its manhattan distance: " + gameTree.floor(minSearchNode).GetManhattan() +
+                    " Rank of minSearchNode: " + gameTree.rank(minSearchNode));
             if (gameTree.get(minSearchNode) != null) {
                 StdOut.println("Min Search node is in the tree");
             }
             // Calculate neighbors of minSearchNode and the gametree keys until there is a match
             boolean matched = false;
-            SearchNode[] NeighborsArray = new SearchNode[100];
+            SearchNode[] NeighborsArray = new SearchNode[10000];
             int NeighborsCount = 0;
+            genCounter = 0;
             do {
+
                 for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
                     if (minSearchNode.GetPrevSearchNode() == null || minSearchNode.GetPrevSearchNode().GetCurrentBoard() != b) {
                         //(Board b, int m, int manhattan, int hamming, SearchNode prev)
-                        NeighborsArray[NeighborsCount] = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(),
-                                b.hamming(), minSearchNode);
-                        NeighborsCount++;
+                        if (minSearchNode.numOfMoves < 20) {
+                            NeighborsArray[NeighborsCount] = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(),
+                                    b.hamming(), minSearchNode);
+                            currentPriorityQueue.insert(NeighborsArray[NeighborsCount]);
+                            NeighborsCount = NeighborsCount + 1;
+                        }
                     }
                 }
-                genCounter = 0;
+
                 for (Object o : gameTree.keys()) {
                     SearchNode temp = (SearchNode) o;
                     for (Board NeigBoard : temp.GetCurrentBoard().neighbors()) {
-                        if (!NeigBoard.equals(temp.GetCurrentBoard())) {
+                        if (!NeigBoard.equals(temp.GetCurrentBoard()) && temp.numOfMoves < 20) {
                             SearchNode temp1 = new SearchNode(NeigBoard, temp.numOfMoves + 1, NeigBoard.manhattan(), NeigBoard.hamming(),
                                     temp);
                             gameTree.put(temp1, temp1.GetPriority());
                             genCounter++;
                         }
                     }
-
-                    StdOut.println("Added " + genCounter + " more neighbors to the database.");
+                    //StdOut.println("Added " + genCounter + " more neighbors to the database.");
                 }
-                for (int i = 0; i < NeighborsArray.length; i++) {
-                    if (gameTree.get(NeighborsArray[i]) != null) matched = true;
-                    StdOut.println("Matched something in game tree comming out of the loop. ");
+                for (int i = 0; i < NeighborsCount; i++) {
+                    if (gameTree.get(NeighborsArray[i]) != null) {
+                        matched = true;
+                        StdOut.println("************Matched something in game tree comming out of the loop.************ ");
+                        break;
+                    }
                 }
+                int NeighIndex = NeighborsCount;
+                for (int i = 0; i < NeighIndex; i++) {
+                    for (Board b : NeighborsArray[i].GetCurrentBoard().neighbors()) {
+                        if (!b.equals(NeighborsArray[i].GetPrevSearchNode().GetCurrentBoard()) &&
+                                NeighborsArray[i].numOfMoves < 20) {
+                            NeighborsArray[NeighborsCount] = new SearchNode(b, NeighborsArray[i].numOfMoves + 1, b.manhattan(),
+                                    b.hamming(), NeighborsArray[i]);
+                            currentPriorityQueue.insert(NeighborsArray[NeighborsCount]);
+                            NeighborsCount = NeighborsCount + 1;
+                        }
+                    }
+                }
+                minSearchNode = currentPriorityQueue.delMin();
+                // what would gametree give for the range from minSearchNode to the Goal?
+                for (Object o : gameTree.keys(minSearchNode, gNode)) {
+                    // TODO--you can also write it to a file
+                    SearchNode temp = (SearchNode) o;
+                    StdOut.println(temp.GetCurrentBoard());
+                }
+                StdOut.println("Game tree size is: " + gameTree.size() + " Nodes ");
             } while (!matched);
             StdOut.println("Matched something in game tree and came out of the loop. ");
             StdOut.println(gameTree.rank(minSearchNode));
@@ -1534,14 +1563,14 @@ public class Solver {
 //            else if (o.hamming > this.hamming) return -1;
 //            else if (this.numOfMoves > o.numOfMoves) return 1;
 //            else if (o.numOfMoves > this.numOfMoves) return -1;
-            if (this.GetManhattanPriority() > o.GetHammingPriority()) return 1;
-            if (this.GetManhattanPriority() < o.GetHammingPriority()) return -1;
+            if (this.GetManhattanPriority() > o.GetManhattanPriority()) return 1;
+            if (this.GetManhattanPriority() < o.GetManhattanPriority()) return -1;
             if (this.GetHammingPriority() > o.GetHammingPriority()) return 1;
             if (o.GetHammingPriority() > this.GetHammingPriority()) return -1;
             if (this.numOfMoves > o.numOfMoves) return 1;
             if (o.numOfMoves > this.numOfMoves) return -1;
             if (this.GetCurrentBoard().equals(o.GetCurrentBoard())) return 0;
-            return -1;
+            return 0;
         }
 //    @Override
 //    public int compare(SearchNode o1, SearchNode o2) {
