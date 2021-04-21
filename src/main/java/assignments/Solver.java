@@ -17,13 +17,14 @@ public class Solver {
     private boolean isConsecitiveNeighbor;
     private int blankCol;
     private int blankRow;
+    SearchNode[] NeighborsArray = new SearchNode[10000];
 
     public Solver(Board initialBoard) {
         if (initialBoard == null) {
             throw new IllegalArgumentException("The Board object is empty.");
         }
         GameTree<SearchNode, Integer> gameTree = new GameTree<>();
-        SearchNode[] NeighborsArray = new SearchNode[10000];
+
         int NeighborsCount = 0;
         int NeighIndex = 0;
         int NeiArrayItems = 0;
@@ -237,7 +238,7 @@ public class Solver {
             dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
             gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
             // should have 39 nodes in the game tree
-
+            gameTree.put(minSearchNode, minSearchNode.GetPriority());
             for (Object o : gameTree.keys()) {
                 SearchNode temp = (SearchNode) o;
                 for (Board NeigBoard : temp.GetCurrentBoard().neighbors()) {
@@ -251,7 +252,7 @@ public class Solver {
                 if (minSearchNode.GetPrevSearchNode() == null ||
                         minSearchNode.GetPrevSearchNode().GetCurrentBoard() != b) {
                     //(Board b, int m, int manhattan, int hamming, SearchNode prev)
-                    if (minSearchNode.numOfMoves < 25) {
+                    if (minSearchNode.manhattan < 13) {
                         NeighborsArray[NeighborsCount] = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(),
                                 b.hamming(), minSearchNode);
                         gameTree.put(NeighborsArray[NeighborsCount], NeighborsArray[NeighborsCount].GetPriority());
@@ -262,20 +263,20 @@ public class Solver {
 
 // Find the neighbors of GameTree nodes and put them in the tree if Manhattan distance is below what you need - in this
 // case, 25
+            int interval = 5000;
             loopCounter++;
-            if (loopCounter % 2000 == 0) {
-                StdOut.println("Game Tree Size: " + gameTree.size() + " " +
-                        "Manhattan for the GameTree Min: " + gameTree.min().GetManhattanPriority());
+            if ((loopCounter % interval) == 0) {
+                StdOut.println("Game Tree Size: " + gameTree.size());
             }
             for (Object o : gameTree.keys()) {
                 SearchNode temp = (SearchNode) o;
                 for (Board NeigBoard : temp.GetCurrentBoard().neighbors()) {
-                    if (temp.prevSearchNode == null && temp.GetManhattan() < 20) {
+                    if (temp.prevSearchNode == null && NeigBoard.manhattan() < 15) {
                         SearchNode temp1 = new SearchNode(NeigBoard, temp.numOfMoves + 1, NeigBoard.manhattan(),
                                 NeigBoard.hamming(), temp);
                         gameTree.put(temp1, temp1.GetPriority());
                     } else if (temp.prevSearchNode != null && !NeigBoard.equals(temp.prevSearchNode.GetCurrentBoard())
-                            && temp.manhattan < 20) {
+                            && NeigBoard.manhattan() < 15) {
                         SearchNode temp1 = new SearchNode(NeigBoard, temp.numOfMoves + 1, NeigBoard.manhattan(),
                                 NeigBoard.hamming(), temp);
                         gameTree.put(temp1, temp1.GetPriority());
@@ -283,14 +284,18 @@ public class Solver {
                 }
                 //StdOut.println("Added " + genCounter + " more neighbors to the database.");
             }
+            if (NeighborsCount > (NeighborsArray.length / 2)) {
+                // Create the new array with items you have not processed yet from NeigIndex to NeighborsCount
+                ArrayResize(NeighborsCount, NeighIndex);
+            }
             NeiArrayItems = NeighborsCount;
             for (int i = NeighIndex; i < NeiArrayItems; i++) {
                 NeighIndex = NeighIndex + 1;
                 for (Board b : NeighborsArray[i].GetCurrentBoard().neighbors()) {
-                    if (!b.equals(NeighborsArray[i].GetPrevSearchNode().GetCurrentBoard()) &&
-                            NeighborsArray[i].GetPriority() < 50) {
+                    if (!b.equals(NeighborsArray[i].GetPrevSearchNode().GetCurrentBoard()) && b.manhattan() < 15) {
                         NeighborsArray[NeighborsCount] = new SearchNode(b, NeighborsArray[i].numOfMoves + 1,
                                 b.manhattan(), b.hamming(), NeighborsArray[i]);
+                        gameTree.put(NeighborsArray[NeighborsCount], NeighborsArray[NeighborsCount].GetPriority());
                         NeighborsCount = NeighborsCount + 1;
                     }
                 }
@@ -309,7 +314,8 @@ public class Solver {
                 if (minTwinNode.GetPrevSearchNode() == null && !tb.equals(initialTwinSearchNode.GetCurrentBoard())) {
                     currentPriorityQueueTwin.insert(temp1Twin);
                     //gameTreeTwin.put(temp1Twin, temp1Twin.numOfMoves);
-                } else if (minTwinNode.GetPrevSearchNode() != null && !tb.equals(minTwinNode.GetPrevSearchNode().GetCurrentBoard())) {
+                } else if (minTwinNode.GetPrevSearchNode() != null &&
+                        !tb.equals(minTwinNode.GetPrevSearchNode().GetCurrentBoard())) {
                     if (currentPriorityQueueTwin.size() > 800) {
                         //StdOut.println("resetting the Twin priority queue.");
                         MinPQ<SearchNode> copyTwinPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
@@ -337,7 +343,8 @@ public class Solver {
                         minSearchNode);
                 if (minSearchNode.GetPrevSearchNode() == null && !b.equals(initialBoard)) {
                     currentPriorityQueue.insert(temp1);
-                } else if (minSearchNode.GetPrevSearchNode() != null && !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
+                } else if (minSearchNode.GetPrevSearchNode() != null &&
+                        !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
                     if (currentPriorityQueue.size() > 800) {
                         MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
                             @Override
@@ -393,6 +400,17 @@ public class Solver {
     }
 
     private Solver() {
+    }
+
+    private void ArrayResize(int oldSize, int from) {
+        int newSize = 4 * oldSize;
+        from = from - 1;
+        SearchNode[] temp = new SearchNode[newSize];
+        for (int i = 0; i < oldSize; i++) {
+            temp[i] = NeighborsArray[from];
+            from = from + 1;
+        }
+        NeighborsArray = temp;
     }
 
     // is the initial board solvable? (see below)
