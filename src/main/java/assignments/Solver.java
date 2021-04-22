@@ -244,7 +244,7 @@ public class Solver {
                 gameTree.put(temp1, temp1.GetPriority());
             }
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1000; i++) {
             // Find the neighbors of GameTree nodes and put them in the tree if Manhattan distance is below what you need
             for (Object o : gameTree.keys()) {
                 SearchNode temp = (SearchNode) o;
@@ -377,12 +377,12 @@ public class Solver {
         for (Board b : solutionBoardList) {
             for (SearchNode floorNode : floorsList) {
                 if (b.equals(floorNode.GetCurrentBoard()))
-                    StdOut.println("This node in solution exists in the floors: " + b);
-                for (Board bNei : b.neighbors()) {
-                    if (bNei.equals(floorNode.GetCurrentBoard()))
-                        StdOut.println(bNei + "is a neighbor of " + b + " in " +
-                                "the solution and exists in the floors list.");
-                }
+                    //StdOut.println("This node in solution exists in the floors: " + b);
+                    for (Board bNei : b.neighbors()) {
+                        if (bNei.equals(floorNode.GetCurrentBoard()))
+                            StdOut.println(bNei + "is a neighbor of " + b + " in " +
+                                    "the solution and exists in the floors list.");
+                    }
             }
 
         }
@@ -702,7 +702,7 @@ public class Solver {
     // test client (see below)
     public static void main(String[] args) {
 
-        int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}}; // puzzle 21 - actual = 29 moves
+        //int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}}; // puzzle 21 - actual = 29 moves
         //int[][] testTiles1 = {{6, 3, 0}, {5, 4, 8}, {7, 2, 1}};
         //int[][] testTiles1 = {{5, 4, 1}, {7, 3, 2}, {0, 8, 6}};  // This gets to goal in 12 moves
         //int[][] testTiles1 = {{5, 0, 2}, {4, 7, 3}, {8, 6, 1}};  // This gets to goal in 21 moves
