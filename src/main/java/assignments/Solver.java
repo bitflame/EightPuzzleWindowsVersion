@@ -261,9 +261,9 @@ public class Solver {
                         gameTree.put(temp1, temp1.GetPriority());
                     }
                 }
-                StdOut.println("Here is size of the Game Tree:  " + gameTree.size());
             }
         }
+        StdOut.println("Here is size of the Game Tree:  " + gameTree.size());
         boolean loopCond = true;
         outerloop:
         while (loopCond) {
@@ -487,7 +487,10 @@ public class Solver {
             int cmp = key.compareTo(x.key);
             if (cmp < 0) x.left = put(x.left, key, val);
             else if (cmp > 0) x.right = put(x.right, key, val);
-            else x.val = val;
+            else {
+                //StdOut.println("massage from put() - " + key + " and " + x.key + " are equal" + " setting " + x.val + " = " + val);
+                x.val = val;
+            }
             x.N = size(x.left) + size(x.right) + 1;
             return x;
         }
@@ -699,7 +702,7 @@ public class Solver {
     // test client (see below)
     public static void main(String[] args) {
 
-        //int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}}; // puzzle 21 - actual = 29 moves
+        int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}}; // puzzle 21 - actual = 29 moves
         //int[][] testTiles1 = {{6, 3, 0}, {5, 4, 8}, {7, 2, 1}};
         //int[][] testTiles1 = {{5, 4, 1}, {7, 3, 2}, {0, 8, 6}};  // This gets to goal in 12 moves
         //int[][] testTiles1 = {{5, 0, 2}, {4, 7, 3}, {8, 6, 1}};  // This gets to goal in 21 moves
@@ -719,7 +722,7 @@ public class Solver {
         //int[][] testTiles1 = {{2, 0, 3}, {1, 7, 6}, {5, 4, 8}};  // 9 moves
         // int[][] testTiles1 = {{0, 2, 5}, {1, 3, 4}, {7, 8, 6}};  // 10 moves
         // int[][] testTiles1 = {{1, 2, 3}, {0, 7, 6}, {5, 4, 8}}; // 7 moves
-        int[][] testTiles1 = {{1, 2, 0}, {4, 8, 3}, {7, 6, 5}};// 6 moves
+        //int[][] testTiles1 = {{1, 2, 0}, {4, 8, 3}, {7, 6, 5}};// 6 moves
         Board testTilesBoard = new Board(testTiles1);
         Solver s = new Solver(testTilesBoard);
         if (!s.isSolvable())

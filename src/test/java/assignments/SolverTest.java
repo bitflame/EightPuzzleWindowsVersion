@@ -48,7 +48,6 @@ public class SolverTest {
 //                {3, 2}, {4, 3}, {5, 5}, {6, 8}});
     }
 
-
     public SolverTest(String fileName, Board input, int expected) throws IOException {
         fInput = input;
         fExpected = expected;
