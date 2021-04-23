@@ -1433,35 +1433,24 @@ public class Solver {
             SearchNode s = new SearchNode(b, 0, b.manhattan(), b.hamming(), null);
             gameTree.put(s, s.GetPriority());
         }
-        /*Going to comment the following out for the time being. I want to see if just the nodes will give me the
-        answer.*/
-//        for (Object o : gameTree.keys()) {
-//            SearchNode temp = (SearchNode) o;
-//            for (Board NeigBoard : temp.GetCurrentBoard().neighbors()) {
-//                SearchNode temp1 = new SearchNode(NeigBoard, temp.numOfMoves + 1, NeigBoard.manhattan(),
-//                        NeigBoard.hamming(), temp);
-//                gameTree.put(temp1, temp1.GetPriority());
-//            }
-//        }
-//        for (int i = 0; i < 1000; i++) {
-//            // Find the neighbors of GameTree nodes and put them in the tree if Manhattan distance is below what you need
-//            for (Object o : gameTree.keys()) {
-//                SearchNode temp = (SearchNode) o;
-//                for (Board NeigBoard : temp.GetCurrentBoard().neighbors()) {
-//                    if (temp.prevSearchNode == null && NeigBoard.manhattan() < 15) {
-//                        SearchNode temp1 = new SearchNode(NeigBoard, temp.numOfMoves + 1, NeigBoard.manhattan(),
-//                                NeigBoard.hamming(), temp);
-//                        gameTree.put(temp1, temp1.GetPriority());
-//
-//                    } else if (temp.prevSearchNode != null && !NeigBoard.equals(temp.prevSearchNode.GetCurrentBoard())
-//                            && NeigBoard.manhattan() < 15) {
-//                        SearchNode temp1 = new SearchNode(NeigBoard, temp.numOfMoves + 1, NeigBoard.manhattan(),
-//                                NeigBoard.hamming(), temp);
-//                        gameTree.put(temp1, temp1.GetPriority());
-//                    }
-//                }
-//            }
-//        }
+        for (int i = 0; i < 100; i++) {
+            // Find the neighbors of GameTree nodes and put them in the tree if Manhattan distance is below what you need
+            for (Object o : gameTree.keys()) {
+                SearchNode temp = (SearchNode) o;
+                for (Board NeigBoard : temp.GetCurrentBoard().neighbors()) {
+                    if (temp.prevSearchNode == null) {
+                        SearchNode temp1 = new SearchNode(NeigBoard, temp.numOfMoves + 1, NeigBoard.manhattan(),
+                                NeigBoard.hamming(), temp);
+                        gameTree.put(temp1, temp1.GetPriority());
+
+                    } else if (temp.prevSearchNode != null && !NeigBoard.equals(temp.prevSearchNode.GetCurrentBoard())) {
+                        SearchNode temp1 = new SearchNode(NeigBoard, temp.numOfMoves + 1, NeigBoard.manhattan(),
+                                NeigBoard.hamming(), temp);
+                        gameTree.put(temp1, temp1.GetPriority());
+                    }
+                }
+            }
+        }
         StdOut.println("There are  " + gameTree.size() + " nodes in the Game Tree.");
         boolean loopCond = true;
         outerloop:
@@ -1510,10 +1499,16 @@ public class Solver {
                 SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, b.manhattan(), b.hamming(),
                         minSearchNode);
                 ;
-                /*If the node is in the tree already, put it in the min search node with more priority.*/
+                /*If the node is in the tree already, put it in the min search node with slightly lower number of moves.*/
                 if (gameTree.get(temp1) != null) {
-                    temp1 = new SearchNode(b, 0, b.manhattan(), b.hamming(), minSearchNode);
-                    StdOut.println("*********Found a node in the tree, and put it in priority queue.");
+                    /*If the node is in the GameTree you just need to keep getting the floor of it until you reach the
+                    goal. You do need to modify the tree to record the number of moves though. */
+                    ///TODO -- Modify the tree to record the number of moves though.
+                    temp1 = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(), b.hamming(), minSearchNode);
+                    //StdOut.println("*********Found a node in the tree, and put it in priority queue.");
+                    minSearchNode = temp1;
+                    currentPriorityQueue.insert(minSearchNode);
+                    break;
                 }
 
                 if (minSearchNode.GetPrevSearchNode() == null && !b.equals(initialBoard)) {
@@ -1907,9 +1902,7 @@ public class Solver {
             if (o.GetHamming() > this.GetHamming()) return -1;
             if (this.numOfMoves > o.numOfMoves) return 1;
             if (o.numOfMoves > this.numOfMoves) return -1;
-            if (this.GetCurrentBoard().equals(o.GetCurrentBoard())) return 0;
-            else this.changePriority();
-            return 1;
+            return 0;
         }
     }
 
