@@ -36,8 +36,8 @@ public class Solver {
         MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
-                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                if (o1.GetPriority() > o2.GetPriority()) return 1;
+                if (o2.GetPriority() > o1.GetPriority()) return -1;
                 if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
                 if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
                 if (o1.numOfMoves > o2.numOfMoves) return 1;
@@ -48,8 +48,8 @@ public class Solver {
         MinPQ<SearchNode> currentPriorityQueueTwin = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
-                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                if (o1.GetPriority() > o2.GetPriority()) return 1;
+                if (o2.GetPriority() > o1.GetPriority()) return -1;
                 if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
                 if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
                 if (o1.numOfMoves > o2.numOfMoves) return 1;
@@ -74,7 +74,7 @@ public class Solver {
         SearchNode gNode = new SearchNode(gBoard, 0, 0, 0, null);
         SearchNode minSearchNode = currentPriorityQueue.delMin();
         SearchNode minTwinNode = currentPriorityQueueTwin.delMin();
-
+// region db
         int[][] dbEntry = {{1, 0, 2}, {7, 5, 4}, {8, 6, 3}};// puzzle 11
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 5, 2}, {7, 4, 3}, {8, 6, 0}};// puzzle 11
@@ -1423,7 +1423,7 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-0.txt
         solutionTileList.add(dbEntry);
-
+// endregion
         /*Solutions -- write a loop for the solutionTileList that creates search nodes and adds them to the GameTree
          * then put minSearchNode in the MinPQ, and see if minSearchNode or its neighbors are in the tree. If so, put them
          * in the minPriority Queue with a higher priority*/
@@ -1462,7 +1462,7 @@ public class Solver {
 //                }
 //            }
 //        }
-        StdOut.println("Here is size of the Game Tree:  " + gameTree.size());
+        StdOut.println("There are  " + gameTree.size() + " nodes in the Game Tree.");
         boolean loopCond = true;
         outerloop:
         while (loopCond) {
@@ -1487,8 +1487,8 @@ public class Solver {
                         MinPQ<SearchNode> copyTwinPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
                             @Override
                             public int compare(SearchNode o1, SearchNode o2) {
-                                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
-                                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                                if (o1.GetPriority() > o2.GetPriority()) return 1;
+                                if (o2.GetPriority() > o1.GetPriority()) return -1;
                                 if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
                                 if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
                                 if (o1.numOfMoves > o2.numOfMoves) return 1;
@@ -1509,6 +1509,13 @@ public class Solver {
             for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
                 SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, b.manhattan(), b.hamming(),
                         minSearchNode);
+                ;
+                /*If the node is in the tree already, put it in the min search node with more priority.*/
+                if (gameTree.get(temp1) != null) {
+                    temp1 = new SearchNode(b, 0, b.manhattan(), b.hamming(), minSearchNode);
+                    StdOut.println("*********Found a node in the tree, and put it in priority queue.");
+                }
+
                 if (minSearchNode.GetPrevSearchNode() == null && !b.equals(initialBoard)) {
                     currentPriorityQueue.insert(temp1);
                 } else if (minSearchNode.GetPrevSearchNode() != null &&
@@ -1517,8 +1524,8 @@ public class Solver {
                         MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
                             @Override
                             public int compare(SearchNode o1, SearchNode o2) {
-                                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
-                                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                                if (o1.GetPriority() > o2.GetPriority()) return 1;
+                                if (o2.GetPriority() > o1.GetPriority()) return -1;
                                 if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
                                 if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
                                 if (o1.numOfMoves > o2.numOfMoves) return 1;
@@ -1612,6 +1619,7 @@ public class Solver {
             return null;
     }
 
+    // region GameTree
     private static class GameTree<Key extends Comparable<Key>, Value> {
         private node root;
 
@@ -1822,6 +1830,8 @@ public class Solver {
         }
     }
 
+    // endregion
+    // region SearchNode
     public static class SearchNode implements Comparable<SearchNode> {
         private final Board currentBoard;
         private final int numOfMoves;
@@ -1903,6 +1913,7 @@ public class Solver {
         }
     }
 
+    // endregion
     // test client (see below)
     public static void main(String[] args) {
 
