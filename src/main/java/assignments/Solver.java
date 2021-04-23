@@ -142,25 +142,279 @@ public class Solver {
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
         dbEntry = new int[][]{{6, 3, 8}, {5, 4, 1}, {7, 2, 0}};// puzzle3x3-28.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {5, 4, 0}, {7, 2, 1}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {5, 0, 4}, {7, 2, 1}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {5, 2, 4}, {7, 0, 1}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {5, 2, 4}, {7, 1, 0}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {5, 2, 0}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 0}, {5, 2, 8}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 0, 3}, {5, 2, 8}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 6, 3}, {5, 2, 8}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 6, 3}, {0, 2, 8}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 6, 3}, {2, 0, 8}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 0, 3}, {2, 6, 8}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 5, 3}, {2, 6, 8}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {0, 6, 8}, {7, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {7, 6, 8}, {0, 1, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {7, 6, 8}, {1, 0, 4}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {7, 6, 8}, {1, 4, 0}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {7, 6, 0}, {1, 4, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {7, 0, 6}, {1, 4, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {0, 7, 6}, {1, 4, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {1, 7, 6}, {0, 4, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {1, 7, 6}, {4, 0, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 5, 3}, {1, 0, 6}, {4, 7, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 0, 3}, {1, 5, 6}, {4, 7, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 2, 3}, {1, 5, 6}, {4, 7, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {0, 5, 6}, {4, 7, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {0, 7, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-28.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
         dbEntry = new int[][]{{4, 8, 7}, {5, 3, 1}, {0, 6, 2}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 8, 7}, {5, 3, 1}, {6, 0, 2}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 8, 7}, {5, 0, 1}, {6, 3, 2}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 0, 7}, {5, 8, 1}, {6, 3, 2}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 7, 0}, {5, 8, 1}, {6, 3, 2}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 7, 0}, {5, 8, 1}, {6, 3, 2}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 7, 1}, {5, 8, 0}, {6, 3, 2}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 7, 1}, {5, 8, 2}, {6, 3, 0}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 7, 1}, {5, 8, 2}, {6, 0, 3}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 7, 1}, {5, 8, 2}, {0, 6, 3}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 7, 1}, {0, 8, 2}, {5, 6, 3}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 7, 1}, {8, 0, 2}, {5, 6, 3}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 0, 1}, {8, 7, 2}, {5, 6, 3}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 0}, {8, 7, 2}, {5, 6, 3}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {8, 7, 0}, {5, 6, 3}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {8, 7, 3}, {5, 6, 0}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {8, 7, 3}, {5, 0, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {8, 7, 3}, {0, 5, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {0, 7, 3}, {8, 5, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {7, 0, 3}, {8, 5, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {7, 5, 3}, {8, 0, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {7, 5, 3}, {0, 8, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{4, 1, 2}, {0, 5, 3}, {7, 8, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 1, 2}, {4, 5, 3}, {7, 8, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 0, 2}, {4, 5, 3}, {7, 8, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-26.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-26.txt
         solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
         dbEntry = new int[][]{{8, 3, 5}, {6, 4, 2}, {1, 0, 7}};// puzzle3x3-25.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 3, 5}, {6, 0, 2}, {1, 4, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 3, 5}, {0, 6, 2}, {1, 4, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 3, 5}, {1, 6, 2}, {0, 4, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 3, 5}, {1, 6, 2}, {4, 0, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 3, 5}, {1, 0, 2}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 0, 5}, {1, 3, 2}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 5, 0}, {1, 3, 2}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 5, 2}, {1, 3, 0}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 5, 2}, {1, 0, 3}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{8, 0, 2}, {1, 5, 3}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 8, 2}, {1, 5, 3}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 8, 2}, {0, 5, 3}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 8, 2}, {5, 0, 3}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 0, 2}, {5, 8, 3}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 0}, {5, 8, 3}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 8, 0}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 0, 8}, {4, 6, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 6, 8}, {4, 0, 7}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 6, 8}, {4, 7, 0}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 6, 0}, {4, 7, 8}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 0, 6}, {4, 7, 8}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {0, 5, 6}, {4, 7, 8}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {0, 7, 8}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-25.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
         dbEntry = new int[][]{{6, 5, 3}, {4, 1, 7}, {0, 2, 8}};// puzzle3x3-24.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 5, 3}, {0, 1, 7}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 5, 3}, {6, 1, 7}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 0, 3}, {6, 1, 7}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 1, 3}, {6, 0, 7}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 1, 3}, {0, 6, 7}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 1, 3}, {5, 6, 7}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 0, 3}, {5, 6, 7}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 3, 0}, {5, 6, 7}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 3, 7}, {5, 6, 0}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 3, 7}, {5, 0, 6}, {4, 2, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 3, 7}, {5, 2, 6}, {4, 0, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 3, 7}, {5, 2, 6}, {4, 8, 0}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 3, 7}, {5, 2, 0}, {4, 8, 6}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 3, 0}, {5, 2, 7}, {4, 8, 6}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 0, 3}, {5, 2, 7}, {4, 8, 6}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 0, 7}, {4, 8, 6}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 7, 0}, {4, 8, 6}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 7, 6}, {4, 8, 0}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 7, 6}, {4, 0, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 0, 6}, {4, 7, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {0, 5, 6}, {4, 7, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {0, 7, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-24.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
         dbEntry = new int[][]{{6, 0, 8}, {4, 3, 5}, {1, 2, 7}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {4, 0, 5}, {1, 2, 7}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {4, 2, 5}, {1, 0, 7}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {4, 2, 5}, {0, 1, 7}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {0, 2, 5}, {4, 1, 7}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {2, 0, 5}, {4, 1, 7}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {2, 1, 5}, {4, 0, 7}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {2, 1, 5}, {4, 7, 0}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 8}, {2, 1, 0}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 3, 0}, {2, 1, 8}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{6, 0, 3}, {2, 1, 8}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 6, 3}, {2, 1, 8}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 6, 3}, {0, 1, 8}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 6, 3}, {1, 0, 8}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{2, 0, 3}, {1, 6, 8}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 2, 3}, {1, 6, 8}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {0, 6, 8}, {4, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 6, 8}, {0, 7, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 6, 8}, {7, 0, 5}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 6, 8}, {7, 5, 0}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 6, 0}, {7, 5, 8}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 0, 6}, {7, 5, 8}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-23.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-23.txt
         solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
@@ -176,6 +430,38 @@ public class Solver {
         dbEntry = new int[][]{{5, 3, 6}, {4, 0, 8}, {1, 2, 7}};// puzzle3x3-22.txt
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{5, 3, 6}, {4, 2, 8}, {1, 0, 7}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 3, 6}, {4, 2, 8}, {0, 1, 7}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 3, 6}, {0, 2, 8}, {4, 1, 7}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 3, 6}, {2, 0, 8}, {4, 1, 7}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 3, 6}, {2, 1, 8}, {4, 0, 7}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 3, 6}, {2, 1, 0}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 3, 0}, {2, 1, 6}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 0, 3}, {2, 1, 6}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 1, 3}, {2, 0, 6}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{5, 1, 3}, {0, 2, 6}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{0, 1, 3}, {5, 2, 6}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 0, 3}, {5, 2, 6}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {5, 0, 6}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {0, 5, 6}, {4, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {0, 7, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-22.txt
         solutionTileList.add(dbEntry);
 
         //dbBoard = new Board(dbEntry);
@@ -221,6 +507,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-21.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -264,7 +552,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-20.txt
         solutionTileList.add(dbEntry);
-
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-22.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -304,7 +593,7 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};// puzzle3x3-19.txt
         solutionTileList.add(dbEntry);
-        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-19.txt
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 0}};// puzzle3x3-19.txt
         solutionTileList.add(dbEntry);
 
         //dbBoard = new Board(dbEntry);
@@ -342,7 +631,7 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 0, 5}, {7, 8, 6}};// puzzle3x3-18.txt
         solutionTileList.add(dbEntry);
-        dbEntry = new int[][]{{1, 2, 3}, {4, 0, 5}, {7, 8, 6}};// puzzle3x3-18.txt
+        dbEntry = new int[][]{{1, 2, 3}, {4, 0, 5}, {7, 8, 0}};// puzzle3x3-18.txt
         solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
@@ -379,7 +668,7 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};// puzzle3x3-17.txt
         solutionTileList.add(dbEntry);
-        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-17.txt
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 0}};// puzzle3x3-17.txt
         solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
@@ -414,6 +703,10 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {0, 7, 8}};// puzzle3x3-16.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-16.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-16.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -447,6 +740,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-15.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-15.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -478,6 +773,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-14.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-14.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -505,7 +802,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-13.txt
         solutionTileList.add(dbEntry);
-
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-13.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -531,7 +829,9 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};// puzzle3x3-12.txt
         solutionTileList.add(dbEntry);
-        dbEntry = new int[][]{{1, 2, 0}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-12.txt
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-12.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-12.txt
         solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
@@ -554,9 +854,11 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {0, 4, 5}, {7, 8, 6}};// puzzle3x3-11.txt
         solutionTileList.add(dbEntry);
-        dbEntry = new int[][]{{1, 2, 3}, {4, 0, 5}, {1, 8, 6}};// puzzle3x3-11.txt
+        dbEntry = new int[][]{{1, 2, 3}, {4, 0, 5}, {7, 8, 6}};// puzzle3x3-11.txt
         solutionTileList.add(dbEntry);
-        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {1, 8, 6}};// puzzle3x3-11.txt
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-11.txt
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-11.txt
         solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
@@ -579,6 +881,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-10.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-10.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -600,6 +904,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-9.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-9.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -619,6 +925,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};// puzzle3x3-8.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-8.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -636,6 +944,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-7.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-7.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -651,6 +961,8 @@ public class Solver {
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// puzzle3x3-6.txt
         solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// puzzle3x3-6.txt
+        solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
         //gameTree.put(dbSearchNode, dbSearchNode.GetPriority());
@@ -663,6 +975,8 @@ public class Solver {
         dbEntry = new int[][]{{1, 2, 3}, {4, 0, 6}, {7, 5, 8}};
         solutionTileList.add(dbEntry);
         dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};
+        solutionTileList.add(dbEntry);
+        dbEntry = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
         solutionTileList.add(dbEntry);
         //dbBoard = new Board(dbEntry);
         //dbSearchNode = new SearchNode(dbBoard, 0, dbBoard.manhattan(), dbBoard.hamming(), null);
