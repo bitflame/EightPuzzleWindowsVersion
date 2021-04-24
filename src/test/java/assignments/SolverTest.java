@@ -57,7 +57,7 @@ public class SolverTest {
 //        for (Board b : solver.solutionBoardList) {
 //            myWriter.write(b.toString());
 //        }
-        for (Solver.SearchNode s : solver.solutionList) {
+        for (Solver.SearchNode s : solver.solutionNodes) {
             myWriter.write("Here is the board: " + s.GetCurrentBoard().toString() + " Here is the number of moves: " +
                     s.GetMovesCount() + " Here is the manhattan distance: " + s.GetCurrentBoard().manhattan() +
                     " Here is the hamming distance: " + s.GetCurrentBoard().hamming());
