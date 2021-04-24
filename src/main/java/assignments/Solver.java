@@ -12,7 +12,7 @@ import java.util.Comparator;
 public class Solver {
     private boolean solvable;
     public int moves = 0;
-    public final ArrayList<Board> solutionBoardList = new ArrayList<>();
+    public ArrayList<Board> solutionBoardList = new ArrayList<>();
     public final ArrayList<SearchNode> solutionList = new ArrayList<>();
     public final ArrayList<SearchNode> floorsList = new ArrayList<>();
     public final ArrayList<int[][]> solutionTileList = new ArrayList<>();
@@ -1564,7 +1564,6 @@ public class Solver {
             while (!minSearchNode.GetCurrentBoard().equals(initialBoard)) {
                 //StdOut.println("This is the rank of minSearchNode :  " + gameTree.rank(minSearchNode));
 //                StdOut.println("Here is floor of minSearchNode: " + gameTree.floor(minSearchNode).GetCurrentBoard());
-
                 floorsList.add(gameTree.floor(minSearchNode));
                 solutionList.add(minSearchNode);
                 solutionBoardList.add(minSearchNode.GetCurrentBoard());
@@ -1575,19 +1574,35 @@ public class Solver {
         } else {
             solvable = false;
         }
-        for (Board b : solutionBoardList) {
-            for (SearchNode floorNode : floorsList) {
-                if (b.equals(floorNode.GetCurrentBoard()))
-                    //StdOut.println("This node in solution exists in the floors: " + b);
-                    for (Board bNei : b.neighbors()) {
-                        if (bNei.equals(floorNode.GetCurrentBoard()))
-                            StdOut.println(bNei + "is a neighbor of " + b + " in " +
-                                    "the solution and exists in the floors list.");
-                    }
-            }
-
-        }
+//        Object[] finalSolution = solutionBoardList.toArray();
+//        ArrayList<Board> cleansedSolution = new ArrayList<>();
+//        for (int i = 0; i < finalSolution.length; i++) {
+//            for (int j = 2; i < finalSolution.length; j++) {
+//                Board b = (Board) finalSolution[i];
+//                for (Board bNeig : b.neighbors()) {
+//                    if (finalSolution[i].equals(bNeig)) {
+//                        // if there is a neighbor downstream, it means MinPQ took the long path
+//                        if (cleansedSolution.contains(bNeig)) {
+//                            // if it is already in the list move it to the front
+//                            cleansedSolution.remove(bNeig);
+//                            cleansedSolution.add(bNeig);
+//                        } // if not, just add it to the list
+//                        cleansedSolution.add(bNeig);
+//                    } // if the node is not equal neighbors of any nodes ahead of it, just add it to the final list
+//                    cleansedSolution.add((Board) finalSolution[i]);
+//                }
+//            }
+//        }
+//        solutionBoardList = new ArrayList<Board>(cleansedSolution);
     }
+
+    private boolean isNeighbor(Board a, Board b) {
+        for (Board bNeig : b.neighbors()) {
+            if (a.equals(bNeig)) return true;
+        }
+        return false;
+    }
+
 
     private Solver() {
     }
@@ -1856,6 +1871,7 @@ public class Solver {
         }
 
         public int GetPriority() {
+            //return ((this.GetCurrentBoard().manhattan()) + (numOfMoves));
             return ((this.GetCurrentBoard().manhattan()) + (numOfMoves));
         }
 
