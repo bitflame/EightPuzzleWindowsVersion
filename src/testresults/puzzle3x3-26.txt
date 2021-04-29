@@ -2,79 +2,87 @@ Here is the board: 3
  1  2  3 
  4  5  6 
  7  8  0 
- Here is the number of moves: 26 Here is the manhattan distance: 0 Here is the hamming distance: 0Here is the board: 3
+ Here is the number of moves: 28 Here is the manhattan distance: 0 Here is the hamming distance: 0Here is the board: 3
  1  2  3 
  4  5  0 
  7  8  6 
- Here is the number of moves: 25 Here is the manhattan distance: 1 Here is the hamming distance: 1Here is the board: 3
+ Here is the number of moves: 27 Here is the manhattan distance: 1 Here is the hamming distance: 1Here is the board: 3
  1  2  0 
  4  5  3 
  7  8  6 
- Here is the number of moves: 24 Here is the manhattan distance: 2 Here is the hamming distance: 2Here is the board: 3
+ Here is the number of moves: 26 Here is the manhattan distance: 2 Here is the hamming distance: 2Here is the board: 3
  1  0  2 
  4  5  3 
  7  8  6 
- Here is the number of moves: 23 Here is the manhattan distance: 3 Here is the hamming distance: 3Here is the board: 3
+ Here is the number of moves: 25 Here is the manhattan distance: 3 Here is the hamming distance: 3Here is the board: 3
  0  1  2 
  4  5  3 
  7  8  6 
- Here is the number of moves: 22 Here is the manhattan distance: 4 Here is the hamming distance: 4Here is the board: 3
+ Here is the number of moves: 24 Here is the manhattan distance: 4 Here is the hamming distance: 4Here is the board: 3
  4  1  2 
  0  5  3 
  7  8  6 
- Here is the number of moves: 21 Here is the manhattan distance: 5 Here is the hamming distance: 5Here is the board: 3
+ Here is the number of moves: 23 Here is the manhattan distance: 5 Here is the hamming distance: 5Here is the board: 3
  4  1  2 
- 7  5  3 
- 0  8  6 
- Here is the number of moves: 20 Here is the manhattan distance: 6 Here is the hamming distance: 6Here is the board: 3
+ 5  0  3 
+ 7  8  6 
+ Here is the number of moves: 22 Here is the manhattan distance: 6 Here is the hamming distance: 6Here is the board: 3
  4  1  2 
- 7  5  3 
- 8  0  6 
- Here is the number of moves: 19 Here is the manhattan distance: 7 Here is the hamming distance: 7Here is the board: 3
+ 5  8  3 
+ 7  0  6 
+ Here is the number of moves: 21 Here is the manhattan distance: 7 Here is the hamming distance: 7Here is the board: 3
  4  1  2 
- 7  0  3 
- 8  5  6 
- Here is the number of moves: 18 Here is the manhattan distance: 8 Here is the hamming distance: 8Here is the board: 3
+ 5  8  3 
+ 7  6  0 
+ Here is the number of moves: 20 Here is the manhattan distance: 8 Here is the hamming distance: 7Here is the board: 3
  4  1  2 
- 0  7  3 
- 8  5  6 
- Here is the number of moves: 17 Here is the manhattan distance: 9 Here is the hamming distance: 8Here is the board: 3
- 4  1  2 
- 8  7  3 
- 0  5  6 
- Here is the number of moves: 16 Here is the manhattan distance: 10 Here is the hamming distance: 8Here is the board: 3
- 4  1  2 
- 8  7  3 
- 5  0  6 
- Here is the number of moves: 15 Here is the manhattan distance: 11 Here is the hamming distance: 8Here is the board: 3
- 4  1  2 
- 8  7  3 
- 5  6  0 
- Here is the number of moves: 14 Here is the manhattan distance: 12 Here is the hamming distance: 8Here is the board: 3
- 4  1  2 
- 8  7  0 
- 5  6  3 
- Here is the number of moves: 13 Here is the manhattan distance: 13 Here is the hamming distance: 8Here is the board: 3
+ 5  8  0 
+ 7  6  3 
+ Here is the number of moves: 19 Here is the manhattan distance: 9 Here is the hamming distance: 7Here is the board: 3
  4  1  0 
- 8  7  2 
- 5  6  3 
- Here is the number of moves: 12 Here is the manhattan distance: 14 Here is the hamming distance: 8Here is the board: 3
- 4  0  1 
- 8  7  2 
- 5  6  3 
- Here is the number of moves: 11 Here is the manhattan distance: 15 Here is the hamming distance: 8Here is the board: 3
- 4  7  1 
- 8  0  2 
- 5  6  3 
- Here is the number of moves: 10 Here is the manhattan distance: 16 Here is the hamming distance: 8Here is the board: 3
- 4  7  1 
- 0  8  2 
- 5  6  3 
- Here is the number of moves: 9 Here is the manhattan distance: 15 Here is the hamming distance: 8Here is the board: 3
- 4  7  1 
  5  8  2 
+ 7  6  3 
+ Here is the number of moves: 18 Here is the manhattan distance: 10 Here is the hamming distance: 7Here is the board: 3
+ 4  0  1 
+ 5  8  2 
+ 7  6  3 
+ Here is the number of moves: 17 Here is the manhattan distance: 11 Here is the hamming distance: 7Here is the board: 3
+ 0  4  1 
+ 5  8  2 
+ 7  6  3 
+ Here is the number of moves: 16 Here is the manhattan distance: 12 Here is the hamming distance: 7Here is the board: 3
+ 5  4  1 
+ 0  8  2 
+ 7  6  3 
+ Here is the number of moves: 15 Here is the manhattan distance: 13 Here is the hamming distance: 7Here is the board: 3
+ 5  4  1 
+ 7  8  2 
  0  6  3 
- Here is the number of moves: 8 Here is the manhattan distance: 14 Here is the hamming distance: 8Here is the board: 3
+ Here is the number of moves: 14 Here is the manhattan distance: 14 Here is the hamming distance: 8Here is the board: 3
+ 5  4  1 
+ 7  8  2 
+ 6  0  3 
+ Here is the number of moves: 13 Here is the manhattan distance: 15 Here is the hamming distance: 8Here is the board: 3
+ 5  4  1 
+ 7  0  2 
+ 6  8  3 
+ Here is the number of moves: 12 Here is the manhattan distance: 14 Here is the hamming distance: 7Here is the board: 3
+ 5  4  1 
+ 0  7  2 
+ 6  8  3 
+ Here is the number of moves: 11 Here is the manhattan distance: 15 Here is the hamming distance: 7Here is the board: 3
+ 0  4  1 
+ 5  7  2 
+ 6  8  3 
+ Here is the number of moves: 10 Here is the manhattan distance: 14 Here is the hamming distance: 7Here is the board: 3
+ 4  0  1 
+ 5  7  2 
+ 6  8  3 
+ Here is the number of moves: 9 Here is the manhattan distance: 13 Here is the hamming distance: 7Here is the board: 3
+ 4  7  1 
+ 5  0  2 
+ 6  8  3 
+ Here is the number of moves: 8 Here is the manhattan distance: 14 Here is the hamming distance: 7Here is the board: 3
  4  7  1 
  5  8  2 
  6  0  3 

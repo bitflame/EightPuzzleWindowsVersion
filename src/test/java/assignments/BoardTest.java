@@ -47,12 +47,9 @@ public class BoardTest {
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
                     tiles[i][j] = in.readInt();
-
             testInst = new Object[]{fileName, tiles};
             filesList.add(testInst);
-
         }
-
         return filesList;
     }
 
