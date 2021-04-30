@@ -21,6 +21,7 @@ public class SolverTest {
     final static String destFolder = "C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\testresults";
     final static ArrayList<Object[]> filesList = new ArrayList<>();
     private static Object[] testInst;
+    private static String fileName = "";
 
     @Parameterized.Parameters(name = "{index}: Number of moves for [{0}]={2}")
     public static Iterable<Object[]> data() {
@@ -32,7 +33,7 @@ public class SolverTest {
             if (counter == 143) break;
             path = destFolder + fileEntry;
             In in = new In(fileEntry.getAbsolutePath());
-            String fileName = fileEntry.getName();
+            fileName = fileEntry.getName();
             int n = in.readInt();
             int moves = in.readInt();
             int[][] tiles = new int[n][n];
