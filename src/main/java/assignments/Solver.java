@@ -71,13 +71,6 @@ public class Solver {
         SearchNode gNode = new SearchNode(gBoard, 0, 0, 0, null);
         int[][] dbEntry1 = {{2, 8, 1}, {3, 6, 1}, {7, 0, 4}};// puzzle 25
         Board dbBoard1 = new Board(dbEntry1);
-        dbMoves = 0;
-        GameTree<Board, Integer> gameTree = new GameTree<>();
-        gameTree.put(dbBoard1, dbMoves);
-        dbMoves++;
-        for (Board b : dbBoard1.neighbors()) {
-            gameTree.put(b, dbMoves);
-        }
         SearchNode minSearchNode = currentPriorityQueue.delMin();
         SearchNode minTwinNode = currentPriorityQueueTwin.delMin();
         boolean loopCond = true;
