@@ -17,9 +17,11 @@ public class BoardTest {
     public Solver board;
     private int[][] fInput;
     private boolean fExpected;
+    private boolean fExpected1;
     private boolean fExpected2;
     private boolean fActual;
-    private boolean fResult;
+    private boolean fActual1;
+    private boolean fActual2;
     final static File folder = new File("C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\ModifiedTests");
     final static String destFolder = "C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\board_test_results\\";
     final static ArrayList<Object[]> filesList = new ArrayList<>();
@@ -27,8 +29,10 @@ public class BoardTest {
     // test 2
     int[][] tiles1 = {{5, 0, 2}, {4, 1, 3}, {8, 7, 6}};
     int[][] tiles2 = {{5, 2, 0}, {4, 1, 3}, {8, 7, 6}};
+    int[][] tiles3 = {{5, 0, 2, 15}, {4, 1, 3, 14}, {8, 7, 6, 13}, {9, 10, 11, 12}};
     Board board1 = new Board(tiles1);
     Board board2 = new Board(tiles2);
+    Board board3 = new Board(tiles3);
 
     @Parameterized.Parameters(name = "{index}: Number of moves for [{0}]={2}")
     public static Iterable<Object[]> data() {
@@ -56,21 +60,24 @@ public class BoardTest {
     public BoardTest(String fileName, int[][] tiles) throws IOException {
         fInput = tiles;
         fExpected = true;
+        fExpected1 = false;
         fExpected2 = false;
         Board a = new Board(fInput);
         Board b = new Board(fInput);
         FileWriter myWriter = new FileWriter(destFolder + fileName);
-        fResult = a.equals(b);
-        myWriter.write("For " + fileName + " the result is: " + fResult);
+        fActual = a.equals(b);
+        myWriter.write("For " + fileName + " the result is: " + fActual);
         myWriter.close();
         File myObj = new File(destFolder, fileName);
-        fActual = board1.equals(board2);
+        fActual1 = board1.equals(board2);
+        fActual2 = board3.equals(board2);
     }
 
     @Test
-    public void test() throws IOException {
-        //assertTrue(value);
-        assertEquals(fExpected, fResult);
-        assertEquals(fExpected2, fActual);
+    public void bulk_test() {
+        assertEquals(fExpected, fActual);
+        assertEquals(fExpected1, fActual1);
+        // Testing arrays of different sizes
+        assertEquals(fExpected2, fActual2);
     }
 }
