@@ -15,11 +15,10 @@ public class Solver {
     public int moves = 0;
     public final ArrayList<Board> solutionBoardList = new ArrayList<>();
     public final ArrayList<SearchNode> solutionList = new ArrayList<>();
-    private boolean isConsecitiveNeighbor;
     private int blankCol;
     private int blankRow;
-    private int dbMoves;
-    private List<SearchNode> dB = new ArrayList<>();
+    private Queue<SearchNode> queue = new Queue<>();
+    private int loopCounter = 0;
 
     public Solver(Board initialBoard) {
         if (initialBoard == null) {
@@ -76,7 +75,7 @@ public class Solver {
         boolean loopCond = true;
         outerloop:
         while (loopCond) {
-
+            loopCounter++;
             if (minTwinNode.GetCurrentBoard().isGoal()) {
                 //StdOut.println("Matched the goal in the twin priority queue.");
                 solvable = false;
@@ -84,6 +83,25 @@ public class Solver {
             } else if (minSearchNode.GetCurrentBoard().isGoal()) {
                 solvable = true;
                 break;
+            }
+            // After 100 moves, get the next node out of the queue and try a different path - No. Stop when you
+            // visit a node you already visited I have to find a high level description of IDEA* and see how it is
+            // done in there. It seems highly unlikely to run into a node we already visited in this problem
+            if (loopCounter > 50) {
+                minSearchNode = queue.dequeue();
+                loopCounter = 0;
+                currentPriorityQueue = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
+                    @Override
+                    public int compare(SearchNode o1, SearchNode o2) {
+                        if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
+                        if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                        if (o1.numOfMoves > o2.numOfMoves) return 1;
+                        if (o2.numOfMoves > o1.numOfMoves) return -1;
+                        if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
+                        if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
+                        return 0;
+                    }
+                });
             }
             for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
                 SearchNode temp1Twin = new SearchNode(tb, minTwinNode.GetMovesCount() + 1, tb.manhattan(), tb.hamming(), minTwinNode);
@@ -120,6 +138,7 @@ public class Solver {
                         minSearchNode);
                 if (minSearchNode.GetPrevSearchNode() == null && !b.equals(initialBoard)) {
                     currentPriorityQueue.insert(temp1);
+                    queue.enqueue(temp1);
                 } else if (minSearchNode.GetPrevSearchNode() != null && !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
                     if (currentPriorityQueue.size() > 800) {
                         MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
@@ -649,16 +668,18 @@ public class Solver {
 
     // test client (see below)
     public static void main(String[] args) {
-
-        int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}};// puzzle 21 - actual = 29 moves
+        int[][] testTiles2 = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
+        //int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}};// puzzle 21 - actual = 29 moves
         //int[][] testTiles1 = {{8, 6, 7}, {2, 0, 4}, {3, 5, 1}};
-        Board testTilesBoard = new Board(testTiles1);
-        Solver s = new Solver(testTilesBoard);
-        if (!s.isSolvable())
+        //Board testTilesBoard = new Board(testTiles1);
+        Board testTiles2Board = new Board(testTiles2);
+        //Solver s = new Solver(testTilesBoard);
+        Solver s2 = new Solver(testTiles2Board);
+        if (!s2.isSolvable())
             StdOut.println("No solution possible");
         else {
-            StdOut.println("Minimum number of moves= " + s.moves);
-            for (Board board : s.solutionBoardList) {
+            StdOut.println("Minimum number of moves= " + s2.moves);
+            for (Board board : s2.solutionBoardList) {
                 StdOut.println(" board: " + board + " Hamming Distance of : " + board.hamming() + " Manhattan Distance of : " + board.manhattan());
             }
         }

@@ -138,11 +138,11 @@ public class Board {
 
     // does this board equal y?
     public boolean equals(Object y) {
+        if (y == null) return false;
         Board temp = (Board) y;
         int length = ((Board) y).n;
         if (this.n != length) return false;
         if (this == y) return true;
-        if (y == null) return false;
         if (this.getClass() != y.getClass()) return false;
         Board that = (Board) y;
         if (this.n != that.n) return false;

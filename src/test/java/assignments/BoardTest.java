@@ -19,9 +19,17 @@ public class BoardTest {
     private boolean fExpected;
     private boolean fExpected1;
     private boolean fExpected2;
+    private boolean fExpected3;
+    private boolean fExpected4;
+    private boolean fExpected5;
+    private boolean fExpected6;
     private boolean fActual;
     private boolean fActual1;
     private boolean fActual2;
+    private boolean fActual3;
+    private boolean fActual4;
+    private boolean fActual5;
+    private boolean fActual6;
     final static File folder = new File("C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\ModifiedTests");
     final static String destFolder = "C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\board_test_results\\";
     final static ArrayList<Object[]> filesList = new ArrayList<>();
@@ -30,9 +38,11 @@ public class BoardTest {
     int[][] tiles1 = {{5, 0, 2}, {4, 1, 3}, {8, 7, 6}};
     int[][] tiles2 = {{5, 2, 0}, {4, 1, 3}, {8, 7, 6}};
     int[][] tiles3 = {{5, 0, 2, 15}, {4, 1, 3, 14}, {8, 7, 6, 13}, {9, 10, 11, 12}};
+    int[][] tiles4 = {{5, 0, 2}, {4, 1, 3}, {8, 7, 6}};
     Board board1 = new Board(tiles1);
     Board board2 = new Board(tiles2);
     Board board3 = new Board(tiles3);
+    Board board4 = new Board(tiles4);
 
     @Parameterized.Parameters(name = "{index}: Number of moves for [{0}]={2}")
     public static Iterable<Object[]> data() {
@@ -62,6 +72,11 @@ public class BoardTest {
         fExpected = true;
         fExpected1 = false;
         fExpected2 = false;
+        fExpected3 = true;
+        fExpected4 = true;
+        fExpected5 = true;
+        fExpected6 = false;
+// Reflexive Test for equals
         Board a = new Board(fInput);
         Board b = new Board(fInput);
         FileWriter myWriter = new FileWriter(destFolder + fileName);
@@ -71,6 +86,11 @@ public class BoardTest {
         File myObj = new File(destFolder, fileName);
         fActual1 = board1.equals(board2);
         fActual2 = board3.equals(board2);
+        // Transitive test for equals
+        fActual3 = board4.equals(board1);
+        fActual4 = board1.equals(board4);
+        fActual5 = board1.equals(board1);
+        fActual6 = board1.equals(null);
     }
 
     @Test
@@ -79,5 +99,9 @@ public class BoardTest {
         assertEquals(fExpected1, fActual1);
         // Testing arrays of different sizes
         assertEquals(fExpected2, fActual2);
+        assertEquals(fExpected3, fActual3);
+        assertEquals(fExpected4, fActual4);
+        assertEquals(fExpected5, fActual5);
+        assertEquals(fExpected6, fActual6);
     }
 }
