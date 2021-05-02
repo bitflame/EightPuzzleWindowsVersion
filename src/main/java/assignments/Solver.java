@@ -17,17 +17,27 @@ public class Solver {
     public final ArrayList<SearchNode> solutionList = new ArrayList<>();
     private int blankCol;
     private int blankRow;
-    private Queue<SearchNode> queue = new Queue<>();
-    private int loopCounter = 0;
+    private SearchNode[] nodes = new SearchNode[100];
+    private SearchNode[] tempNodes = new SearchNode[100];
+    private SearchNode[] twinNodes = new SearchNode[100];
+    private SearchNode[] tempTwinNodes = new SearchNode[100];
+    private int nodeIndex;
+    private int twinNodeIndex;
 
     public Solver(Board initialBoard) {
         if (initialBoard == null) {
             throw new IllegalArgumentException("The Board object is empty.");
         }
         solvable = true; // for now
-        if (solvable == false) return;
+        if (initialBoard.isGoal()) {
+            return;
+        }
         SearchNode initialSearchNode = new SearchNode(initialBoard, 0, initialBoard.manhattan(), initialBoard.hamming(), null);
         Board currentTwinBoard = initialBoard.twin();
+        if (currentTwinBoard.isGoal()) {
+            solvable = false;
+            return;
+        }
         SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, 0, initialBoard.manhattan(),
                 initialBoard.hamming(), null);
         MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
@@ -35,10 +45,6 @@ public class Solver {
             public int compare(SearchNode o1, SearchNode o2) {
                 if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
                 if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
-                if (o1.numOfMoves > o2.numOfMoves) return 1;
-                if (o2.numOfMoves > o1.numOfMoves) return -1;
-                if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
-                if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
                 return 0;
             }
         });
@@ -47,16 +53,14 @@ public class Solver {
             public int compare(SearchNode o1, SearchNode o2) {
                 if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
                 if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
-                if (o1.numOfMoves > o2.numOfMoves) return 1;
-                if (o2.numOfMoves > o1.numOfMoves) return -1;
-                if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
-                if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
                 return 0;
             }
         });
+        // put the first node in priority queues
         currentPriorityQueue.insert(initialSearchNode);
 
         currentPriorityQueueTwin.insert(initialTwinSearchNode);
+        // Create a board for Goal
         int index = 1;
         int[][] goal = new int[initialBoard.dimension()][initialBoard.dimension()];
         for (int i = 0; i <= initialBoard.dimension() - 1; i++) {
@@ -67,15 +71,33 @@ public class Solver {
         }
         goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
         Board gBoard = new Board(goal);
-        SearchNode gNode = new SearchNode(gBoard, 0, 0, 0, null);
-        int[][] dbEntry1 = {{2, 8, 1}, {3, 6, 1}, {7, 0, 4}};// puzzle 25
-        Board dbBoard1 = new Board(dbEntry1);
+        // Take the first nodes out of Priority Queues, calculate the neighbors, and put them in the nodes arrays
         SearchNode minSearchNode = currentPriorityQueue.delMin();
         SearchNode minTwinNode = currentPriorityQueueTwin.delMin();
+        moves++;
+        for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
+            SearchNode temp1Twin = new SearchNode(tb, moves, tb.manhattan(), tb.hamming(), minTwinNode);
+            if (!tb.equals(initialTwinSearchNode.GetCurrentBoard())) {
+                currentPriorityQueueTwin.insert(temp1Twin);
+                twinNodes[twinNodeIndex] = temp1Twin;
+                twinNodeIndex++;
+            }
+        }
+        for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
+            SearchNode temp1 = new SearchNode(b, moves, b.manhattan(), b.hamming(),
+                    minSearchNode);
+            if (!b.equals(initialBoard)) {
+                currentPriorityQueue.insert(temp1);
+                nodes[nodeIndex] = temp1;
+                nodeIndex++;
+            }
+        }
+        minTwinNode = currentPriorityQueueTwin.delMin();
+        minSearchNode = currentPriorityQueue.delMin();
         boolean loopCond = true;
         outerloop:
         while (loopCond) {
-            loopCounter++;
+            moves++;
             if (minTwinNode.GetCurrentBoard().isGoal()) {
                 //StdOut.println("Matched the goal in the twin priority queue.");
                 solvable = false;
@@ -84,90 +106,67 @@ public class Solver {
                 solvable = true;
                 break;
             }
-            // After 100 moves, get the next node out of the queue and try a different path - No. Stop when you
-            // visit a node you already visited I have to find a high level description of IDEA* and see how it is
-            // done in there. It seems highly unlikely to run into a node we already visited in this problem
-            if (loopCounter > 50) {
-                minSearchNode = queue.dequeue();
-                loopCounter = 0;
-                currentPriorityQueue = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
-                    @Override
-                    public int compare(SearchNode o1, SearchNode o2) {
-                        if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
-                        if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
-                        if (o1.numOfMoves > o2.numOfMoves) return 1;
-                        if (o2.numOfMoves > o1.numOfMoves) return -1;
-                        if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
-                        if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
-                        return 0;
-                    }
-                });
-            }
-            for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
-                SearchNode temp1Twin = new SearchNode(tb, minTwinNode.GetMovesCount() + 1, tb.manhattan(), tb.hamming(), minTwinNode);
-
-                if (minTwinNode.GetPrevSearchNode() == null && !tb.equals(initialTwinSearchNode.GetCurrentBoard())) {
-                    currentPriorityQueueTwin.insert(temp1Twin);
-
-                    //gameTreeTwin.put(temp1Twin, temp1Twin.numOfMoves);
-                } else if (minTwinNode.GetPrevSearchNode() != null && !tb.equals(minTwinNode.GetPrevSearchNode().GetCurrentBoard())) {
-                    if (currentPriorityQueueTwin.size() > 800) {
-                        //StdOut.println("resetting the Twin priority queue.");
-                        MinPQ<SearchNode> copyTwinPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
-                            @Override
-                            public int compare(SearchNode o1, SearchNode o2) {
-                                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
-                                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
-                                if (o1.numOfMoves > o2.numOfMoves) return 1;
-                                if (o2.numOfMoves > o1.numOfMoves) return -1;
-                                if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
-                                if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
-                                return 0;
-                            }
-                        });
-                        for (int i = 0; i < 100; i++) {
-                            copyTwinPQ.insert(currentPriorityQueueTwin.delMin());
-                        }
-                        currentPriorityQueueTwin = copyTwinPQ;
-                    }
-                    currentPriorityQueueTwin.insert(temp1Twin);
-                }
-            }
-            for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-                SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, b.manhattan(), b.hamming(),
-                        minSearchNode);
-                if (minSearchNode.GetPrevSearchNode() == null && !b.equals(initialBoard)) {
-                    currentPriorityQueue.insert(temp1);
-                    queue.enqueue(temp1);
-                } else if (minSearchNode.GetPrevSearchNode() != null && !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
-                    if (currentPriorityQueue.size() > 800) {
-                        MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
-                            @Override
-                            public int compare(SearchNode o1, SearchNode o2) {
-                                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
-                                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
-                                if (o1.numOfMoves > o2.numOfMoves) return 1;
-                                if (o2.numOfMoves > o1.numOfMoves) return -1;
-                                if (o1.GetHammingPriority() > o2.GetHammingPriority()) return 1;
-                                if (o2.GetHammingPriority() > o1.GetHammingPriority()) return -1;
-                                return 0;
-                            }
-                        });
-                        for (int i = 0; i < 100; i++) {
-                            copyPQ.insert(currentPriorityQueue.delMin());
-                        }
-                        currentPriorityQueue = copyPQ;
-                    }
-                    currentPriorityQueue.insert(temp1);
-                    if (minSearchNode.GetCurrentBoard().equals(gBoard)) {
-                        break outerloop;
+            int tempTwinNodeIndex = 0;
+            for (SearchNode s : twinNodes) {
+                for (Board tb : s.GetCurrentBoard().neighbors()) {
+                    SearchNode temp1Twin = new SearchNode(tb, moves, tb.manhattan(), tb.hamming(), s);
+                    if (!tb.equals(minTwinNode.GetPrevSearchNode().GetCurrentBoard())) {
+                        currentPriorityQueueTwin.insert(temp1Twin);
+                        tempTwinNodes[tempTwinNodeIndex] = temp1Twin;
+                        tempTwinNodeIndex++;
                     }
                 }
             }
+            int tempNodeIndex = 0;
+            for (SearchNode s : nodes) {
+                for (Board b : s.GetCurrentBoard().neighbors()) {
+                    SearchNode temp1 = new SearchNode(b, moves, b.manhattan(), b.hamming(),
+                            s);
+                    if (!b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
+                        currentPriorityQueue.insert(temp1);
+                        tempNodes[tempNodeIndex] = temp1;
+                        tempNodeIndex++;
+                    }
+                }
+            }
+            // Take the next node out of priority queue
             minTwinNode = currentPriorityQueueTwin.delMin();
-            if (!currentPriorityQueue.isEmpty()) {
-                minSearchNode = currentPriorityQueue.delMin();
+            minSearchNode = currentPriorityQueue.delMin();
+            /* reset nodes and twinNodes arrays, then copy the both temp SearchNode arrays into the main ones, then
+             * reset the priority queues also */
+            nodes = new SearchNode[tempNodeIndex];
+            twinNodes = new SearchNode[tempTwinNodeIndex];
+            nodeIndex = 0;
+            for (int i = 0; i < tempNodeIndex; i++) {
+                nodes[i] = tempNodes[i];
+                nodeIndex++;
             }
+            // reset the tempNodes array
+            tempNodes = new SearchNode[100];
+            twinNodeIndex = 0;
+            for (int i = 0; i < tempTwinNodeIndex; i++) {
+                twinNodes[i] = tempTwinNodes[i];
+                twinNodeIndex++;
+            }
+            // reset twinTempNodes array
+            tempTwinNodes = new SearchNode[100];
+            // reset the priority queues
+            currentPriorityQueue = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
+                @Override
+                public int compare(SearchNode o1, SearchNode o2) {
+                    if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
+                    if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                    return 0;
+                }
+            });
+            currentPriorityQueueTwin = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
+                @Override
+                public int compare(SearchNode o1, SearchNode o2) {
+                    if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 1;
+                    if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -1;
+                    return 0;
+                }
+            });
         }
         if (minSearchNode.GetCurrentBoard().isGoal()) {
             solvable = true;
