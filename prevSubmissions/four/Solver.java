@@ -1,4 +1,3 @@
-package assignments;
 
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Queue;
@@ -12,9 +11,9 @@ import java.util.List;
 
 public class Solver {
     private boolean solvable;
-    private int moves = 0;
-    private final ArrayList<Board> solutionBoardList = new ArrayList<>();
-    private final ArrayList<SearchNode> solutionList = new ArrayList<>();
+    public int moves = 0;
+    public final ArrayList<Board> solutionBoardList = new ArrayList<>();
+    public final ArrayList<SearchNode> solutionList = new ArrayList<>();
     private int blankCol;
     private int blankRow;
     private List<SearchNode> originalList = new ArrayList<>();
