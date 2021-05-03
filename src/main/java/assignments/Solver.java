@@ -497,7 +497,7 @@ public class Solver {
         }
     }
 
-    public static class SearchNode implements Comparable<SearchNode> {
+    private static class SearchNode implements Comparable<SearchNode> {
         private final Board currentBoard;
         //private final int manhattan;
         //private final int hamming;
@@ -556,7 +556,7 @@ public class Solver {
             if (this == o) return true;
             if (o == null) return false;
             if (this.getClass() != o.getClass()) return false;
-            Board that = (Board) o.GetCurrentBoard();
+            Board that = o.GetCurrentBoard();
             return this.GetCurrentBoard() == that;
         }
 

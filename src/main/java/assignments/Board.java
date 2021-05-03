@@ -280,17 +280,6 @@ public class Board {
         return retBoard;
     }
 
-    // Do not really need the following method. Delete it tomorrow
-//    private int[][] TilesConvert(char[][] tiles) {
-//        int[][] temp = new int[n][n];
-//        for (int i = 0; i < n; i++) {
-//            for (int j = 0; j < n; j++) {
-//                temp[i][j] = (int) tiles[i][j];
-//            }
-//        }
-//        return temp;
-//    }
-
     private static int[][] copyBoard(int[][] b) {
         int[][] temp = new int[b.length][b.length];
         for (int i = 0; i < b.length; i++) {

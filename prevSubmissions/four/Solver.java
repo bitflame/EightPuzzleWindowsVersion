@@ -1,3 +1,4 @@
+package assignments;
 
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Queue;
@@ -11,9 +12,9 @@ import java.util.List;
 
 public class Solver {
     private boolean solvable;
-    public int moves = 0;
-    public final ArrayList<Board> solutionBoardList = new ArrayList<>();
-    public final ArrayList<SearchNode> solutionList = new ArrayList<>();
+    private int moves = 0;
+    private final ArrayList<Board> solutionBoardList = new ArrayList<>();
+    private final ArrayList<SearchNode> solutionList = new ArrayList<>();
     private int blankCol;
     private int blankRow;
     private List<SearchNode> originalList = new ArrayList<>();
@@ -496,7 +497,7 @@ public class Solver {
         }
     }
 
-    public static class SearchNode implements Comparable<SearchNode> {
+    private static class SearchNode implements Comparable<SearchNode> {
         private final Board currentBoard;
         //private final int manhattan;
         //private final int hamming;
@@ -555,7 +556,7 @@ public class Solver {
             if (this == o) return true;
             if (o == null) return false;
             if (this.getClass() != o.getClass()) return false;
-            Board that = (Board) o.GetCurrentBoard();
+            Board that = o.GetCurrentBoard();
             return this.GetCurrentBoard() == that;
         }
 
