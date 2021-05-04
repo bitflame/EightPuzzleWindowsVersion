@@ -53,8 +53,13 @@ public class PuzzleChecker {
                 StdOut.println("No solution possible");
             else {
                 StdOut.println("Here is the list of moves that make up the solution: ");
-                for (Board board : solver.solution())
-                    StdOut.println("The board: " + board + " It's Manhattan value: " + board.manhattan() + " Its hamming value: " + board.hamming());
+                /*Had to comment out the following in order to submit to autograder */
+                for (Object o : solver.solution()) {
+                    Board b = (Board) o;
+                    StdOut.println("The board: " + b + " It's Manhattan value: " + b.manhattan() +
+                            " Its hamming value: " + b.hamming());
+                }
+
                 StdOut.println("The board is solvable, and the ");
                 StdOut.println("Minimum number of moves = " + solver.moves());
             }

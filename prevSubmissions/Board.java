@@ -1,12 +1,14 @@
 
+
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Board {
     private final int[][] tiles;
-    private final int N;
+    private final int n;
     private Integer blankRow;
     private Integer blankCol;
     private final int hamming;
@@ -16,10 +18,10 @@ public class Board {
     private int Inversions() {
         int current = 0;
         int inversionCount = 0;
-        int[] temp = new int[N * N];
+        int[] temp = new int[n * n];
         int k = 0;
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 temp[k] = tiles[i][j];
                 current = tiles[i][j];
                 for (int l = 0; l <= k; l++) {
@@ -39,13 +41,13 @@ public class Board {
         if (tiles == null) {
             throw new IllegalArgumentException("The board you are submitting is empty.");
         }
-        this.N = tiles[0].length;
-        if (this.N < 2 || this.N > 128) {
+        this.n = tiles[0].length;
+        if (this.n < 2 || this.n > 128) {
             throw new IllegalArgumentException("The value of n is more than expected.");
         }
-        this.tiles = new int[N][N];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        this.tiles = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 this.tiles[i][j] = tiles[i][j];
                 if (this.tiles[i][j] == 0) {
                     this.blankRow = i;
@@ -53,31 +55,41 @@ public class Board {
                 }
             }
         }
+        int index = 1;
+
+        int[][] goal = new int[n][n];
+        for (int i = 0; i <= n - 1; i++) {
+            for (int j = 0; j <= n - 1; j++) {
+                goal[i][j] = index;
+                index++;
+            }
+        }
+        goal[n - 1][n - 1] = 0;
         int distanceHamming = 0;
-        for (char i = 0; i < N; i++) {
-            for (char j = 0; j < N; j++) {
+        for (char i = 0; i < n; i++) {
+            for (char j = 0; j < n; j++) {
                 if (tiles[i][j] == 0) continue;
                 if (tiles[i][j] != (((i * tiles.length) + 1) + j)) {
                     distanceHamming++;
                 }
             }
         }
-        int manhattan = 0;
-        for (char i = 0; i < N; i++) {
-            for (char j = 0; j < N; j++) {
-                if (tiles[i][j] != 0) { //
-                    int targetX = (tiles[i][j] - 1) / N;
-                    int targetY = (tiles[i][j] - 1) % N;
+        int distanceManhattan = 0;
+        for (char i = 0; i < n; i++) {
+            for (char j = 0; j < n; j++) {
+                if (tiles[i][j] != goal[i][j] && tiles[i][j] != 0) { //
+                    int targetX = (tiles[i][j] - 1) / n;
+                    int targetY = (tiles[i][j] - 1) % n;
                     int dx = i - targetX;
                     int dy = j - targetY;
-                    manhattan += Math.abs(dx) + Math.abs(dy);
+                    distanceManhattan += Math.abs(dx) + Math.abs(dy);
                 }
             }
         }
-        this.manhattan = manhattan;
+        this.manhattan = distanceManhattan;
         this.hamming = distanceHamming;
-        if (((N * N) % 2 != 0) && (Inversions() & 1) == 1) solvable = false;
-        else if (((N * N) % 2 != 0) && (Inversions() & 1) == 0) solvable = true;
+        if (((n * n) % 2 != 0) && (Inversions() & 1) == 1) solvable = false;
+        else if (((n * n) % 2 != 0) && (Inversions() & 1) == 0) solvable = true;
         else if (((Inversions() + blankRow) % 2) == 0) solvable = false;
         else if (((Inversions() + blankRow) % 2) == 1) solvable = true;
     }
@@ -86,9 +98,9 @@ public class Board {
     // string representation of this board
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append(N + "\n");
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        s.append(n + "\n");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 s.append(String.format("%2d ", tiles[i][j]));
             }
             s.append("\n");
@@ -98,7 +110,7 @@ public class Board {
 
     // board dimension n
     public int dimension() {
-        return this.N;
+        return this.n;
     }
 
     // number of tiles out of place
@@ -115,10 +127,10 @@ public class Board {
 
     // is this board the goal board?
     public boolean isGoal() {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 if (this.tiles[i][j] == 0) continue;
-                if (this.tiles[i][j] != (N * i) + (j + 1)) return false;
+                if (this.tiles[i][j] != (n * i) + (j + 1)) return false;
             }
         }
         return true;
@@ -126,12 +138,16 @@ public class Board {
 
     // does this board equal y?
     public boolean equals(Object y) {
-        if (this == y) return true;
         if (y == null) return false;
+        Board temp = (Board) y;
+        int length = ((Board) y).n;
+        if (this.n != length) return false;
+        if (this == y) return true;
         if (this.getClass() != y.getClass()) return false;
         Board that = (Board) y;
-        for (char i = 0; i < N; i++) {
-            for (char j = 0; j < N; j++) {
+        if (this.n != that.n) return false;
+        for (char i = 0; i < n; i++) {
+            for (char j = 0; j < n; j++) {
                 if (this.tiles[i][j] != that.tiles[i][j]) {
                     return false;
                 }
@@ -142,34 +158,28 @@ public class Board {
 
     // all neighboring boards
     public Iterable<Board> neighbors() {
-        // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
-        // for useless if statement.
-        //if (blankCol == null || blankRow == null) {
-        //throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
-        //"outside of what is allowed and should be used. ");
-        //}
         ArrayList<Board> neighbors = new ArrayList<>();
-        int[][] neighbor = CopyBoard(this.tiles);
-        int index = N - 1;
-        if (blankRow < index) {// zero is less than N
-            neighbor[blankRow + 1][blankCol] = 0;
-            neighbor[blankRow][blankCol] = this.tiles[blankRow + 1][blankCol];
-            neighbors.add(new Board(neighbor));
-        }
-        if (blankRow > 0) {
-            neighbor = CopyBoard(this.tiles);
-            neighbor[blankRow - 1][blankCol] = 0;
-            neighbor[blankRow][blankCol] = this.tiles[blankRow - 1][blankCol];
-            neighbors.add(new Board(neighbor));
-        }
-        if (blankCol < index) {
-            neighbor = CopyBoard(this.tiles);
+        int[][] neighbor = copyBoard(this.tiles);
+        int index = n - 1;
+        if (blankCol < index) { // Right move
             neighbor[blankRow][blankCol + 1] = 0;
             neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol + 1];
             neighbors.add(new Board(neighbor));
         }
-        if (blankCol > 0) {
-            neighbor = CopyBoard(this.tiles);
+        if (blankRow < index) { // zero is less than n - Up move
+            neighbor = copyBoard(this.tiles);
+            neighbor[blankRow + 1][blankCol] = 0;
+            neighbor[blankRow][blankCol] = this.tiles[blankRow + 1][blankCol];
+            neighbors.add(new Board(neighbor));
+        }
+        if (blankRow > 0) {  // Down move
+            neighbor = copyBoard(this.tiles);
+            neighbor[blankRow - 1][blankCol] = 0;
+            neighbor[blankRow][blankCol] = this.tiles[blankRow - 1][blankCol];
+            neighbors.add(new Board(neighbor));
+        }
+        if (blankCol > 0) { // Left move
+            neighbor = copyBoard(this.tiles);
             neighbor[blankRow][blankCol - 1] = 0;
             neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol - 1];
             neighbors.add(new Board(neighbor));
@@ -178,16 +188,67 @@ public class Board {
         return neiCopy;
     }
 
+    private HashMap<int[][], Integer> staticDb() {
+        HashMap<int[][], Integer> boards = new HashMap<>();
+        int[][] t1 = {{1, 0}, {3, 2}};
+        int t1_Moves = 1;
+        boards.put(t1, t1_Moves);
+        int[][] t2 = {{1, 2}, {0, 3}};
+        int t2_Moves = 1;
+        boards.put(t1, t2_Moves);
+        int[][] t3 = {{0, 1}, {3, 2}};
+        int t3_Moves = 2;
+        boards.put(t3, t3_Moves);
+        int[][] t4 = {{3, 1}, {0, 2}};
+        int t4_Moves = 3;
+        boards.put(t4, t4_Moves);
+        int[][] t5 = {{2, 3}, {1, 0}};
+        int t5_Moves = 4;
+        boards.put(t5, t5_Moves);
+        int[][] t6 = {{2, 3}, {0, 1}};
+        int t6_Moves = 5;
+        boards.put(t6, t6_Moves);
+        int[][] t7 = {{0, 3}, {2, 1}};
+        int t7_Moves = 6;
+        boards.put(t7, t7_Moves);
+        return boards;
+    }
+
+    private HashMap<int[][], Integer> flexDb(int x, int y, int z, int b) {
+        HashMap<int[][], Integer> boards = new HashMap<>();
+        if (x < y && y < z) {
+            int[][] t1 = {{y, b}, {x, z}};
+            int t1_Moves = 3;
+            boards.put(t1, t1_Moves);
+            int[][] t2 = {{x, b}, {z, y}};
+            int t2_Moves = 1;
+            boards.put(t2, t2_Moves);
+            int[][] t3 = {{b, y}, {x, z}};
+            int t3_Moves = 2;
+            boards.put(t3, t3_Moves);
+            int[][] t4 = {{b, x}, {z, y}};
+            int t4_Moves = 2;
+            boards.put(t4, t4_Moves);
+            int[][] t5 = {{b, z}, {y, x}};
+            int t5_Moves = 6;
+            boards.put(t5, t5_Moves);
+            int[][] t6 = {{x, y}, {b, z}};
+            int t6_Moves = 1;
+            boards.put(t6, t6_Moves);
+        }
+        return boards;
+    }
+
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
         // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
         // for useless if statement.
-        //if (blankCol == null || blankRow == null) {
-        //throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
-        //"outside of what is allowed and should be used. ");
-        //}
-        int[][] tempTiles = CopyBoard(this.tiles);
-        if (blankRow < N - 1 && blankCol < N - 1) {
+        // if (blankCol == null || blankRow == null) {
+        // throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
+        // "outside of what is allowed and should be used. ");
+        // }
+        int[][] tempTiles = copyBoard(this.tiles);
+        if (blankRow < n - 1 && blankCol < n - 1) {
             int temp = this.tiles[blankRow + 1][blankCol + 1];
             int temp2 = this.tiles[blankRow][blankCol + 1];
             tempTiles[blankRow + 1][blankCol + 1] = temp2;
@@ -197,40 +258,29 @@ public class Board {
             int temp2 = tiles[blankRow][blankCol - 1];
             tempTiles[blankRow - 1][blankCol - 1] = temp2;
             tempTiles[blankRow][blankCol - 1] = temp;
-        } else if (blankRow > 0 && blankRow < N - 1) {
+        } else if (blankRow > 0 && blankRow < n - 1) {
             int temp = tiles[blankRow - 1][blankCol];
             int temp2 = tiles[blankRow + 1][blankCol];
             tempTiles[blankRow + 1][blankCol] = temp;
             tempTiles[blankRow - 1][blankCol] = temp2;
-        } else if (blankRow == 0 && blankCol == N - 1) {
+        } else if (blankRow == 0 && blankCol == n - 1) {
             int temp = tiles[blankRow + 1][blankCol];
             int temp2 = tiles[blankRow][blankCol - 1];
             tempTiles[blankRow + 1][blankCol] = temp2;
             tempTiles[blankRow][blankCol - 1] = temp;
-        } else if (blankRow > 0 && blankCol < N - 1) {
+        } else if (blankRow > 0 && blankCol < n - 1) {
             int temp = tiles[blankRow - 1][blankCol];
             int temp2 = tiles[blankRow][blankCol + 1];
             tempTiles[blankRow - 1][blankCol] = temp2;
             tempTiles[blankRow][blankCol + 1] = temp;
         } else {
-            //throw new InvalidParameterException("The board you submit did not match any of the rules.");
+            // throw new InvalidParameterException("The board you submit did not match any of the rules.");
         }
         Board retBoard = new Board(tempTiles);
         return retBoard;
     }
 
-    // Do not really need the following method. Delete it tomorrow
-//    private int[][] TilesConvert(char[][] tiles) {
-//        int[][] temp = new int[N][N];
-//        for (int i = 0; i < N; i++) {
-//            for (int j = 0; j < N; j++) {
-//                temp[i][j] = (int) tiles[i][j];
-//            }
-//        }
-//        return temp;
-//    }
-
-    private static int[][] CopyBoard(int[][] b) {
+    private static int[][] copyBoard(int[][] b) {
         int[][] temp = new int[b.length][b.length];
         for (int i = 0; i < b.length; i++) {
             for (int j = 0; j < b.length; j++) {
@@ -242,16 +292,16 @@ public class Board {
 
     // unit testing (not graded)
     public static void main(String[] args) {
-        int[][] testTiles = {{1, 2, 3}, {4, 5, 6}, {8, 7, 0}};// 1
-        int[][] testTiles0 = {{1, 2, 3}, {4, 5, 6}, {8, 0, 7}};// 1
-        int[][] testTiles1 = {{1, 2, 3}, {4, 0, 6}, {8, 5, 7}};// 3
-        int[][] testTiles2 = {{1, 2, 3}, {0, 4, 6}, {8, 5, 7}};// 3
-        int[][] testTiles3 = {{1, 2, 3}, {4, 6, 7}, {8, 5, 0}};// 3
-        int[][] testTiles4 = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}};// 4
-        int[][] testTiles5 = {{1, 0, 3}, {4, 2, 5}, {7, 8, 6}};// 4
-        int[][] testTiles6 = {{1, 2, 3}, {4, 0, 5}, {7, 8, 6}};// 2
-        int[][] testTiles7 = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// 2
-        int[][] testTiles8 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// 0 inversions
+        int[][] testTiles = {{1, 2, 3}, {4, 5, 6}, {8, 7, 0}}; // 1
+        int[][] testTiles0 = {{1, 2, 3}, {4, 5, 6}, {8, 0, 7}}; // 1
+        int[][] testTiles1 = {{1, 2, 3}, {4, 0, 6}, {8, 5, 7}}; // 3
+        int[][] testTiles2 = {{1, 2, 3}, {0, 4, 6}, {8, 5, 7}}; // 3
+        int[][] testTiles3 = {{1, 2, 3}, {4, 6, 7}, {8, 5, 0}}; // 3
+        int[][] testTiles4 = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}}; // 4
+        int[][] testTiles5 = {{1, 0, 3}, {4, 2, 5}, {7, 8, 6}}; // 4
+        int[][] testTiles6 = {{1, 2, 3}, {4, 0, 5}, {7, 8, 6}}; // 2
+        int[][] testTiles7 = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}}; // 2
+        int[][] testTiles8 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}}; // 0 inversions
         Board tb = new Board(testTiles);
         Board tb0 = new Board(testTiles0);
         Board tb1 = new Board(testTiles1);
@@ -280,15 +330,32 @@ public class Board {
                 StdOut.println(bn + "" + bn.twin());
             }
         }
-        //char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-        //StdOut.println("Original table: ");
-        //StdOut.println(tb);
-        //StdOut.println("Here are the Neighbors: ");
+        // char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
+        // StdOut.println("Original table: ");
+        // StdOut.println(tb);
+        // StdOut.println("Here are the neighbors: ");
 //        for (Board b : tb.neighbors()) {
 //            StdOut.println(b);
 //            StdOut.println(b.compareTo(tb));
 //        }
-        //StdOut.println("The dimension is: " + tb.dimension());
+        // StdOut.println("The dimension is: " + tb.dimension());
         StdOut.println("The number of inversions are: ");
     }
+
+
+//    public int compareTo(Board o) {
+//        if (this.manhattan > o.manhattan) return 1;
+//        if (this.manhattan < o.manhattan) return -1;
+//        if (this.hamming > o.hamming) return 1;
+//        if (this.hamming < o.hamming) return -1;
+//        if (this.tiles[0][0] > o.tiles[0][0]) return 1;
+//        if (this.tiles[0][0] < o.tiles[0][0]) return -1;
+//        for (int i = 0; i < n; i++) {
+//            for (int j = 0; j < n; j++) {
+//                if (this.tiles[i][j] > o.tiles[i][j]) return 1;
+//            }
+//        }
+//        if (this.equals(o)) return 0;
+//        return 1;
+//    }
 }

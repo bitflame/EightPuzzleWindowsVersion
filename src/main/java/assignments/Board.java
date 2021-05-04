@@ -3,7 +3,6 @@ package assignments;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class Board {
@@ -188,57 +187,7 @@ public class Board {
         return neiCopy;
     }
 
-    private HashMap<int[][], Integer> staticDb() {
-        HashMap<int[][], Integer> boards = new HashMap<>();
-        int[][] t1 = {{1, 0}, {3, 2}};
-        int t1_Moves = 1;
-        boards.put(t1, t1_Moves);
-        int[][] t2 = {{1, 2}, {0, 3}};
-        int t2_Moves = 1;
-        boards.put(t1, t2_Moves);
-        int[][] t3 = {{0, 1}, {3, 2}};
-        int t3_Moves = 2;
-        boards.put(t3, t3_Moves);
-        int[][] t4 = {{3, 1}, {0, 2}};
-        int t4_Moves = 3;
-        boards.put(t4, t4_Moves);
-        int[][] t5 = {{2, 3}, {1, 0}};
-        int t5_Moves = 4;
-        boards.put(t5, t5_Moves);
-        int[][] t6 = {{2, 3}, {0, 1}};
-        int t6_Moves = 5;
-        boards.put(t6, t6_Moves);
-        int[][] t7 = {{0, 3}, {2, 1}};
-        int t7_Moves = 6;
-        boards.put(t7, t7_Moves);
-        return boards;
-    }
-
-    private HashMap<int[][], Integer> flexDb(int x, int y, int z, int b) {
-        HashMap<int[][], Integer> boards = new HashMap<>();
-        if (x < y && y < z) {
-            int[][] t1 = {{y, b}, {x, z}};
-            int t1_Moves = 3;
-            boards.put(t1, t1_Moves);
-            int[][] t2 = {{x, b}, {z, y}};
-            int t2_Moves = 1;
-            boards.put(t2, t2_Moves);
-            int[][] t3 = {{b, y}, {x, z}};
-            int t3_Moves = 2;
-            boards.put(t3, t3_Moves);
-            int[][] t4 = {{b, x}, {z, y}};
-            int t4_Moves = 2;
-            boards.put(t4, t4_Moves);
-            int[][] t5 = {{b, z}, {y, x}};
-            int t5_Moves = 6;
-            boards.put(t5, t5_Moves);
-            int[][] t6 = {{x, y}, {b, z}};
-            int t6_Moves = 1;
-            boards.put(t6, t6_Moves);
-        }
-        return boards;
-    }
-
+    
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
         // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
