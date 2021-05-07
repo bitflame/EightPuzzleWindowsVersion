@@ -17,41 +17,37 @@ public class Solver {
     private List<SearchNode> originalList = new ArrayList<>();
     private List<SearchNode> twinsList = new ArrayList<>();
     int movesLimit = 0;
-    int manhattanWeight = 10;
+
 
     public Solver(Board initialBoard) {
         movesLimit = ((initialBoard.manhattan() + 1) * 4);
         if (initialBoard == null) {
             throw new IllegalArgumentException("The Board object is empty.");
         }
+        int[][] tiles = new int[][]{{1, 2, 3, 4, 5, 7, 14}, {8, 9, 10, 11, 12, 13, 6}, {15, 16, 17, 18, 19, 20, 21},
+                {22, 23, 24, 25, 26, 27, 28}, {29, 30, 31, 32, 0, 33, 34}, {36, 37, 38, 39, 40, 41, 35},
+                {43, 44, 45, 46, 47, 48, 42}};
+        Board targetBoard = new Board(tiles);
         solvable = true; // for now
         if (initialBoard.isGoal()) {
             return;
         }
         SearchNode initialSearchNode = new SearchNode(initialBoard, 0,
-                (initialBoard.manhattan() * manhattanWeight), null);
+                (initialBoard.manhattan()), null);
         Board currentTwinBoard = initialBoard.twin();
         if (currentTwinBoard.isGoal()) {
             solvable = false;
             return;
         }
         SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, 0,
-                (initialBoard.manhattan() * manhattanWeight), null);
+                (initialBoard.manhattan()), null);
         MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
+                if (o1.GetManhattan() > o2.GetManhattan()) return 1;
+                if (o2.GetManhattan() > o1.GetManhattan()) return -1;
                 if (o1.numOfMoves > o2.numOfMoves) return 1;
                 if (o2.numOfMoves > o1.numOfMoves) return -1;
-                if (o1.GetManhattan() > o2.GetManhattan()) return 10 * (o1.GetManhattan());
-                if (o2.GetManhattan() > o1.GetManhattan()) return -10 * (o2.GetManhattan());
-//                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 5;
-//                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -5;
-
-//                if (o1.GetManhattan() < o2.GetManhattan()) return 1;
-//                if (o2.GetManhattan() > o1.GetManhattan()) return -1;
-//                if (o1.GetPriority() > o2.GetPriority()) return 5;
-//                if (o2.GetPriority() > o2.GetPriority()) return -5;
-                // try returning 5 or something in above two lines next time if this does not work
                 return 0;
             }
         });
@@ -60,15 +56,8 @@ public class Solver {
             public int compare(SearchNode o1, SearchNode o2) {
                 if (o1.numOfMoves > o2.numOfMoves) return 1;
                 if (o2.numOfMoves > o1.numOfMoves) return -1;
-                if (o1.GetManhattan() > o2.GetManhattan()) return 10 * (o1.GetManhattan());
-                if (o2.GetManhattan() > o1.GetManhattan()) return -10 * (o2.GetManhattan());
-//                if (o1.GetManhattanPriority() > o2.GetManhattanPriority()) return 5;
-//                if (o2.GetManhattanPriority() > o1.GetManhattanPriority()) return -5;
-
-//                if (o1.GetManhattan() < o2.GetManhattan()) return 1;
-//                if (o2.GetManhattan() > o1.GetManhattan()) return -1;
-//                if (o1.GetPriority() > o2.GetPriority()) return 5;
-//                if (o2.GetPriority() > o2.GetPriority()) return -5;
+                if (o1.GetManhattan() > o2.GetManhattan()) return 1;
+                if (o2.GetManhattan() > o1.GetManhattan()) return -1;
                 return 0;
             }
         });
@@ -92,12 +81,12 @@ public class Solver {
         SearchNode minTwinNode = currentPriorityQueueTwin.delMin();
         moves++;
         for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
-            SearchNode temp1Twin = new SearchNode(tb, moves, (tb.manhattan() * manhattanWeight), minTwinNode);
+            SearchNode temp1Twin = new SearchNode(tb, moves, tb.manhattan(), minTwinNode);
             currentPriorityQueueTwin.insert(temp1Twin);
             //twinsList.add(temp1Twin);
         }
         for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-            SearchNode temp1 = new SearchNode(b, moves, (b.manhattan() * manhattanWeight),
+            SearchNode temp1 = new SearchNode(b, moves, b.manhattan(),
                     minSearchNode);
             currentPriorityQueue.insert(temp1);
             //originalList.add(temp1);
@@ -128,14 +117,14 @@ public class Solver {
             moves++;
             // populate the priority queues with more nodes
             for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
-                SearchNode temp1Twin = new SearchNode(tb, moves, (tb.manhattan() * manhattanWeight), minTwinNode);
+                SearchNode temp1Twin = new SearchNode(tb, moves, tb.manhattan(), minTwinNode);
                 if (!tb.equals(minTwinNode.prevSearchNode.currentBoard)) { // make sure this line works
                     currentPriorityQueueTwin.insert(temp1Twin);
                     twinsList.add(temp1Twin);
                 }
             }
             for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-                SearchNode temp1 = new SearchNode(b, moves, (b.manhattan() * manhattanWeight),
+                SearchNode temp1 = new SearchNode(b, moves, b.manhattan(),
                         minSearchNode);
                 // why not check to see if one of the children is the goal?
                 if (temp1.GetCurrentBoard().isGoal()) {
@@ -213,7 +202,7 @@ public class Solver {
         }
 
         public int GetPriority() {
-            return ((this.GetCurrentBoard().manhattan() * 4) + (numOfMoves));
+            return (this.GetCurrentBoard().manhattan() + (numOfMoves));
         }
 
         public int GetManhattan() {
@@ -221,7 +210,7 @@ public class Solver {
         }
 
         private int GetManhattanPriority() {
-            return ((this.manhattan * 4) + this.numOfMoves);
+            return (this.manhattan + this.numOfMoves);
         }
 
         public boolean equals(SearchNode o) {
