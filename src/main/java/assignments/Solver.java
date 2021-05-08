@@ -36,20 +36,20 @@ public class Solver {
         MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.GetManhattan() > o2.GetManhattan()) return 1;
-                else if (o2.GetManhattan() > o1.GetManhattan()) return -1;
-                else if (o1.numOfMoves > o2.numOfMoves) return 1;
-                else if (o2.numOfMoves > o1.numOfMoves) return -1;
+                if (o1.prevSearchNode.GetManhattanPriority() + o1.GetManhattan()
+                        > o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return 1;
+                else if (o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan() >
+                        o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return -1;
                 else return 0;
             }
         });
         MinPQ<SearchNode> currentPriorityQueueTwin = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.GetManhattan() > o2.GetManhattan()) return 1;
-                else if (o2.GetManhattan() > o1.GetManhattan()) return -1;
-                else if (o1.numOfMoves > o2.numOfMoves) return 1;
-                else if (o2.numOfMoves > o1.numOfMoves) return -1;
+                if (o1.prevSearchNode.GetManhattanPriority() + o1.GetManhattan()
+                        > o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return 1;
+                else if (o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan() >
+                        o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return -1;
                 else return 0;
             }
         });
@@ -137,14 +137,16 @@ public class Solver {
             the goal? If so, set minimum search node equal to the node. I need to see what I need to do below to get
             puzzle 11 working. */
 
-            for (SearchNode s : originalList) {
-                for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-                    SearchNode temp = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(), minSearchNode);
-                    while (s.GetCurrentBoard().equals(b) && s.numOfMoves < temp.numOfMoves) {
-                        minSearchNode = s;
-                    }
-                }
-            }
+            //for (SearchNode s : originalList) {
+            // Check to see if there is a node in here that is neighbor of minSearchNode and has a lower cost
+            // to the goal...
+            //for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
+            //SearchNode temp = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(), minSearchNode);
+            //while (s.GetCurrentBoard().equals(b) && s.numOfMoves < temp.numOfMoves) {
+            //minSearchNode = s;
+            //}
+            //}
+            //}
         }// very first loop -
     }
 
