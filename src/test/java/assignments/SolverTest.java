@@ -54,15 +54,14 @@ public class SolverTest {
         solver = new Solver(fInput);
         File myObj = new File(destFolder, fileName);
         FileWriter myWriter = new FileWriter(myObj);
-        //for (Board b : solver.solution()) {
-//            myWriter.write(b.toString());
-//            myWriter.write("Here is the board: " + b.toString() + " Here is the number of moves: " +
-//                    s.GetMovesCount() + " Here is the manhattan distance: " + s.GetCurrentBoard().manhattan() +
-//                    " Here is the hamming distance: " + s.GetCurrentBoard().hamming());
-        // }
-//        for (Solver.SearchNode s : solver.solutionList) {
-//
-//        }
+        myWriter.write(" Puzzle is solvable in " + solver.moves() + " moves. Here are the list of boards: ");
+        for (Board b : solver.solution()) {
+            myWriter.write(b.toString());
+
+        }
+        //for (Solver.SearchNode s : solver.solutionList) {
+
+        //}
         myWriter.close();
     }
 
