@@ -2,6 +2,7 @@ package assignments;
 
 import edu.princeton.cs.algs4.StdOut;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 
@@ -187,7 +188,7 @@ public class Board {
         return neiCopy;
     }
 
-    
+
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
         // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
@@ -223,7 +224,7 @@ public class Board {
             tempTiles[blankRow - 1][blankCol] = temp2;
             tempTiles[blankRow][blankCol + 1] = temp;
         } else {
-            // throw new InvalidParameterException("The board you submit did not match any of the rules.");
+            throw new InvalidParameterException("The board you submit doesn't seem to be valid. ");
         }
         Board retBoard = new Board(tempTiles);
         return retBoard;
