@@ -1,606 +1,545 @@
-Here is the board: 4
- 1  2  3  4 
- 5  6  7  8 
- 9 10 11 12 
-13 14 15  0 
- Here is the number of moves: 120 Here is the manhattan distance: 0 Here is the hamming distance: 0Here is the board: 4
- 1  2  3  4 
- 5  6  7  8 
- 9 10 11  0 
-13 14 15 12 
- Here is the number of moves: 119 Here is the manhattan distance: 1 Here is the hamming distance: 1Here is the board: 4
- 1  2  3  4 
- 5  6  7  0 
- 9 10 11  8 
-13 14 15 12 
- Here is the number of moves: 118 Here is the manhattan distance: 2 Here is the hamming distance: 2Here is the board: 4
- 1  2  3  4 
- 5  6  0  7 
- 9 10 11  8 
-13 14 15 12 
- Here is the number of moves: 117 Here is the manhattan distance: 3 Here is the hamming distance: 3Here is the board: 4
- 1  2  0  4 
- 5  6  3  7 
- 9 10 11  8 
-13 14 15 12 
- Here is the number of moves: 116 Here is the manhattan distance: 4 Here is the hamming distance: 4Here is the board: 4
- 1  0  2  4 
- 5  6  3  7 
- 9 10 11  8 
-13 14 15 12 
- Here is the number of moves: 115 Here is the manhattan distance: 5 Here is the hamming distance: 5Here is the board: 4
- 1  6  2  4 
- 5  0  3  7 
- 9 10 11  8 
-13 14 15 12 
- Here is the number of moves: 114 Here is the manhattan distance: 6 Here is the hamming distance: 6Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
- 9  0 11  8 
-13 14 15 12 
- Here is the number of moves: 113 Here is the manhattan distance: 7 Here is the hamming distance: 7Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
- 9 14 11  8 
-13  0 15 12 
- Here is the number of moves: 112 Here is the manhattan distance: 8 Here is the hamming distance: 8Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
- 9 14 11  8 
- 0 13 15 12 
- Here is the number of moves: 111 Here is the manhattan distance: 9 Here is the hamming distance: 9Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
- 0 14 11  8 
- 9 13 15 12 
- Here is the number of moves: 110 Here is the manhattan distance: 10 Here is the hamming distance: 10Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
-14  0 11  8 
- 9 13 15 12 
- Here is the number of moves: 109 Here is the manhattan distance: 11 Here is the hamming distance: 10Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
-14 11  0  8 
- 9 13 15 12 
- Here is the number of moves: 108 Here is the manhattan distance: 12 Here is the hamming distance: 11Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
-14 11 15  8 
- 9 13  0 12 
- Here is the number of moves: 107 Here is the manhattan distance: 13 Here is the hamming distance: 12Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
-14 11 15  8 
- 9 13 12  0 
- Here is the number of moves: 106 Here is the manhattan distance: 14 Here is the hamming distance: 12Here is the board: 4
- 1  6  2  4 
- 5 10  3  7 
-14 11 15  0 
- 9 13 12  8 
- Here is the number of moves: 105 Here is the manhattan distance: 15 Here is the hamming distance: 12Here is the board: 4
- 1  6  2  4 
- 5 10  3  0 
-14 11 15  7 
- 9 13 12  8 
- Here is the number of moves: 104 Here is the manhattan distance: 16 Here is the hamming distance: 12Here is the board: 4
- 1  6  2  4 
- 5 10  0  3 
-14 11 15  7 
- 9 13 12  8 
- Here is the number of moves: 103 Here is the manhattan distance: 17 Here is the hamming distance: 12Here is the board: 4
- 1  6  2  4 
- 5  0 10  3 
-14 11 15  7 
- 9 13 12  8 
- Here is the number of moves: 102 Here is the manhattan distance: 18 Here is the hamming distance: 12Here is the board: 4
- 1  0  2  4 
- 5  6 10  3 
-14 11 15  7 
- 9 13 12  8 
- Here is the number of moves: 101 Here is the manhattan distance: 17 Here is the hamming distance: 11Here is the board: 4
- 0  1  2  4 
- 5  6 10  3 
-14 11 15  7 
- 9 13 12  8 
- Here is the number of moves: 100 Here is the manhattan distance: 18 Here is the hamming distance: 12Here is the board: 4
- 5  1  2  4 
- 0  6 10  3 
-14 11 15  7 
- 9 13 12  8 
- Here is the number of moves: 99 Here is the manhattan distance: 19 Here is the hamming distance: 13Here is the board: 4
- 5  1  2  4 
-14  6 10  3 
- 0 11 15  7 
- 9 13 12  8 
- Here is the number of moves: 98 Here is the manhattan distance: 20 Here is the hamming distance: 13Here is the board: 4
- 5  1  2  4 
-14  6 10  3 
-11  0 15  7 
- 9 13 12  8 
- Here is the number of moves: 97 Here is the manhattan distance: 21 Here is the hamming distance: 13Here is the board: 4
- 5  1  2  4 
-14  0 10  3 
-11  6 15  7 
- 9 13 12  8 
- Here is the number of moves: 96 Here is the manhattan distance: 22 Here is the hamming distance: 14Here is the board: 4
- 5  0  2  4 
-14  1 10  3 
-11  6 15  7 
- 9 13 12  8 
- Here is the number of moves: 95 Here is the manhattan distance: 23 Here is the hamming distance: 14Here is the board: 4
- 0  5  2  4 
-14  1 10  3 
-11  6 15  7 
- 9 13 12  8 
- Here is the number of moves: 94 Here is the manhattan distance: 24 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
- 0  1 10  3 
-11  6 15  7 
- 9 13 12  8 
- Here is the number of moves: 93 Here is the manhattan distance: 25 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  1 10  3 
- 0  6 15  7 
- 9 13 12  8 
- Here is the number of moves: 92 Here is the manhattan distance: 26 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  1 10  3 
- 6  0 15  7 
- 9 13 12  8 
- Here is the number of moves: 91 Here is the manhattan distance: 27 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  1 10  3 
- 6 15  0  7 
- 9 13 12  8 
- Here is the number of moves: 90 Here is the manhattan distance: 28 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  1 10  3 
- 6 15  7  0 
- 9 13 12  8 
- Here is the number of moves: 89 Here is the manhattan distance: 27 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  1 10  3 
- 6 15  7  8 
- 9 13 12  0 
- Here is the number of moves: 88 Here is the manhattan distance: 26 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  1 10  3 
- 6 15  7  8 
- 9 13  0 12 
- Here is the number of moves: 87 Here is the manhattan distance: 25 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  1 10  3 
- 6 15  7  8 
- 9  0 13 12 
- Here is the number of moves: 86 Here is the manhattan distance: 26 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  1 10  3 
- 6  0  7  8 
- 9 15 13 12 
- Here is the number of moves: 85 Here is the manhattan distance: 25 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11  0 10  3 
- 6  1  7  8 
- 9 15 13 12 
- Here is the number of moves: 84 Here is the manhattan distance: 26 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11 10  0  3 
- 6  1  7  8 
- 9 15 13 12 
- Here is the number of moves: 83 Here is the manhattan distance: 25 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11 10  3  0 
- 6  1  7  8 
- 9 15 13 12 
- Here is the number of moves: 82 Here is the manhattan distance: 24 Here is the hamming distance: 14Here is the board: 4
-14  5  2  4 
-11 10  3  8 
- 6  1  7  0 
- 9 15 13 12 
- Here is the number of moves: 81 Here is the manhattan distance: 23 Here is the hamming distance: 13Here is the board: 4
-14  5  2  4 
-11 10  3  8 
- 6  1  0  7 
- 9 15 13 12 
- Here is the number of moves: 80 Here is the manhattan distance: 24 Here is the hamming distance: 13Here is the board: 4
-14  5  2  4 
-11 10  3  8 
- 6  1 13  7 
- 9 15  0 12 
- Here is the number of moves: 79 Here is the manhattan distance: 25 Here is the hamming distance: 13Here is the board: 4
-14  5  2  4 
-11 10  3  8 
- 6  1 13  7 
- 9 15 12  0 
- Here is the number of moves: 78 Here is the manhattan distance: 26 Here is the hamming distance: 13Here is the board: 4
-14  5  2  4 
-11 10  3  8 
- 6  1 13  0 
- 9 15 12  7 
- Here is the number of moves: 77 Here is the manhattan distance: 27 Here is the hamming distance: 13Here is the board: 4
-14  5  2  4 
-11 10  3  0 
- 6  1 13  8 
- 9 15 12  7 
- Here is the number of moves: 76 Here is the manhattan distance: 28 Here is the hamming distance: 14Here is the board: 4
-14  5  2  0 
-11 10  3  4 
- 6  1 13  8 
- 9 15 12  7 
- Here is the number of moves: 75 Here is the manhattan distance: 29 Here is the hamming distance: 15Here is the board: 4
-14  5  0  2 
-11 10  3  4 
- 6  1 13  8 
- 9 15 12  7 
- Here is the number of moves: 74 Here is the manhattan distance: 30 Here is the hamming distance: 15Here is the board: 4
-14  0  5  2 
-11 10  3  4 
- 6  1 13  8 
- 9 15 12  7 
- Here is the number of moves: 73 Here is the manhattan distance: 31 Here is the hamming distance: 15Here is the board: 4
-14 10  5  2 
-11  0  3  4 
- 6  1 13  8 
- 9 15 12  7 
- Here is the number of moves: 72 Here is the manhattan distance: 32 Here is the hamming distance: 15Here is the board: 4
-14 10  5  2 
-11  1  3  4 
- 6  0 13  8 
- 9 15 12  7 
- Here is the number of moves: 71 Here is the manhattan distance: 31 Here is the hamming distance: 15Here is the board: 4
-14 10  5  2 
-11  1  3  4 
- 0  6 13  8 
- 9 15 12  7 
- Here is the number of moves: 70 Here is the manhattan distance: 30 Here is the hamming distance: 15Here is the board: 4
-14 10  5  2 
-11  1  3  4 
- 9  6 13  8 
- 0 15 12  7 
- Here is the number of moves: 69 Here is the manhattan distance: 29 Here is the hamming distance: 14Here is the board: 4
-14 10  5  2 
-11  1  3  4 
- 9  6 13  8 
-15  0 12  7 
- Here is the number of moves: 68 Here is the manhattan distance: 30 Here is the hamming distance: 14Here is the board: 4
-14 10  5  2 
-11  1  3  4 
- 9  0 13  8 
-15  6 12  7 
- Here is the number of moves: 67 Here is the manhattan distance: 31 Here is the hamming distance: 14Here is the board: 4
-14 10  5  2 
-11  0  3  4 
- 9  1 13  8 
-15  6 12  7 
- Here is the number of moves: 66 Here is the manhattan distance: 32 Here is the hamming distance: 14Here is the board: 4
-14 10  5  2 
-11  3  0  4 
- 9  1 13  8 
-15  6 12  7 
- Here is the number of moves: 65 Here is the manhattan distance: 33 Here is the hamming distance: 14Here is the board: 4
-14 10  5  2 
-11  3 13  4 
- 9  1  0  8 
-15  6 12  7 
- Here is the number of moves: 64 Here is the manhattan distance: 34 Here is the hamming distance: 14Here is the board: 4
-14 10  5  2 
-11  3 13  4 
- 9  1  8  0 
-15  6 12  7 
- Here is the number of moves: 63 Here is the manhattan distance: 35 Here is the hamming distance: 14Here is the board: 4
-14 10  5  2 
-11  3 13  0 
- 9  1  8  4 
-15  6 12  7 
- Here is the number of moves: 62 Here is the manhattan distance: 36 Here is the hamming distance: 14Here is the board: 4
-14 10  5  2 
-11  3  0 13 
- 9  1  8  4 
-15  6 12  7 
- Here is the number of moves: 61 Here is the manhattan distance: 37 Here is the hamming distance: 14Here is the board: 4
-14 10  0  2 
-11  3  5 13 
- 9  1  8  4 
-15  6 12  7 
- Here is the number of moves: 60 Here is the manhattan distance: 36 Here is the hamming distance: 14Here is the board: 4
-14 10  2  0 
-11  3  5 13 
- 9  1  8  4 
-15  6 12  7 
- Here is the number of moves: 59 Here is the manhattan distance: 35 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  0 
- 9  1  8  4 
-15  6 12  7 
- Here is the number of moves: 58 Here is the manhattan distance: 36 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  4 
- 9  1  8  0 
-15  6 12  7 
- Here is the number of moves: 57 Here is the manhattan distance: 35 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  4 
- 9  1  0  8 
-15  6 12  7 
- Here is the number of moves: 56 Here is the manhattan distance: 34 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  4 
- 9  0  1  8 
-15  6 12  7 
- Here is the number of moves: 55 Here is the manhattan distance: 35 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  4 
- 9  6  1  8 
-15  0 12  7 
- Here is the number of moves: 54 Here is the manhattan distance: 34 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  4 
- 9  6  1  8 
-15 12  0  7 
- Here is the number of moves: 53 Here is the manhattan distance: 35 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  4 
- 9  6  0  8 
-15 12  1  7 
- Here is the number of moves: 52 Here is the manhattan distance: 36 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  4 
- 9  6  8  0 
-15 12  1  7 
- Here is the number of moves: 51 Here is the manhattan distance: 37 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  5  0 
- 9  6  8  4 
-15 12  1  7 
- Here is the number of moves: 50 Here is the manhattan distance: 38 Here is the hamming distance: 14Here is the board: 4
-14 10  2 13 
-11  3  0  5 
- 9  6  8  4 
-15 12  1  7 
- Here is the number of moves: 49 Here is the manhattan distance: 39 Here is the hamming distance: 14Here is the board: 4
-14 10  0 13 
-11  3  2  5 
- 9  6  8  4 
-15 12  1  7 
- Here is the number of moves: 48 Here is the manhattan distance: 40 Here is the hamming distance: 14Here is the board: 4
-14  0 10 13 
-11  3  2  5 
- 9  6  8  4 
-15 12  1  7 
- Here is the number of moves: 47 Here is the manhattan distance: 41 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  0  2  5 
- 9  6  8  4 
-15 12  1  7 
- Here is the number of moves: 46 Here is the manhattan distance: 40 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  2  0  5 
- 9  6  8  4 
-15 12  1  7 
- Here is the number of moves: 45 Here is the manhattan distance: 39 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  2  8  5 
- 9  6  0  4 
-15 12  1  7 
- Here is the number of moves: 44 Here is the manhattan distance: 38 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  2  8  5 
- 9  6  4  0 
-15 12  1  7 
- Here is the number of moves: 43 Here is the manhattan distance: 39 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  2  8  5 
- 9  6  4  7 
-15 12  1  0 
- Here is the number of moves: 42 Here is the manhattan distance: 38 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  2  8  5 
- 9  6  4  7 
-15 12  0  1 
- Here is the number of moves: 41 Here is the manhattan distance: 39 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  2  8  5 
- 9  6  0  7 
-15 12  4  1 
- Here is the number of moves: 40 Here is the manhattan distance: 40 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  2  8  5 
- 9  0  6  7 
-15 12  4  1 
- Here is the number of moves: 39 Here is the manhattan distance: 41 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-11  2  8  5 
- 0  9  6  7 
-15 12  4  1 
- Here is the number of moves: 38 Here is the manhattan distance: 42 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-11  2  8  5 
-15  9  6  7 
- 0 12  4  1 
- Here is the number of moves: 37 Here is the manhattan distance: 43 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-11  2  8  5 
-15  9  6  7 
-12  0  4  1 
- Here is the number of moves: 36 Here is the manhattan distance: 44 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-11  2  8  5 
-15  9  6  7 
-12  4  0  1 
- Here is the number of moves: 35 Here is the manhattan distance: 45 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-11  2  8  5 
-15  9  0  7 
-12  4  6  1 
- Here is the number of moves: 34 Here is the manhattan distance: 46 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-11  2  8  5 
-15  0  9  7 
-12  4  6  1 
- Here is the number of moves: 33 Here is the manhattan distance: 47 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-11  0  8  5 
-15  2  9  7 
-12  4  6  1 
- Here is the number of moves: 32 Here is the manhattan distance: 48 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
- 0 11  8  5 
-15  2  9  7 
-12  4  6  1 
- Here is the number of moves: 31 Here is the manhattan distance: 47 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15 11  8  5 
- 0  2  9  7 
-12  4  6  1 
- Here is the number of moves: 30 Here is the manhattan distance: 48 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15 11  8  5 
- 2  0  9  7 
-12  4  6  1 
- Here is the number of moves: 29 Here is the manhattan distance: 49 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15  0  8  5 
- 2 11  9  7 
-12  4  6  1 
- Here is the number of moves: 28 Here is the manhattan distance: 48 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15  8  0  5 
- 2 11  9  7 
-12  4  6  1 
- Here is the number of moves: 27 Here is the manhattan distance: 49 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15  8  9  5 
- 2 11  0  7 
-12  4  6  1 
- Here is the number of moves: 26 Here is the manhattan distance: 50 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15  8  9  5 
- 2 11  7  0 
-12  4  6  1 
- Here is the number of moves: 25 Here is the manhattan distance: 49 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15  8  9  0 
- 2 11  7  5 
-12  4  6  1 
- Here is the number of moves: 24 Here is the manhattan distance: 50 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15  8  0  9 
- 2 11  7  5 
-12  4  6  1 
- Here is the number of moves: 23 Here is the manhattan distance: 51 Here is the hamming distance: 15Here is the board: 4
-14  3 10 13 
-15  8  7  9 
- 2 11  0  5 
-12  4  6  1 
- Here is the number of moves: 22 Here is the manhattan distance: 50 Here is the hamming distance: 14Here is the board: 4
-14  3 10 13 
-15  8  7  9 
- 2  0 11  5 
-12  4  6  1 
- Here is the number of moves: 21 Here is the manhattan distance: 49 Here is the hamming distance: 13Here is the board: 4
-14  3 10 13 
-15  8  7  9 
- 0  2 11  5 
-12  4  6  1 
- Here is the number of moves: 20 Here is the manhattan distance: 48 Here is the hamming distance: 13Here is the board: 4
-14  3 10 13 
-15  8  7  9 
-12  2 11  5 
- 0  4  6  1 
- Here is the number of moves: 19 Here is the manhattan distance: 47 Here is the hamming distance: 13Here is the board: 4
-14  3 10 13 
-15  8  7  9 
-12  2 11  5 
- 4  0  6  1 
- Here is the number of moves: 18 Here is the manhattan distance: 48 Here is the hamming distance: 13Here is the board: 4
-14  3 10 13 
-15  8  7  9 
-12  0 11  5 
- 4  2  6  1 
- Here is the number of moves: 17 Here is the manhattan distance: 49 Here is the hamming distance: 13Here is the board: 4
-14  3 10 13 
-15  0  7  9 
-12  8 11  5 
- 4  2  6  1 
- Here is the number of moves: 16 Here is the manhattan distance: 50 Here is the hamming distance: 13Here is the board: 4
-14  0 10 13 
-15  3  7  9 
-12  8 11  5 
- 4  2  6  1 
- Here is the number of moves: 15 Here is the manhattan distance: 51 Here is the hamming distance: 13Here is the board: 4
- 0 14 10 13 
-15  3  7  9 
-12  8 11  5 
- 4  2  6  1 
- Here is the number of moves: 14 Here is the manhattan distance: 50 Here is the hamming distance: 13Here is the board: 4
-15 14 10 13 
- 0  3  7  9 
-12  8 11  5 
- 4  2  6  1 
- Here is the number of moves: 13 Here is the manhattan distance: 51 Here is the hamming distance: 13Here is the board: 4
-15 14 10 13 
-12  3  7  9 
- 0  8 11  5 
- 4  2  6  1 
- Here is the number of moves: 12 Here is the manhattan distance: 52 Here is the hamming distance: 13Here is the board: 4
-15 14 10 13 
-12  3  7  9 
- 8  0 11  5 
- 4  2  6  1 
- Here is the number of moves: 11 Here is the manhattan distance: 53 Here is the hamming distance: 13Here is the board: 4
-15 14 10 13 
-12  0  7  9 
- 8  3 11  5 
- 4  2  6  1 
- Here is the number of moves: 10 Here is the manhattan distance: 54 Here is the hamming distance: 13Here is the board: 4
-15 14 10 13 
-12  7  0  9 
- 8  3 11  5 
- 4  2  6  1 
- Here is the number of moves: 9 Here is the manhattan distance: 55 Here is the hamming distance: 14Here is the board: 4
-15 14 10 13 
-12  7 11  9 
- 8  3  0  5 
- 4  2  6  1 
- Here is the number of moves: 8 Here is the manhattan distance: 56 Here is the hamming distance: 15Here is the board: 4
-15 14 10 13 
-12  7 11  9 
- 8  3  6  5 
- 4  2  0  1 
- Here is the number of moves: 7 Here is the manhattan distance: 55 Here is the hamming distance: 15Here is the board: 4
-15 14 10 13 
-12  7 11  9 
- 8  3  6  5 
- 4  0  2  1 
- Here is the number of moves: 6 Here is the manhattan distance: 56 Here is the hamming distance: 15Here is the board: 4
-15 14 10 13 
-12  7 11  9 
- 8  0  6  5 
- 4  3  2  1 
- Here is the number of moves: 5 Here is the manhattan distance: 57 Here is the hamming distance: 15Here is the board: 4
-15 14 10 13 
-12  0 11  9 
- 8  7  6  5 
- 4  3  2  1 
- Here is the number of moves: 4 Here is the manhattan distance: 58 Here is the hamming distance: 15Here is the board: 4
-15 14 10 13 
-12 11  0  9 
- 8  7  6  5 
- 4  3  2  1 
- Here is the number of moves: 3 Here is the manhattan distance: 59 Here is the hamming distance: 15Here is the board: 4
-15 14  0 13 
-12 11 10  9 
- 8  7  6  5 
- 4  3  2  1 
- Here is the number of moves: 2 Here is the manhattan distance: 58 Here is the hamming distance: 15Here is the board: 4
-15  0 14 13 
-12 11 10  9 
- 8  7  6  5 
- 4  3  2  1 
- Here is the number of moves: 1 Here is the manhattan distance: 59 Here is the hamming distance: 15Here is the board: 4
+ Puzzle is solvable in 108 moves. Here are the list of boards: 4
  0 15 14 13 
 12 11 10  9 
  8  7  6  5 
  4  3  2  1 
- Here is the number of moves: 0 Here is the manhattan distance: 58 Here is the hamming distance: 15
+4
+12 15 14 13 
+ 0 11 10  9 
+ 8  7  6  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8 11 10  9 
+ 0  7  6  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8 11 10  9 
+ 7  0  6  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8 11 10  9 
+ 7  6  0  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8 11  0  9 
+ 7  6 10  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8  0 11  9 
+ 7  6 10  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8  6 11  9 
+ 7  0 10  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8  6 11  9 
+ 7 10  0  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8  6  0  9 
+ 7 10 11  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8  6  9  0 
+ 7 10 11  5 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8  6  9  5 
+ 7 10 11  0 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8  6  9  5 
+ 7 10  0 11 
+ 4  3  2  1 
+4
+12 15 14 13 
+ 8  6  9  5 
+ 7 10  2 11 
+ 4  3  0  1 
+4
+12 15 14 13 
+ 8  6  9  5 
+ 7 10  2 11 
+ 4  0  3  1 
+4
+12 15 14 13 
+ 8  6  9  5 
+ 7  0  2 11 
+ 4 10  3  1 
+4
+12 15 14 13 
+ 8  6  9  5 
+ 7  2  0 11 
+ 4 10  3  1 
+4
+12 15 14 13 
+ 8  6  0  5 
+ 7  2  9 11 
+ 4 10  3  1 
+4
+12 15  0 13 
+ 8  6 14  5 
+ 7  2  9 11 
+ 4 10  3  1 
+4
+12  0 15 13 
+ 8  6 14  5 
+ 7  2  9 11 
+ 4 10  3  1 
+4
+12  6 15 13 
+ 8  0 14  5 
+ 7  2  9 11 
+ 4 10  3  1 
+4
+12  6 15 13 
+ 8  2 14  5 
+ 7  0  9 11 
+ 4 10  3  1 
+4
+12  6 15 13 
+ 8  2 14  5 
+ 7  9  0 11 
+ 4 10  3  1 
+4
+12  6 15 13 
+ 8  2  0  5 
+ 7  9 14 11 
+ 4 10  3  1 
+4
+12  6  0 13 
+ 8  2 15  5 
+ 7  9 14 11 
+ 4 10  3  1 
+4
+12  0  6 13 
+ 8  2 15  5 
+ 7  9 14 11 
+ 4 10  3  1 
+4
+12  2  6 13 
+ 8  0 15  5 
+ 7  9 14 11 
+ 4 10  3  1 
+4
+12  2  6 13 
+ 0  8 15  5 
+ 7  9 14 11 
+ 4 10  3  1 
+4
+12  2  6 13 
+ 7  8 15  5 
+ 0  9 14 11 
+ 4 10  3  1 
+4
+12  2  6 13 
+ 7  8 15  5 
+ 9  0 14 11 
+ 4 10  3  1 
+4
+12  2  6 13 
+ 7  8 15  5 
+ 9 14  0 11 
+ 4 10  3  1 
+4
+12  2  6 13 
+ 7  8  0  5 
+ 9 14 15 11 
+ 4 10  3  1 
+4
+12  2  6 13 
+ 7  0  8  5 
+ 9 14 15 11 
+ 4 10  3  1 
+4
+12  2  6 13 
+ 0  7  8  5 
+ 9 14 15 11 
+ 4 10  3  1 
+4
+ 0  2  6 13 
+12  7  8  5 
+ 9 14 15 11 
+ 4 10  3  1 
+4
+ 2  0  6 13 
+12  7  8  5 
+ 9 14 15 11 
+ 4 10  3  1 
+4
+ 2  6  0 13 
+12  7  8  5 
+ 9 14 15 11 
+ 4 10  3  1 
+4
+ 2  6 13  0 
+12  7  8  5 
+ 9 14 15 11 
+ 4 10  3  1 
+4
+ 2  6 13  5 
+12  7  8  0 
+ 9 14 15 11 
+ 4 10  3  1 
+4
+ 2  6 13  5 
+12  7  8 11 
+ 9 14 15  0 
+ 4 10  3  1 
+4
+ 2  6 13  5 
+12  7  8 11 
+ 9 14 15  1 
+ 4 10  3  0 
+4
+ 2  6 13  5 
+12  7  8 11 
+ 9 14 15  1 
+ 4 10  0  3 
+4
+ 2  6 13  5 
+12  7  8 11 
+ 9 14  0  1 
+ 4 10 15  3 
+4
+ 2  6 13  5 
+12  7  8 11 
+ 9 14  1  0 
+ 4 10 15  3 
+4
+ 2  6 13  5 
+12  7  8  0 
+ 9 14  1 11 
+ 4 10 15  3 
+4
+ 2  6 13  5 
+12  7  0  8 
+ 9 14  1 11 
+ 4 10 15  3 
+4
+ 2  6 13  5 
+12  0  7  8 
+ 9 14  1 11 
+ 4 10 15  3 
+4
+ 2  6 13  5 
+ 0 12  7  8 
+ 9 14  1 11 
+ 4 10 15  3 
+4
+ 2  6 13  5 
+ 9 12  7  8 
+ 0 14  1 11 
+ 4 10 15  3 
+4
+ 2  6 13  5 
+ 9 12  7  8 
+ 4 14  1 11 
+ 0 10 15  3 
+4
+ 2  6 13  5 
+ 9 12  7  8 
+ 4 14  1 11 
+10  0 15  3 
+4
+ 2  6 13  5 
+ 9 12  7  8 
+ 4  0  1 11 
+10 14 15  3 
+4
+ 2  6 13  5 
+ 9 12  7  8 
+ 4  1  0 11 
+10 14 15  3 
+4
+ 2  6 13  5 
+ 9 12  0  8 
+ 4  1  7 11 
+10 14 15  3 
+4
+ 2  6 13  5 
+ 9  0 12  8 
+ 4  1  7 11 
+10 14 15  3 
+4
+ 2  6 13  5 
+ 9  1 12  8 
+ 4  0  7 11 
+10 14 15  3 
+4
+ 2  6 13  5 
+ 9  1 12  8 
+ 0  4  7 11 
+10 14 15  3 
+4
+ 2  6 13  5 
+ 0  1 12  8 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 2  6 13  5 
+ 1  0 12  8 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 2  0 13  5 
+ 1  6 12  8 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 2 13  0  5 
+ 1  6 12  8 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 2 13  5  0 
+ 1  6 12  8 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 2 13  5  8 
+ 1  6 12  0 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 2 13  5  8 
+ 1  6  0 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 2 13  5  8 
+ 1  0  6 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 2  0  5  8 
+ 1 13  6 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 0  2  5  8 
+ 1 13  6 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 1  2  5  8 
+ 0 13  6 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 1  2  5  8 
+13  0  6 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 1  2  5  8 
+13  6  0 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 1  2  0  8 
+13  6  5 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 1  0  2  8 
+13  6  5 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 1  6  2  8 
+13  0  5 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 1  6  2  8 
+13  5  0 12 
+ 9  4  7 11 
+10 14 15  3 
+4
+ 1  6  2  8 
+13  5  7 12 
+ 9  4  0 11 
+10 14 15  3 
+4
+ 1  6  2  8 
+13  5  7 12 
+ 9  0  4 11 
+10 14 15  3 
+4
+ 1  6  2  8 
+13  5  7 12 
+ 0  9  4 11 
+10 14 15  3 
+4
+ 1  6  2  8 
+ 0  5  7 12 
+13  9  4 11 
+10 14 15  3 
+4
+ 1  6  2  8 
+ 5  0  7 12 
+13  9  4 11 
+10 14 15  3 
+4
+ 1  0  2  8 
+ 5  6  7 12 
+13  9  4 11 
+10 14 15  3 
+4
+ 1  2  0  8 
+ 5  6  7 12 
+13  9  4 11 
+10 14 15  3 
+4
+ 1  2  7  8 
+ 5  6  0 12 
+13  9  4 11 
+10 14 15  3 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+13  9  0 11 
+10 14 15  3 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+13  9 11  0 
+10 14 15  3 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+13  9 11  3 
+10 14 15  0 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+13  9 11  3 
+10 14  0 15 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+13  9 11  3 
+10  0 14 15 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+13  9 11  3 
+ 0 10 14 15 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+ 0  9 11  3 
+13 10 14 15 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+ 9  0 11  3 
+13 10 14 15 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+ 9 10 11  3 
+13  0 14 15 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+ 9 10 11  3 
+13 14  0 15 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+ 9 10  0  3 
+13 14 11 15 
+4
+ 1  2  7  8 
+ 5  6  4 12 
+ 9 10  3  0 
+13 14 11 15 
+4
+ 1  2  7  8 
+ 5  6  4  0 
+ 9 10  3 12 
+13 14 11 15 
+4
+ 1  2  7  0 
+ 5  6  4  8 
+ 9 10  3 12 
+13 14 11 15 
+4
+ 1  2  0  7 
+ 5  6  4  8 
+ 9 10  3 12 
+13 14 11 15 
+4
+ 1  2  4  7 
+ 5  6  0  8 
+ 9 10  3 12 
+13 14 11 15 
+4
+ 1  2  4  7 
+ 5  6  3  8 
+ 9 10  0 12 
+13 14 11 15 
+4
+ 1  2  4  7 
+ 5  6  3  8 
+ 9 10 11 12 
+13 14  0 15 
+4
+ 1  2  4  7 
+ 5  6  3  8 
+ 9 10 11 12 
+13 14 15  0 
+4
+ 1  2  4  7 
+ 5  6  3  8 
+ 9 10 11  0 
+13 14 15 12 
+4
+ 1  2  4  7 
+ 5  6  3  0 
+ 9 10 11  8 
+13 14 15 12 
+4
+ 1  2  4  0 
+ 5  6  3  7 
+ 9 10 11  8 
+13 14 15 12 
+4
+ 1  2  0  4 
+ 5  6  3  7 
+ 9 10 11  8 
+13 14 15 12 
+4
+ 1  2  3  4 
+ 5  6  0  7 
+ 9 10 11  8 
+13 14 15 12 
+4
+ 1  2  3  4 
+ 5  6  7  0 
+ 9 10 11  8 
+13 14 15 12 
+4
+ 1  2  3  4 
+ 5  6  7  8 
+ 9 10 11  0 
+13 14 15 12 
+4
+ 1  2  3  4 
+ 5  6  7  8 
+ 9 10 11 12 
+13 14 15  0 

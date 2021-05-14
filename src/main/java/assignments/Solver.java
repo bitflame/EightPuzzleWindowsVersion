@@ -56,6 +56,7 @@ public class Solver {
         });
         // put the first node in priority queues
         currentPriorityQueue.insert(initialSearchNode);
+
         currentPriorityQueueTwin.insert(initialTwinSearchNode);
         // Create a board for Goal
         int index = 1;
@@ -96,6 +97,7 @@ public class Solver {
 
         while ((!currentPriorityQueue.isEmpty())) {
 // check to see if minSearchNode is the answer
+            /* Create a visited nodes array and keep track of actual cost of them ***********************************/
             if (minSearchNode.GetCurrentBoard().isGoal()) {
                 break;
             } else {
@@ -156,10 +158,54 @@ public class Solver {
 //            int[][] t33 = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 0}};
 //            Board board = new Board(t7);
             Board board1 = new Board(t11);
-            // Get the next candidate
+            // Get the next candidate if it is not in visited or it has a lower A* value
+            //minSearchNode = currentPriorityQueue.delMin();
+            //minTwinNode = currentPriorityQueueTwin.delMin();
+            /* Modify the check of original loop here so you find the node with least priority */
+            /* Is there a node in the original list that is a neighbor of the minimum search node and perhaps closer to
+            the goal? If so, set minimum search node equal to the node. I need to see what I need to do below to get
+            puzzle 11 working. */
+            //for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
+            //SearchNode temp = minSearchNode;
+            //SearchNode neiSNode = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(), minSearchNode);
+            for (SearchNode s : originalList) {
+                /* Check to see if there is a less costly path to the goal from minSearchNode i.e. is there a node that
+                 * is a neighbor of minSearchNode that has less number of moves b/c its manhattan can not change. You
+                 * also want to make sure that you would not select it using the currecntPriorityQueue */
+                    /* o1.prevSearchNode.GetManhattanPriority() + o1.GetManhattan() - the comparison below might actually
+                    have to be between minSearchNode's neighbors generated above and any other node. Not minSearchNode
+                    itself.
+                    **********************************Do Tomorrow****************************************
+                    Try adding the node that costs less to the priority queue with the new cost instead of
+                    setting the minSearchNode to it. That way you may not skip any search nodes. */
+//                    if (s.GetCurrentBoard().equals(b) && s.prevSearchNode.GetManhattanPriority() + s.GetManhattan() <
+//                            neiSNode.prevSearchNode.GetManhattanPriority() + neiSNode.GetManhattan() &&
+//                            (!s.GetCurrentBoard().equals(minSearchNode.prevSearchNode.GetCurrentBoard())) &&
+//                            (!s.GetCurrentBoard().equals(minSearchNode.GetCurrentBoard()))) {
+//                        minSearchNode = s;
+//                    }
+                if (!currentPriorityQueue.isEmpty()) {
+                    if (s.GetCurrentBoard().equals(currentPriorityQueue.min().GetCurrentBoard()) && s.GetPriority() <
+                            currentPriorityQueue.min().GetPriority()) {
+                        currentPriorityQueue.delMin();// Just delete it; do not need to visit it
+                    }
+                }
+            }
+            minSearchNode = currentPriorityQueue.delMin(); /* If it was not visited or it might provide a better path
+            expand it */
 
-            minSearchNode = currentPriorityQueue.delMin();
-            minTwinNode = currentPriorityQueueTwin.delMin();
+            for (SearchNode tS : twinsList) {
+                if (!currentPriorityQueueTwin.isEmpty()) {
+                    if (tS.GetCurrentBoard().equals(currentPriorityQueueTwin.min().GetCurrentBoard()) && tS.GetPriority() <
+                            currentPriorityQueueTwin.min().GetPriority()) {
+                        currentPriorityQueueTwin.delMin();
+                    } else {
+                        minTwinNode = currentPriorityQueueTwin.delMin();
+                    }
+                }
+            }
+            //}
+
 //            if (minSearchNode.GetCurrentBoard().equals(board1)) {
 //                StdOut.println(" ......saw node 10 ..");
 //            }
@@ -224,39 +270,16 @@ public class Solver {
                     minSearchNode = temp1;
                     break;
                 }
-                if (!b.equals(minSearchNode.prevSearchNode.GetCurrentBoard())) {
+                if (minSearchNode.prevSearchNode == null || !b.equals(minSearchNode.prevSearchNode.GetCurrentBoard())) {
                     currentPriorityQueue.insert(temp1);
                     originalList.add(temp1);
-                    if (b.equals(board1))
-                        StdOut.println(" put 10 in current priority queue and original list. ");
+//                    if (b.equals(board1))
+//                        StdOut.println(" put 10 in current priority queue and original list. ");
                 }
+            }
 
-            }
-            /* Modify the check of original loop here so you find the node with least priority */
-            /* Is there a node in the original list that is a neighbor of the minimum search node and perhaps closer to
-            the goal? If so, set minimum search node equal to the node. I need to see what I need to do below to get
-            puzzle 11 working. */
-            for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-                SearchNode temp = minSearchNode;
-                SearchNode neiSNode = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(), minSearchNode);
-                for (SearchNode s : originalList) {
-                    /* Check to see if there is a less costly path to the goal from minSearchNode i.e. is there a node that
-                     * is a neighbor of minSearchNode that has less number of moves b/c its manhattan can not change. You
-                     * also want to make sure that you would not select it using the currecntPriorityQueue */
-                    /* o1.prevSearchNode.GetManhattanPriority() + o1.GetManhattan() - the comparison below might actually
-                    have to be between minSearchNode's neighbors generated above and any other node. Not minSearchNode
-                    itself.
-                    **********************************Do Tomorrow****************************************
-                    Try adding the node that costs less to the priority queue with the new cost instead of
-                    setting the minSearchNode to it. That way you may not skip any search nodes. */
-                    if (s.GetCurrentBoard().equals(b) && s.prevSearchNode.GetManhattanPriority() + s.GetManhattan() <
-                            neiSNode.prevSearchNode.GetManhattanPriority() + neiSNode.GetManhattan() &&
-                            (!s.GetCurrentBoard().equals(minSearchNode.prevSearchNode.GetCurrentBoard())) &&
-                            (!s.GetCurrentBoard().equals(minSearchNode.GetCurrentBoard()))) {
-                        minSearchNode = s;
-                    }
-                }
-            }
+            /* Maybe a loop that goes through all the nodes in minimum priority queue, and only save the node with the
+             * shortest path into a new priority queue, then save the results */
             //StdOut.println("Here is minimum search node after original list modification: " + minSearchNode.GetCurrentBoard());
         }// very first loop -
         if (minSearchNode.GetCurrentBoard().isGoal()) {
