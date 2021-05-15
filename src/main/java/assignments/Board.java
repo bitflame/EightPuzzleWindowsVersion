@@ -1,8 +1,5 @@
 package assignments;
 
-import edu.princeton.cs.algs4.StdOut;
-
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 
@@ -139,11 +136,11 @@ public class Board {
     // does this board equal y?
     public boolean equals(Object y) {
         if (y == null) return false;
-        Board temp = (Board) y;
+        if (this.getClass() != y.getClass()) return false;
+        //Board temp = (Board) y;
         int length = ((Board) y).n;
         if (this.n != length) return false;
         if (this == y) return true;
-        if (this.getClass() != y.getClass()) return false;
         Board that = (Board) y;
         if (this.n != that.n) return false;
         for (char i = 0; i < n; i++) {
@@ -223,8 +220,6 @@ public class Board {
             int temp2 = tiles[blankRow][blankCol + 1];
             tempTiles[blankRow - 1][blankCol] = temp2;
             tempTiles[blankRow][blankCol + 1] = temp;
-        } else {
-            throw new InvalidParameterException("The board you submit doesn't seem to be valid. ");
         }
         Board retBoard = new Board(tempTiles);
         return retBoard;
@@ -242,70 +237,6 @@ public class Board {
 
     // unit testing (not graded)
     public static void main(String[] args) {
-        int[][] testTiles = {{1, 2, 3}, {4, 5, 6}, {8, 7, 0}}; // 1
-        int[][] testTiles0 = {{1, 2, 3}, {4, 5, 6}, {8, 0, 7}}; // 1
-        int[][] testTiles1 = {{1, 2, 3}, {4, 0, 6}, {8, 5, 7}}; // 3
-        int[][] testTiles2 = {{1, 2, 3}, {0, 4, 6}, {8, 5, 7}}; // 3
-        int[][] testTiles3 = {{1, 2, 3}, {4, 6, 7}, {8, 5, 0}}; // 3
-        int[][] testTiles4 = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}}; // 4
-        int[][] testTiles5 = {{1, 0, 3}, {4, 2, 5}, {7, 8, 6}}; // 4
-        int[][] testTiles6 = {{1, 2, 3}, {4, 0, 5}, {7, 8, 6}}; // 2
-        int[][] testTiles7 = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}}; // 2
-        int[][] testTiles8 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}}; // 0 inversions
-        Board tb = new Board(testTiles);
-        Board tb0 = new Board(testTiles0);
-        Board tb1 = new Board(testTiles1);
-        Board tb2 = new Board(testTiles2);
-        Board tb3 = new Board(testTiles3);
-        Board tb4 = new Board(testTiles4);
-        Board tb5 = new Board(testTiles5);
-        Board tb6 = new Board(testTiles6);
-        Board tb7 = new Board(testTiles7);
-        Board tb8 = new Board(testTiles8);
-        ArrayList<Board> boards = new ArrayList<>();
-        boards.add(tb);
-        boards.add(tb0);
-        boards.add(tb1);
-        boards.add(tb2);
-        boards.add(tb3);
-        boards.add(tb4);
-        boards.add(tb5);
-        boards.add(tb6);
-        boards.add(tb7);
-        boards.add(tb8);
-        for (Board b : boards) {
-            StdOut.println("Board: " + b + "Board's Twin");
-            StdOut.println("Board's neighbors and their twins : ");
-            for (Board bn : b.neighbors()) {
-                StdOut.println(bn + "" + bn.twin());
-            }
-        }
-        // char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-        // StdOut.println("Original table: ");
-        // StdOut.println(tb);
-        // StdOut.println("Here are the neighbors: ");
-//        for (Board b : tb.neighbors()) {
-//            StdOut.println(b);
-//            StdOut.println(b.compareTo(tb));
-//        }
-        // StdOut.println("The dimension is: " + tb.dimension());
-        StdOut.println("The number of inversions are: ");
+
     }
-
-
-//    public int compareTo(Board o) {
-//        if (this.manhattan > o.manhattan) return 1;
-//        if (this.manhattan < o.manhattan) return -1;
-//        if (this.hamming > o.hamming) return 1;
-//        if (this.hamming < o.hamming) return -1;
-//        if (this.tiles[0][0] > o.tiles[0][0]) return 1;
-//        if (this.tiles[0][0] < o.tiles[0][0]) return -1;
-//        for (int i = 0; i < n; i++) {
-//            for (int j = 0; j < n; j++) {
-//                if (this.tiles[i][j] > o.tiles[i][j]) return 1;
-//            }
-//        }
-//        if (this.equals(o)) return 0;
-//        return 1;
-//    }
 }
