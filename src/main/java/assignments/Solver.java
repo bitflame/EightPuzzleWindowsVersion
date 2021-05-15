@@ -32,23 +32,43 @@ public class Solver {
         SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, 0,
                 (initialBoard.manhattan()), null);
         // Create priority queues
+//        MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
+//            @Override
+//            public int compare(SearchNode o1, SearchNode o2) {
+//                if (o1.prevSearchNode.GetManhattanPriority() + o1.GetManhattan()
+//                        > o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return 1;
+//                else if (o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan() >
+//                        o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return -1;
+//                else return 0;
+//            }
+//        });
+//        MinPQ<SearchNode> currentPriorityQueueTwin = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
+//            @Override
+//            public int compare(SearchNode o1, SearchNode o2) {
+//                if (o1.prevSearchNode.GetManhattanPriority() + o1.GetManhattan()
+//                        > o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return 1;
+//                else if (o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan() >
+//                        o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return -1;
+//                else return 0;
+//            }
+//        });
         MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.prevSearchNode.GetManhattanPriority() + o1.GetManhattan()
-                        > o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return 1;
-                else if (o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan() >
-                        o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return -1;
+                if (o1.prevSearchNode.GetPriority() + o1.GetManhattan()
+                        > o2.prevSearchNode.GetPriority() + o2.GetManhattan()) return 1;
+                else if (o2.prevSearchNode.GetPriority() + o2.GetManhattan() >
+                        o2.prevSearchNode.GetPriority() + o2.GetManhattan()) return -1;
                 else return 0;
             }
         });
         MinPQ<SearchNode> currentPriorityQueueTwin = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.prevSearchNode.GetManhattanPriority() + o1.GetManhattan()
-                        > o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return 1;
-                else if (o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan() >
-                        o2.prevSearchNode.GetManhattanPriority() + o2.GetManhattan()) return -1;
+                if (o1.prevSearchNode.GetPriority() + o1.GetManhattan()
+                        > o2.prevSearchNode.GetPriority() + o2.GetManhattan()) return 1;
+                else if (o2.prevSearchNode.GetPriority() + o2.GetManhattan() >
+                        o2.prevSearchNode.GetPriority() + o2.GetManhattan()) return -1;
                 else return 0;
             }
         });
@@ -214,9 +234,6 @@ public class Solver {
             return currentBoard;
         }
 
-        public int GetMovesCount() {
-            return numOfMoves;
-        }
 
         public SearchNode GetPrevSearchNode() {
             return prevSearchNode;
@@ -230,9 +247,9 @@ public class Solver {
             return this.manhattan;
         }
 
-        private int GetManhattanPriority() {
-            return (this.manhattan + this.numOfMoves);
-        }
+//        private int GetManhattanPriority() {
+//            return (this.manhattan + this.numOfMoves);
+//        }
 
         public boolean equals(SearchNode o) {
             if (this == o) return true;
@@ -244,8 +261,8 @@ public class Solver {
 
         @Override
         public int compareTo(SearchNode o) {
-            if (this.GetManhattanPriority() > o.GetManhattanPriority()) return 1;
-            if (this.GetManhattanPriority() < o.GetManhattanPriority()) return -1;
+            if (this.GetPriority() > o.GetPriority()) return 1;
+            if (this.GetPriority() < o.GetPriority()) return -1;
             return 0;
         }
 

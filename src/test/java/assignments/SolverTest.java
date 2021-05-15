@@ -28,7 +28,7 @@ public class SolverTest {
         for (final File fileEntry : folder.listFiles()) {
             //System.out.println("processing file: " + fileEntry.getName())
             counter++;
-            if (counter == 30) break;
+            if (counter == 143) break;
             path = destFolder + fileEntry;
             In in = new In(fileEntry.getAbsolutePath());
             fileName = fileEntry.getName();
