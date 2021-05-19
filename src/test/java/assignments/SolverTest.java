@@ -10,6 +10,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(Parameterized.class)
 public class SolverTest {
     public Solver solver;
@@ -67,7 +69,7 @@ public class SolverTest {
 
     @Test
     public void test() {
-        //assertEquals(fExpected, solver.moves);
+        assertEquals(fExpected, solver.moves());
     }
 
 }

@@ -57,7 +57,7 @@ public class Solver {
                 if (o1.prevSearchNode.GetPriority() + o1.GetManhattan()
                         > o2.prevSearchNode.GetPriority() + o2.GetManhattan()) return 1;
                 else if (o2.prevSearchNode.GetPriority() + o2.GetManhattan() >
-                        o2.prevSearchNode.GetPriority() + o2.GetManhattan()) return -1;
+                        o1.prevSearchNode.GetPriority() + o1.GetManhattan()) return -1;
                 else return 0;
             }
         });
@@ -67,7 +67,7 @@ public class Solver {
                 if (o1.prevSearchNode.GetPriority() + o1.GetManhattan()
                         > o2.prevSearchNode.GetPriority() + o2.GetManhattan()) return 1;
                 else if (o2.prevSearchNode.GetPriority() + o2.GetManhattan() >
-                        o2.prevSearchNode.GetPriority() + o2.GetManhattan()) return -1;
+                        o1.prevSearchNode.GetPriority() + o1.GetManhattan()) return -1;
                 else return 0;
             }
         });
