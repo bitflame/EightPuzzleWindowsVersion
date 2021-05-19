@@ -1,4 +1,5 @@
 
+
 import java.util.ArrayList;
 
 
@@ -51,16 +52,16 @@ public class Board {
                 }
             }
         }
-        int index = 1;
-
-        int[][] goal = new int[n][n];
-        for (int i = 0; i <= n - 1; i++) {
-            for (int j = 0; j <= n - 1; j++) {
-                goal[i][j] = index;
-                index++;
-            }
-        }
-        goal[n - 1][n - 1] = 0;
+//        int index = 1;
+//
+//        int[][] goal = new int[n][n];
+//        for (int i = 0; i <= n - 1; i++) {
+//            for (int j = 0; j <= n - 1; j++) {
+//                goal[i][j] = index;
+//                index++;
+//            }
+//        }
+//        goal[n - 1][n - 1] = 0;
         int distanceHamming = 0;
         for (char i = 0; i < n; i++) {
             for (char j = 0; j < n; j++) {
@@ -73,7 +74,8 @@ public class Board {
         int distanceManhattan = 0;
         for (char i = 0; i < n; i++) {
             for (char j = 0; j < n; j++) {
-                if (tiles[i][j] != goal[i][j] && tiles[i][j] != 0) { //
+                //if (tiles[i][j] != goal[i][j] && tiles[i][j] != 0) {
+                if (tiles[i][j] != ((n * i) + (j + 1)) && tiles[i][j] != 0) {
                     int targetX = (tiles[i][j] - 1) / n;
                     int targetY = (tiles[i][j] - 1) % n;
                     int dx = i - targetX;
@@ -135,10 +137,10 @@ public class Board {
     // does this board equal y?
     public boolean equals(Object y) {
         if (y == null) return false;
-        Board temp = (Board) y;
+        if (this.getClass() != y.getClass()) return false;
+        //Board temp = (Board) y;
         int length = ((Board) y).n;
         if (this.n != length) return false;
-        if (this.getClass() != y.getClass()) return false;
         if (this == y) return true;
         Board that = (Board) y;
         if (this.n != that.n) return false;
