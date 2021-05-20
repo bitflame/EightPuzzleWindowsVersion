@@ -6,7 +6,6 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class Solver {
     private boolean solvable;
@@ -15,8 +14,8 @@ public class Solver {
 
     public Solver(Board initialBoard) {
         ArrayList<SearchNode> solutionList = new ArrayList<>();
-        List<SearchNode> originalList = new ArrayList<>();
-        List<SearchNode> twinsList = new ArrayList<>();
+        //List<SearchNode> originalList = new ArrayList<>();
+        //List<SearchNode> twinsList = new ArrayList<>();
         SearchNode[] goals = new SearchNode[1];
         int goalsIndex = 0;
         if (initialBoard == null) {
@@ -97,13 +96,13 @@ public class Solver {
             SearchNode temp1Twin = new SearchNode(tb, minTwinNode.numOfMoves + 1, tb.manhattan(),
                     minTwinNode);
             currentPriorityQueueTwin.insert(temp1Twin);
-            twinsList.add(temp1Twin);
+            //twinsList.add(temp1Twin);
         }
         for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
             SearchNode temp1 = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(),
                     minSearchNode);
             currentPriorityQueue.insert(temp1);
-            originalList.add(temp1);
+            //originalList.add(temp1);
         }
 
         while ((!currentPriorityQueue.isEmpty())) {
@@ -121,46 +120,47 @@ public class Solver {
             } else {
                 solvable = false;
             }
-            for (SearchNode s : originalList) {
-                /* Check to see if there is a less costly path to the goal from minSearchNode i.e. is there a node that
-                 * is a neighbor of minSearchNode that has less number of moves b/c its manhattan can not change. You
-                 * also want to make sure that you would not select it using the currentPriorityQueue. Also check for
-                 * nodes that have the same board, but one's priority is higher i.e. one's number of moves is better
-                 * than the other */
-                for (SearchNode priorityNode : currentPriorityQueue) {
+            //for (SearchNode s : originalList) {
+            /* Check to see if there is a less costly path to the goal from minSearchNode i.e. is there a node that
+             * is a neighbor of minSearchNode that has less number of moves b/c its manhattan can not change. You
+             * also want to make sure that you would not select it using the currentPriorityQueue. Also check for
+             * nodes that have the same board, but one's priority is higher i.e. one's number of moves is better
+             * than the other */
+            //for (SearchNode priorityNode : currentPriorityQueue) {
 
-                }
-                if (!currentPriorityQueue.isEmpty()) {
-                    if (s.GetCurrentBoard().equals(currentPriorityQueue.min().GetCurrentBoard()) &&
-                            s.numOfMoves < currentPriorityQueue.min().numOfMoves
-                        /*s.GetPriority() <= currentPriorityQueue.min().GetPriority()*/) {
-                        // Just delete it; do not need to visit it
-                        currentPriorityQueue.delMin();
-                    }
-                }
+            //}
+            //if (!currentPriorityQueue.isEmpty()) {
+            //if (s.GetCurrentBoard().equals(currentPriorityQueue.min().GetCurrentBoard()) &&
+            //s.numOfMoves < currentPriorityQueue.min().numOfMoves
+            /*s.GetPriority() <= currentPriorityQueue.min().GetPriority()*/
+            {
+                // Just delete it; do not need to visit it
+                //currentPriorityQueue.delMin();
+                //}
             }
+            //}
 
             /* If it was not visited or it might provide a better path expand it */
             minSearchNode = currentPriorityQueue.delMin();
 
 
-            for (SearchNode tS : twinsList) {
-                if (!currentPriorityQueueTwin.isEmpty()) {
-                    if (tS.GetCurrentBoard().equals(currentPriorityQueueTwin.min().GetCurrentBoard()) && tS.GetPriority()
-                            < currentPriorityQueueTwin.min().GetPriority()) {
-                        currentPriorityQueueTwin.delMin();
-                    } else {
-                        minTwinNode = currentPriorityQueueTwin.delMin();
-                    }
-                }
-            }
+//            for (SearchNode tS : twinsList) {
+//                if (!currentPriorityQueueTwin.isEmpty()) {
+//                    if (tS.GetCurrentBoard().equals(currentPriorityQueueTwin.min().GetCurrentBoard()) && tS.GetPriority()
+//                            < currentPriorityQueueTwin.min().GetPriority()) {
+//                        currentPriorityQueueTwin.delMin();
+//                    } else {
+//                        minTwinNode = currentPriorityQueueTwin.delMin();
+//                    }
+//                }
+//            }
             // populate the priority queues with more nodes
             for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
 
                 SearchNode temp1Twin = new SearchNode(tb, minTwinNode.numOfMoves + 1, tb.manhattan(), minTwinNode);
-                if (!tb.equals(minTwinNode.prevSearchNode.currentBoard)) { // make sure this line works
+                if (minTwinNode.prevSearchNode == null || !tb.equals(minTwinNode.prevSearchNode.currentBoard)) { // make sure this line works
                     currentPriorityQueueTwin.insert(temp1Twin);
-                    twinsList.add(temp1Twin);
+                    //twinsList.add(temp1Twin);
                 }
             }
             /* add more nodes to priority queue and original list array */
@@ -182,7 +182,7 @@ public class Solver {
                 //}
                 if (minSearchNode.prevSearchNode == null || !b.equals(minSearchNode.prevSearchNode.GetCurrentBoard())) {
                     currentPriorityQueue.insert(temp1);
-                    originalList.add(temp1);
+                    //originalList.add(temp1);
                 }
             }
         }// very first loop -

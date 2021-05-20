@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 
 
@@ -159,15 +158,16 @@ public class Board {
         ArrayList<Board> neighbors = new ArrayList<>();
         int[][] neighbor = copyBoard(this.tiles);
         int index = n - 1;
-        if (blankCol < index) { // Right move
-            neighbor[blankRow][blankCol + 1] = 0;
-            neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol + 1];
-            neighbors.add(new Board(neighbor));
-        }
         if (blankRow < index) { // zero is less than n - Up move
-            neighbor = copyBoard(this.tiles);
+            //neighbor = copyBoard(this.tiles);
             neighbor[blankRow + 1][blankCol] = 0;
             neighbor[blankRow][blankCol] = this.tiles[blankRow + 1][blankCol];
+            neighbors.add(new Board(neighbor));
+        }
+        if (blankCol > 0) { // Left move
+            neighbor = copyBoard(this.tiles);
+            neighbor[blankRow][blankCol - 1] = 0;
+            neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol - 1];
             neighbors.add(new Board(neighbor));
         }
         if (blankRow > 0) {  // Down move
@@ -176,10 +176,10 @@ public class Board {
             neighbor[blankRow][blankCol] = this.tiles[blankRow - 1][blankCol];
             neighbors.add(new Board(neighbor));
         }
-        if (blankCol > 0) { // Left move
+        if (blankCol < index) { // Right move
             neighbor = copyBoard(this.tiles);
-            neighbor[blankRow][blankCol - 1] = 0;
-            neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol - 1];
+            neighbor[blankRow][blankCol + 1] = 0;
+            neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol + 1];
             neighbors.add(new Board(neighbor));
         }
         ArrayList<Board> neiCopy = new ArrayList<Board>(neighbors);
