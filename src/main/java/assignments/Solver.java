@@ -14,39 +14,39 @@ public class Solver {
 
     public Solver(Board initialBoard) {
         ArrayList<SearchNode> solutionList = new ArrayList<>();
-        SearchNode[] goals = new SearchNode[1];
-        int goalsIndex = 0;
         if (initialBoard == null) {
             throw new IllegalArgumentException("The Board object is empty.");
         }
-        // initialize Searchnodes, twins, and associated boards
-        SearchNode initialSearchNode = new SearchNode(initialBoard, 0,
-                (initialBoard.manhattan()), null);
+        /* initialize SearchNodes, twins, and associated boards. (Board b, SearchNode prev, int moves, int
+        priority, int manhattan) */
+        SearchNode initialSearchNode = new SearchNode(initialBoard, null, 0, (initialBoard.manhattan()),
+                (initialBoard.manhattan()));
         Board currentTwinBoard = initialBoard.twin();
         if (currentTwinBoard.isGoal()) {
             solvable = false;
             return;
         }
-        SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, 0,
-                (initialBoard.manhattan()), null);
+        /* (Board b, SearchNode prev, int moves, int priority, int manhattan) */
+        SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, null, 0, (initialBoard.manhattan()),
+                (initialBoard.manhattan()));
         // Create priority queues
         MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.prevSearchNode.numOfMoves + o1.GetManhattan()
-                        > o2.prevSearchNode.numOfMoves + o2.GetManhattan()) return 1;
-                else if (o2.prevSearchNode.numOfMoves + o2.GetManhattan() >
-                        o1.prevSearchNode.numOfMoves + o1.GetManhattan()) return -1;
+                if (o1.prevSearchNode.numOfMoves + o1.numOfMoves + o1.manhattan
+                        > o2.prevSearchNode.numOfMoves + o2.numOfMoves + o2.manhattan) return 1;
+                else if (o2.prevSearchNode.numOfMoves + o2.numOfMoves + o2.manhattan >
+                        o1.prevSearchNode.numOfMoves + o1.numOfMoves + o1.manhattan) return -1;
                 else return 0;
             }
         });
         MinPQ<SearchNode> currentPriorityQueueTwin = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
-                if (o1.prevSearchNode.numOfMoves + o1.GetManhattan()
-                        > o2.prevSearchNode.numOfMoves + o2.GetManhattan()) return 1;
-                else if (o2.prevSearchNode.numOfMoves + o2.GetManhattan() >
-                        o1.prevSearchNode.numOfMoves + o1.GetManhattan()) return -1;
+                if (o1.prevSearchNode.numOfMoves + o1.numOfMoves + o1.manhattan
+                        > o2.prevSearchNode.numOfMoves + o2.numOfMoves + o2.manhattan) return 1;
+                else if (o2.prevSearchNode.numOfMoves + o2.numOfMoves + o2.manhattan >
+                        o1.prevSearchNode.numOfMoves + o1.numOfMoves + o1.manhattan) return -1;
                 else return 0;
             }
         });
@@ -67,19 +67,19 @@ public class Solver {
         /* Twin of the goal board is the goal of the twin of the initial board and it can lead to the goal
         board */
         Board gBoard = new Board(goal);
-        Board gBoardTwin = gBoard.twin();
         /* Take the first nodes out of Priority Queues, calculate the neighbors, and put them in the nodes
         arrays */
         SearchNode minSearchNode = currentPriorityQueue.delMin();
         SearchNode minTwinNode = currentPriorityQueueTwin.delMin();
+        /* (Board b, SearchNode prev, int moves, int priority, int manhattan) */
         for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
-            SearchNode temp1Twin = new SearchNode(tb, minTwinNode.numOfMoves + 1, tb.manhattan(),
-                    minTwinNode);
+            SearchNode temp1Twin = new SearchNode(tb, minTwinNode, minTwinNode.numOfMoves + 1, (tb.manhattan() +
+                    (minTwinNode.numOfMoves + 1)), tb.manhattan());
             currentPriorityQueueTwin.insert(temp1Twin);
         }
         for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-            SearchNode temp1 = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(),
-                    minSearchNode);
+            SearchNode temp1 = new SearchNode(b, minSearchNode, minSearchNode.numOfMoves + 1, (b.manhattan() +
+                    (minSearchNode.numOfMoves + 1)), b.manhattan());
             currentPriorityQueue.insert(temp1);
 
         }
@@ -88,35 +88,37 @@ public class Solver {
 // check to see if minSearchNode is the answer
             if (minSearchNode.GetCurrentBoard().isGoal()) {
                 break;
-            } else {
+            } else if (minTwinNode.GetCurrentBoard().isGoal()) {
                 solvable = false;
+                break;
             }
             /* If it was not visited or it might provide a better path expand it */
             minSearchNode = currentPriorityQueue.delMin();
-
+            minTwinNode = currentPriorityQueueTwin.delMin();
             // populate the priority queues with more nodes
             for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
-
-                SearchNode temp1Twin = new SearchNode(tb, minTwinNode.numOfMoves + 1, tb.manhattan(),
-                        minTwinNode);
+                /* (Board b, SearchNode prev, int moves, int priority, int manhattan) */
+                SearchNode temp1Twin = new SearchNode(tb, minTwinNode, minTwinNode.numOfMoves + 1,
+                        ((minTwinNode.numOfMoves + 1) + tb.manhattan()), tb.manhattan());
                 if (minTwinNode.prevSearchNode == null || !tb.equals(minTwinNode.prevSearchNode.
                         currentBoard)) { // make sure this line works
                     currentPriorityQueueTwin.insert(temp1Twin);
                 }
             }
-            /* add more nodes to priority queue and original list array */
+            /* add more nodes to priority queue and original list array -
+            (Board b, SearchNode prev, int moves, int priority, int manhattan) */
             for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-                SearchNode temp1 = new SearchNode(b, minSearchNode.numOfMoves + 1, b.manhattan(),
-                        minSearchNode);
-                if (minSearchNode.prevSearchNode == null || !b.equals(minSearchNode.prevSearchNode.GetCurrentBoard())) {
+                SearchNode temp1 = new SearchNode(b, minSearchNode, minSearchNode.numOfMoves + 1, (b.manhattan()
+                        + ((minSearchNode.numOfMoves) + 1)), b.manhattan());
+
+                if (minSearchNode.prevSearchNode == null || !b.equals(minSearchNode.prevSearchNode.
+                        GetCurrentBoard())) {
                     currentPriorityQueue.insert(temp1);
-                    //originalList.add(temp1);
                 }
             }
         }// very first loop -
         if (minSearchNode.GetCurrentBoard().isGoal()) {
             solvable = true;
-            //moves = minSearchNode.numOfMoves;
             moves = 0;
             while (!minSearchNode.GetCurrentBoard().equals(initialBoard)) {
                 moves++;
@@ -151,23 +153,25 @@ public class Solver {
             for (Object o : solutionBoardList) {
                 tempArray.add((Board) o);
             }
-            return tempArray;
+            solutionBoardList = tempArray;
+            return solutionBoardList;
         } else
             return null;
     }
 
     private static class SearchNode implements Comparable<SearchNode> {
         private final Board currentBoard;
-        private final int numOfMoves;
         private final SearchNode prevSearchNode;
-
+        private final int numOfMoves;
+        private int priority;
         private int manhattan;
 
 
-        public SearchNode(Board b, int m, int manhattan, SearchNode prev) {
+        public SearchNode(Board b, SearchNode prev, int moves, int priority, int manhattan) {
             currentBoard = b;
-            numOfMoves = m;
+            numOfMoves = moves;
             prevSearchNode = prev;
+            this.priority = priority;
             this.manhattan = manhattan;
         }
 
@@ -181,16 +185,16 @@ public class Solver {
         }
 
         public int GetPriority() {
-            return (this.GetCurrentBoard().manhattan() + (numOfMoves));
+            return (this.priority);
+        }
+
+        public void SetPriority(int priority) {
+            this.priority = priority;
         }
 
         public int GetManhattan() {
             return this.manhattan;
         }
-
-//        private int GetManhattanPriority() {
-//            return (this.manhattan + this.numOfMoves);
-//        }
 
         public boolean equals(SearchNode o) {
             if (this == o) return true;
@@ -211,27 +215,21 @@ public class Solver {
 
     // test client (see below)
     public static void main(String[] args) {
-        int[][] tiles = new int[][]{{1, 2, 3, 4, 5, 7, 14}, {8, 9, 10, 11, 12, 13, 6}, {15, 16, 17, 18, 19, 20, 21},
+        /* int[][] tiles = new int[][]{{1, 2, 3, 4, 5, 7, 14}, {8, 9, 10, 11, 12, 13, 6}, {15, 16, 17, 18, 19, 20, 21},
                 {22, 23, 24, 25, 26, 27, 28}, {29, 30, 31, 32, 0, 33, 34}, {36, 37, 38, 39, 40, 41, 35},
-                {43, 44, 45, 46, 47, 48, 42}};
-        //int[][] testTiles1 = {{5, 2, 3}, {4, 7, 0}, {8, 6, 1}};// puzzle 21 - actual = 29 moves
-        //int[][] testTiles1 = {{8, 6, 7}, {2, 0, 4}, {3, 5, 1}};
-        //Board testTilesBoard = new Board(testTiles1);
-        int[][] tilesVIII = new int[][]{{8, 3, 7}, {1, 5, 6}, {4, 2, 0}};
-        Board tilesVIIIBoard = new Board(tilesVIII);
-        Board tilesVIIIBoardTwin = tilesVIIIBoard.twin();
-
-        Board testTiles2Board = new Board(tiles);
-        //Solver s = new Solver(testTilesBoard);
+                {43, 44, 45, 46, 47, 48, 42}} */
+        ;
+        int[][] tiles2 = {{1, 2, 3}, {4, 6, 5}, {7, 8, 0}};
+        Board testTiles2Board = new Board(tiles2);
+        // Solver s = new Solver(testTilesBoard);
         Solver s2 = new Solver(testTiles2Board);
         if (!s2.isSolvable())
             StdOut.println("No solution possible");
         else {
             StdOut.println("Minimum number of moves= " + s2.moves);
-            for (Object o : s2.solutionBoardList) {
-                Board b = (Board) o;
-                StdOut.println(" board: " + b + " Hamming Distance of : " + b.hamming() +
-                        " Manhattan Distance of : " + b.manhattan());
+            for (Board boardObj : s2.solutionBoardList) {
+                StdOut.println(" board: " + boardObj + " Hamming Distance of : " +
+                        " Manhattan Distance of : " + boardObj.manhattan());
             }
         }
     }
