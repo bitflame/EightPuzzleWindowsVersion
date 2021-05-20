@@ -1,5 +1,7 @@
 package assignments;
 
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.ArrayList;
 
 
@@ -218,6 +220,6 @@ public class Board {
 
     // unit testing (not graded)
     public static void main(String[] args) {
-
+        StdOut.println("");
     }
 }

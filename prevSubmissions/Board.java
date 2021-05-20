@@ -5,33 +5,11 @@ import java.util.ArrayList;
 public class Board {
     private final int[][] tiles;
     private final int n;
-    private Integer blankRow;
-    private Integer blankCol;
+    private int blankRow;
+    private int blankCol;
     private final int hamming;
     private final int manhattan;
-    private boolean solvable;
 
-    private int Inversions() {
-        int current = 0;
-        int inversionCount = 0;
-        int[] temp = new int[n * n];
-        int k = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                temp[k] = tiles[i][j];
-                current = tiles[i][j];
-                for (int l = 0; l <= k; l++) {
-                    if (current == 0) continue;
-                    if (current < temp[l]) inversionCount++;
-                }
-                k++;
-            }
-        }
-        return inversionCount;
-    }
-
-    // create a board from an n-by-n array of tiles,
-    // where tiles[row][col] = tile at (row, col)
 
     public Board(int[][] tiles) {
         if (tiles == null) {
@@ -51,16 +29,6 @@ public class Board {
                 }
             }
         }
-//        int index = 1;
-//
-//        int[][] goal = new int[n][n];
-//        for (int i = 0; i <= n - 1; i++) {
-//            for (int j = 0; j <= n - 1; j++) {
-//                goal[i][j] = index;
-//                index++;
-//            }
-//        }
-//        goal[n - 1][n - 1] = 0;
         int distanceHamming = 0;
         for (char i = 0; i < n; i++) {
             for (char j = 0; j < n; j++) {
@@ -73,7 +41,7 @@ public class Board {
         int distanceManhattan = 0;
         for (char i = 0; i < n; i++) {
             for (char j = 0; j < n; j++) {
-                //if (tiles[i][j] != goal[i][j] && tiles[i][j] != 0) {
+                // if (tiles[i][j] != goal[i][j] && tiles[i][j] != 0) {
                 if (tiles[i][j] != ((n * i) + (j + 1)) && tiles[i][j] != 0) {
                     int targetX = (tiles[i][j] - 1) / n;
                     int targetY = (tiles[i][j] - 1) % n;
@@ -85,12 +53,31 @@ public class Board {
         }
         this.manhattan = distanceManhattan;
         this.hamming = distanceHamming;
-        if (((n * n) % 2 != 0) && (Inversions() & 1) == 1) solvable = false;
-        else if (((n * n) % 2 != 0) && (Inversions() & 1) == 0) solvable = true;
-        else if (((Inversions() + blankRow) % 2) == 0) solvable = false;
-        else if (((Inversions() + blankRow) % 2) == 1) solvable = true;
+        boolean solvable;
+        if (((n * n) % 2 != 0) && (inversions() & 1) == 1) solvable = false;
+        else if (((n * n) % 2 != 0) && (inversions() & 1) == 0) solvable = true;
+        else if (((inversions() + blankRow) % 2) == 0) solvable = false;
+        else if (((inversions() + blankRow) % 2) == 1) solvable = true;
     }
 
+    private int inversions() {
+        int current = 0;
+        int inversionCount = 0;
+        int[] temp = new int[n * n];
+        int k = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                temp[k] = tiles[i][j];
+                current = tiles[i][j];
+                for (int m = 0; m <= k; m++) {
+                    if (current == 0) continue;
+                    if (current < temp[m]) inversionCount++;
+                }
+                k++;
+            }
+        }
+        return inversionCount;
+    }
 
     // string representation of this board
     public String toString() {
@@ -115,9 +102,6 @@ public class Board {
         return this.hamming;
     }
 
-    // sum of Manhattan distances between tiles and goal
-    // Here is where I got this from:
-    //  https://www.coursera.org/learn/algorithms-part1/programming/iqOQi/8-puzzle/discussions/threads/2Fon3sA7EeevSwpBtQ053g
     public int manhattan() {
         return this.manhattan;
     }
@@ -159,7 +143,7 @@ public class Board {
         int[][] neighbor = copyBoard(this.tiles);
         int index = n - 1;
         if (blankRow < index) { // zero is less than n - Up move
-            //neighbor = copyBoard(this.tiles);
+            // neighbor = copyBoard(this.tiles);
             neighbor[blankRow + 1][blankCol] = 0;
             neighbor[blankRow][blankCol] = this.tiles[blankRow + 1][blankCol];
             neighbors.add(new Board(neighbor));
@@ -189,12 +173,7 @@ public class Board {
 
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
-        // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
-        // for useless if statement.
-        // if (blankCol == null || blankRow == null) {
-        // throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
-        // "outside of what is allowed and should be used. ");
-        // }
+
         int[][] tempTiles = copyBoard(this.tiles);
         if (blankRow < n - 1 && blankCol < n - 1) {
             int temp = this.tiles[blankRow + 1][blankCol + 1];
