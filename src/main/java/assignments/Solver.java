@@ -83,11 +83,13 @@ public class Solver {
 
         }
 
-        while ((!currentPriorityQueue.isEmpty())) {
+        // while ((!currentPriorityQueue.isEmpty())) {
+        while (!minSearchNode.currentBoard.isGoal()) {
 // check to see if minSearchNode is the answer
-            if (minSearchNode.currentBoard.isGoal()) {
-                break;
-            } else if (minTwinNode.currentBoard.isGoal()) {
+//            if (minSearchNode.currentBoard.isGoal()) {
+//                break;
+//            } else
+            if (minTwinNode.currentBoard.isGoal()) {
                 solvable = false;
                 break;
             }
@@ -198,7 +200,7 @@ public class Solver {
             if (o == null) return false;
             if (this.getClass() != o.getClass()) return false;
             SearchNode that = (SearchNode) o;
-            if (!that.GetCurrentBoard().equals(this.GetCurrentBoard())) return false;
+            if (!that.currentBoard.equals(this.currentBoard)) return false;
             return true;
         }
 
