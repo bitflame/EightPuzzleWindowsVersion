@@ -31,9 +31,6 @@ public class Board {
         return inversionCount;
     }
 
-    // create a board from an n-by-n array of tiles,
-    // where tiles[row][col] = tile at (row, col)
-
     public Board(int[][] tiles) {
         if (tiles == null) {
             throw new IllegalArgumentException("The board you are submitting is empty.");
@@ -52,16 +49,6 @@ public class Board {
                 }
             }
         }
-//        int index = 1;
-//
-//        int[][] goal = new int[n][n];
-//        for (int i = 0; i <= n - 1; i++) {
-//            for (int j = 0; j <= n - 1; j++) {
-//                goal[i][j] = index;
-//                index++;
-//            }
-//        }
-//        goal[n - 1][n - 1] = 0;
         int distanceHamming = 0;
         for (char i = 0; i < n; i++) {
             for (char j = 0; j < n; j++) {
@@ -190,12 +177,7 @@ public class Board {
 
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
-        // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
-        // for useless if statement.
-        // if (blankCol == null || blankRow == null) {
-        // throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
-        // "outside of what is allowed and should be used. ");
-        // }
+
         int[][] tempTiles = copyBoard(this.tiles);
         if (blankRow < n - 1 && blankCol < n - 1) {
             int temp = this.tiles[blankRow + 1][blankCol + 1];
