@@ -98,7 +98,7 @@ public class Solver {
                     currentPriorityQueueTwin.insert(temp1Twin);
                 }
             }
-            /* add more nodes to priority queue and original list array -
+            /* add more nodes to priority queue
             (Board b, SearchNode prev, int moves, int priority, int manhattan) */
             for (Board b : minSearchNode.currentBoard.neighbors()) {
                 SearchNode temp1 = new SearchNode(b, minSearchNode, minSearchNode.numOfMoves + 1, (b.manhattan()
