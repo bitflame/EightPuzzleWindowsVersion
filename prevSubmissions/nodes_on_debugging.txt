@@ -1,0 +1,21 @@
+I like to be able to see when my program compares the following objects:
+
+int[][] test1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
+int[][] test2 = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}};
+Board test1Board = new Board(test1);
+Board test2Board = new Board(test2);
+
+...using the equals() in the Board class. I tried to set a break point in my Board class but I get the following message: 
+
+skipped breakpoint at  because it happened inside debugger evaluation 
+
+I looked it up, and https://stackoverflow.com/questions/47866398/skipped-breakpoint-because-it-happened-inside-debugger-evaluation-intellij-ide thread says to choose "suspend thread" instead of "all", and I tried it but I still get the same message and the program does not stop. It keeps going. There are a couple of suggestions on disabling some debugger functionality and what not, but I wanted to check here for added assurance that I am setting up my breakpoint correctly for what I am trying to accomplish.
+  I also tried using the instance number 1287, but I saw the same message again. I got the instance numbers by creating the object by hand and here is what I saw:  
+test1={int[3][]@1284} test2={int[3][]@1285} test1Board={Board@1285} test2Board={Board@1287} 
+
+wonder if I can do "or" meaning stop when an object equals something or other 
+
+this={Board@1279}"3\n0 1 3\n4 2 5\n7 8 6\n"
+
+
+

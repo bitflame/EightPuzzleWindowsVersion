@@ -81,6 +81,10 @@ public class Solver {
                 solvable = false;
                 break;
             }
+            int[][] test1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
+            int[][] test2 = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}};
+            Board test1Board = new Board(test1);
+            Board test2Board = new Board(test2);
             /* If it was not visited or it might provide a better path expand it */
             minSearchNode = currentPriorityQueue.delMin();
             minTwinNode = currentPriorityQueueTwin.delMin();
