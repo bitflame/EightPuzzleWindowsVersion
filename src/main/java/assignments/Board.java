@@ -124,7 +124,6 @@ public class Board {
     public boolean equals(Object y) {
         if (y == null) return false;
         if (this.getClass() != y.getClass()) return false;
-        //Board temp = (Board) y;
         int length = ((Board) y).n;
         if (this.n != length) return false;
         if (this == y) return true;

@@ -1,5 +1,6 @@
 package assignments;
 
+
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -10,7 +11,8 @@ import java.util.Comparator;
 public class Solver {
     private boolean solvable;
     private int moves = 0;
-    private ArrayList<Board> solutionBoardList = new ArrayList<>();
+    private final ArrayList<Board> solutionBoardList = new ArrayList<>();
+    private ArrayList<Board> result = new ArrayList<>();
 
     public Solver(Board initialBoard) {
 
@@ -27,8 +29,8 @@ public class Solver {
             return;
         }
         /* (Board b, SearchNode prev, int moves, int priority, int manhattan) */
-        SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, null, 0, (initialBoard.manhattan()),
-                (initialBoard.manhattan()));
+        SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, null, 0, (currentTwinBoard.manhattan() +
+                1), (currentTwinBoard.manhattan()));
         // Create priority queues
         MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
             @Override
@@ -55,15 +57,6 @@ public class Solver {
 
         currentPriorityQueueTwin.insert(initialTwinSearchNode);
         // Create a board for Goal
-        int index = 1;
-        int[][] goal = new int[initialBoard.dimension()][initialBoard.dimension()];
-        for (int i = 0; i <= initialBoard.dimension() - 1; i++) {
-            for (int j = 0; j <= initialBoard.dimension() - 1; j++) {
-                goal[i][j] = (char) index;
-                index++;
-            }
-        }
-        goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
         /* Twin of the goal board is the goal of the twin of the initial board and it can lead to the goal
         board */
         /* Take the first nodes out of Priority Queues, calculate the neighbors, and put them in the nodes
@@ -71,7 +64,7 @@ public class Solver {
         SearchNode minSearchNode = currentPriorityQueue.delMin();
         SearchNode minTwinNode = currentPriorityQueueTwin.delMin();
         /* (Board b, SearchNode prev, int moves, int priority, int manhattan) */
-        for (Board tb : minTwinNode.GetCurrentBoard().neighbors()) {
+        for (Board tb : minTwinNode.getCurrentBoard().neighbors()) {
             SearchNode temp1Twin = new SearchNode(tb, minTwinNode, minTwinNode.numOfMoves + 1, (tb.manhattan() +
                     (minTwinNode.numOfMoves + 1)), tb.manhattan());
             currentPriorityQueueTwin.insert(temp1Twin);
@@ -83,12 +76,7 @@ public class Solver {
 
         }
 
-        // while ((!currentPriorityQueue.isEmpty())) {
         while (!minSearchNode.currentBoard.isGoal()) {
-// check to see if minSearchNode is the answer
-//            if (minSearchNode.currentBoard.isGoal()) {
-//                break;
-//            } else
             if (minTwinNode.currentBoard.isGoal()) {
                 solvable = false;
                 break;
@@ -113,7 +101,7 @@ public class Solver {
                         + ((minSearchNode.numOfMoves) + 1)), b.manhattan());
 
                 if (minSearchNode.prevSearchNode == null || !b.equals(minSearchNode.prevSearchNode.
-                        GetCurrentBoard())) {
+                        getCurrentBoard())) {
                     currentPriorityQueue.insert(temp1);
                 }
             }
@@ -148,17 +136,15 @@ public class Solver {
     public Iterable<Board> solution() {
         if (solvable) {
             Collections.reverse(solutionBoardList);
-            ArrayList<Board> tempArray = new ArrayList<>();
             for (Object solObj : solutionBoardList) {
-                tempArray.add((Board) solObj);
+                result.add((Board) solObj);
             }
-            ArrayList<Board> result = tempArray;
             return result;
         } else
             return null;
     }
 
-    private static class SearchNode implements Comparable<SearchNode> {
+    static class SearchNode implements Comparable<SearchNode> {
         private final Board currentBoard;
         private final SearchNode prevSearchNode;
         private final int numOfMoves;
@@ -166,48 +152,44 @@ public class Solver {
         private final int manhattan;
 
 
-        public SearchNode(Board b, SearchNode prev, int moves, int priority, int manhattan) {
+        public SearchNode(Board b, SearchNode prev, int moves, int p, int manhattan) {
             currentBoard = b;
             numOfMoves = moves;
             prevSearchNode = prev;
-            this.priority = priority;
+            this.priority = p;
             this.manhattan = manhattan;
         }
 
-        public Board GetCurrentBoard() {
+        public Board getCurrentBoard() {
             return currentBoard;
         }
 
 
-        public SearchNode GetPrevSearchNode() {
+        public SearchNode getPrevSearchNode() {
             return prevSearchNode;
         }
 
-        public int GetPriority() {
+        public int getPriority() {
             return (this.priority);
-        }
-
-        public void SetPriority(int priority) {
-            this.priority = priority;
         }
 
         public int GetManhattan() {
             return this.manhattan;
         }
 
-        public boolean equals(SearchNode o) {
-            if (this == o) return true;
-            if (o == null) return false;
-            if (this.getClass() != o.getClass()) return false;
-            SearchNode that = (SearchNode) o;
+        public boolean equals(Object sNodeObj) {
+            if (this == sNodeObj) return true;
+            if (sNodeObj == null) return false;
+            if (this.getClass() != sNodeObj.getClass()) return false;
+            SearchNode that = (SearchNode) sNodeObj;
             if (!that.currentBoard.equals(this.currentBoard)) return false;
             return true;
         }
 
         @Override
         public int compareTo(SearchNode sObj) {
-            if (this.GetPriority() > sObj.GetPriority()) return 1;
-            if (this.GetPriority() < sObj.GetPriority()) return -1;
+            if (this.getPriority() > sObj.getPriority()) return 1;
+            if (this.getPriority() < sObj.getPriority()) return -1;
             return 0;
         }
 
@@ -222,13 +204,6 @@ public class Solver {
         Board testTiles2Board = new Board(tiles2);
         // Solver s = new Solver(testTilesBoard);
         Solver s2 = new Solver(testTiles2Board);
-        s2.moves();
-        s2.solution();
-        s2.moves();
-        s2.moves();
-        s2.solution();
-        s2.isSolvable();
-        s2.solution();
         if (!s2.solvable)
             StdOut.println("No solution possible");
         else {

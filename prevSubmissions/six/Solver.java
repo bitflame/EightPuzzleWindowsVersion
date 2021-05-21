@@ -1,4 +1,5 @@
 
+
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -10,7 +11,7 @@ public class Solver {
     private boolean solvable;
     private int moves = 0;
     private final ArrayList<Board> solutionBoardList = new ArrayList<>();
-    private final ArrayList<Board> result = new ArrayList<>();
+    private ArrayList<Board> result = new ArrayList<>();
 
     public Solver(Board initialBoard) {
 
@@ -87,11 +88,8 @@ public class Solver {
                 /* (Board b, SearchNode prev, int moves, int priority, int manhattan) */
                 SearchNode temp1Twin = new SearchNode(tb, minTwinNode, minTwinNode.numOfMoves + 1,
                         ((minTwinNode.numOfMoves + 1) + tb.manhattan()), tb.manhattan());
-//                if (minTwinNode.prevSearchNode == null || !tb.equals(minTwinNode.prevSearchNode.
-//                        currentBoard)) { // make sure this line works
-//                    currentPriorityQueueTwin.insert(temp1Twin);
-//                }
-                if (minTwinNode.prevSearchNode == null || (!temp1Twin.equals(minTwinNode.prevSearchNode))) {
+                if (minTwinNode.prevSearchNode == null || !tb.equals(minTwinNode.prevSearchNode.
+                        currentBoard)) { // make sure this line works
                     currentPriorityQueueTwin.insert(temp1Twin);
                 }
             }
@@ -101,11 +99,8 @@ public class Solver {
                 SearchNode temp1 = new SearchNode(b, minSearchNode, minSearchNode.numOfMoves + 1, (b.manhattan()
                         + ((minSearchNode.numOfMoves) + 1)), b.manhattan());
 
-//                if (minSearchNode.prevSearchNode == null || !b.equals(minSearchNode.prevSearchNode.
-//                        getCurrentBoard())) {
-//                    currentPriorityQueue.insert(temp1);
-//                }
-                if (minSearchNode.prevSearchNode == null || (!temp1.equals(minTwinNode.prevSearchNode))) {
+                if (minSearchNode.prevSearchNode == null || !b.equals(minSearchNode.prevSearchNode.
+                        getCurrentBoard())) {
                     currentPriorityQueue.insert(temp1);
                 }
             }
@@ -152,7 +147,7 @@ public class Solver {
         private final Board currentBoard;
         private final SearchNode prevSearchNode;
         private final int numOfMoves;
-        private final int priority;
+        private int priority;
         private final int manhattan;
 
 
@@ -168,18 +163,25 @@ public class Solver {
             return currentBoard;
         }
 
+
+        public SearchNode getPrevSearchNode() {
+            return prevSearchNode;
+        }
+
         public int getPriority() {
             return (this.priority);
         }
 
+        public int GetManhattan() {
+            return this.manhattan;
+        }
 
         public boolean equals(Object sNodeObj) {
-            SearchNode that = (SearchNode) sNodeObj;
-            if (!that.currentBoard.equals(this.currentBoard)) return false;
+            if (this == sNodeObj) return true;
             if (sNodeObj == null) return false;
             if (this.getClass() != sNodeObj.getClass()) return false;
-            if (this.manhattan != that.manhattan) return false;
-            if (this == sNodeObj) return true;
+            SearchNode that = (SearchNode) sNodeObj;
+            if (!that.currentBoard.equals(this.currentBoard)) return false;
             return true;
         }
 
